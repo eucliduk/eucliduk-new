@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-contrast="standard">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'">
+  <title>Euclid — Spectroscopy comparison</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="spectroscopy.css?v=20261108-animation">
+  <link rel="stylesheet" href="css/euclid-accessibility.css">
+  <link rel="stylesheet" href="css/euclid-high-contrast.css">
+  <script src="vendor/openseadragon.min.js" defer></script>
+  <script src="spectroscopy.js?v=20261108-animation" defer></script>
+  <script src="euclid-accessibility.js" defer></script>
+</head>
+<body class="spectroscopy-page">
+  <a class="skip-link" href="#comparison">Skip to image comparison</a>
+  <header class="page-header">
+    <h1>Euclid — Spectroscopy</h1>
+    <nav aria-label="Image explorers"><a href="index.html">Northern sky</a><a href="south.html">Southern sky</a></nav>
+    <div class="image-controls" role="group" aria-label="Image controls">
+      <button id="about-open" type="button">About these images</button>
+      <button id="fit-image" type="button" disabled>Home</button>
+      <button id="zoom-out" class="icon-button" type="button" aria-label="Zoom out" title="Zoom out" disabled>−</button>
+      <button id="zoom-in" class="icon-button" type="button" aria-label="Zoom in" title="Zoom in" disabled>+</button>
+      <button id="fullscreen" class="icon-button" type="button" aria-label="Fullscreen" title="Fullscreen" hidden>⤢</button>
+    </div>
+  </header>
+  <main id="comparison" tabindex="-1">
+    <p class="intro">Watch the sky image dissolve into an illustration of its light spread into spectra.</p>
+    <div id="comparison-stage" class="comparison-stage" role="region" tabindex="0" aria-label="Zoomable sky and spectra comparison" aria-describedby="comparison-help comparison-description" aria-busy="true" hidden>
+      <div id="sky-viewer" class="image-layer" aria-hidden="true"></div>
+      <div id="spectra-clip" class="spectra-clip"><div id="spectra-viewer" class="image-layer" aria-hidden="true"></div></div>
+      <span id="sky-label" class="image-label image-label--sky" aria-hidden="true">Sky image</span>
+      <span id="spectra-label" class="image-label image-label--spectra" aria-hidden="true">Spectra</span>
+    </div>
+    <section id="comparison-fallback" class="comparison-fallback" aria-label="Static image comparison">
+      <figure><img src="spectroscopy-sky-overview.jpg" alt="A dense field of white, orange and bluish stars and small galaxies; bright stars have sharp spikes." width="1000" height="1000"><figcaption>Sky image</figcaption></figure>
+      <figure><img src="spectroscopy-spectra-overview.jpg" alt="The same field with point-like objects stretched into thin vertical streaks containing red, green, blue and violet bands." width="1000" height="1000"><figcaption>Spectra illustration</figcaption></figure>
+    </section>
+    <section class="comparison-controls" aria-label="Comparison controls">
+      <div class="view-choices" role="group" aria-label="Choose comparison view">
+        <button type="button" data-view="sky" aria-pressed="true" disabled>Sky image</button>
+        <button type="button" data-view="animate" aria-pressed="false" disabled>Animate transition</button>
+        <button type="button" data-view="spectra" aria-pressed="false" disabled>Spectra</button>
+      </div>
+      <p id="view-description">Sky image</p>
+      <p id="comparison-help">The animation loops smoothly between the sky and spectra. Choose either still view to stop it. Drag to pan; pinch, scroll or use + and − to zoom. Both views stay aligned. Home fits the images.</p>
+      <p id="detail-state">Static previews are available if the interactive viewer cannot load.</p>
+      <p id="load-status" class="visually-hidden" role="status"></p>
+    </section>
+  </main>
+  <footer class="page-footer"><span>Euclid UK · Local preview only</span><a href="?contrast=high" data-contrast-toggle>High contrast version</a></footer>
+  <dialog id="about-dialog" aria-labelledby="about-title">
+    <div class="dialog-header"><h2 id="about-title">Splitting cosmic light into rainbows</h2><button id="about-close" class="icon-button" type="button" aria-label="Close image information">×</button></div>
+    <p id="comparison-description">These two supplied images show the same densely populated patch of sky. In the sky image, stars and galaxies are points or small smudges, with spikes around bright stars. The comparison illustration stretches their light into narrow vertical rainbow-like streaks called spectra.</p>
+    <p>Spectroscopy means separating light into its different wavelengths. Patterns in that light help scientists study what objects contain and estimate the distances to galaxies. The rainbow image illustrates the concept; it is not a second ordinary photograph of the sky.</p>
+    <p>The images are compared on their original, matching 3960 × 3960 pixel grids. They share a single view, so zooming and panning stay aligned. Zoom is capped at one source pixel per CSS pixel; ordinary browser zoom remains available.</p>
+    <p>The animation dissolves between the two aligned images; it illustrates the comparison rather than simulating how the instrument works. Reduced motion starts with a still sky image. Choose Animate transition to start the loop yourself.</p>
+    <p>Keyboard: focus the image and use the arrow keys to pan, + or − to zoom, H or Home to fit the images, and N for original detail. Use the view buttons to show either still image or the animated transition.</p>
+    <div class="pan-controls" role="group" aria-label="Pan images"><button type="button" data-pan="left" disabled>Left</button><button type="button" data-pan="up" disabled>Up</button><button type="button" data-pan="down" disabled>Down</button><button type="button" data-pan="right" disabled>Right</button></div>
+    <p>Credit: ESA/Euclid/Euclid Consortium/NASA, image processing by B. Granett. CC BY-SA 3.0 IGO.</p>
+    <p>All images, tiles and viewer software are served from this computer. No online hosting service, external fonts or analytics are used.</p>
+  </dialog>
+</body>
+</html>

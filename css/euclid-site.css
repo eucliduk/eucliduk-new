@@ -1,0 +1,101 @@
+.site-document,
+body.site-page {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.site-page {
+  padding-top: calc(var(--safe-top) + var(--header-height) + var(--announcement-height));
+}
+
+.site-main {
+  min-height: calc(100svh - var(--safe-top) - var(--header-height) - var(--announcement-height));
+  padding: clamp(24px, 4vw, 64px);
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.press-contacts {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.press-contacts h2,
+.technology-section h2 {
+  margin: 0 0 16px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.technology-sections {
+  display: grid;
+  gap: clamp(32px, 4vw, 64px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.technology-section {
+  min-height: clamp(180px, 20vw, 260px);
+}
+
+.press-contacts-intro {
+  max-width: 720px;
+  margin: 0 0 36px;
+  color: var(--muted);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.press-contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.press-contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1.6fr);
+  align-items: start;
+  gap: 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--control-hover);
+  font-size: 1.0rem;
+  line-height: 1.55;
+}
+
+.press-contact-person h3 {
+  margin: 0 0 6px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.press-contact-person p,
+.press-contact-expertise {
+  margin: 0;
+  color: var(--muted);
+}
+
+.press-contact-email {
+  color: var(--ink);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.press-contact-email:hover,
+.press-contact-email:focus-visible {
+  color: var(--amber);
+}
+
+@media (max-width: 900px) {
+  .press-contact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}

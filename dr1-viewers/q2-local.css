@@ -1,0 +1,49 @@
+.dr1-page { overflow: auto; --ink: var(--explorer-ink); }
+.dr1-page #app { min-height: 100svh; height: 100svh; }
+.dr1-page #viewer { touch-action: none; }
+.dr1-page .brand__text { white-space: normal; }
+.dr1-page .distance-label { white-space: normal; line-height: 1.4; }
+.dr1-page :is(.icon-button, .text-button) { min-height: 2.75rem; }
+.dr1-page .text-button { max-width: 100%; height: auto; white-space: normal; padding: .5rem .75rem; }
+.dr1-page .icon-button { min-width: 2.75rem; }
+.dr1-page .scene-back { display: inline-grid; place-items: center; padding: .5rem; border-radius: .25rem; background: var(--explorer-surface); color: var(--explorer-ink); }
+.dr1-page .scene-back svg { width: 1.5rem; height: 1.5rem; }
+.dr1-page [hidden] { display: none !important; }
+.dr1-page .feature-hotspot { width: 44px; height: 44px; padding: 8px; cursor: pointer; background: transparent; color: #fff; border: 0; box-shadow: none; }
+.dr1-page .feature-hotspot__ring { width: 28px; height: 28px; box-sizing: border-box; }
+.dr1-page .topbar { pointer-events: none; }
+.dr1-page .toolbar { pointer-events: auto; }
+.dr1-page .status { font-size: .875rem; }
+.dr1-page .status-toggle { min-width: 2.75rem; min-height: 2.75rem; color: var(--explorer-ink); }
+.dr1-page .status-message { overflow-wrap: anywhere; }
+.dr1-page #overview { width: 100%; height: 100%; object-fit: contain; }
+.dr1-page .image-dialog { width: min(42rem, calc(100% - 2rem)); max-height: calc(100svh - 2rem); overflow: auto; }
+.dr1-page .image-dialog__body { padding: 1rem 1.5rem 1.5rem; line-height: 1.6; }
+.dr1-page .image-dialog__body p { margin: 0 0 1rem; }
+.dr1-page .image-dialog__body footer, .dr1-page .pan-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+.dr1-page .image-dialog__body footer { margin-top: 1rem; }
+.dr1-page .image-dialog__body a { color: inherit; text-underline-offset: .2em; }
+.dr1-page .video-dialog__close { min-width: 2.75rem; min-height: 2.75rem; color: var(--explorer-ink); }
+.dr1-page .no-script { position: absolute; bottom: 5rem; padding: 1rem; background: var(--explorer-surface); }
+.dr1-page .openseadragon-canvas:focus-visible { outline: 3px solid var(--explorer-ink); outline-offset: -4px; }
+html[data-contrast="high"] .dr1-page { --explorer-ink: #fff; --explorer-surface: #000; --explorer-panel: #fff; --explorer-fold: #fff; --explorer-button-ink: #000; }
+html[data-contrast="high"] .dr1-page .brand { background: var(--explorer-surface); padding-bottom: 1rem; }
+@media (max-width: 48rem), (max-height: 32rem) {
+  .dr1-page #app { display: flex; flex-direction: column; height: auto; }
+  .dr1-page .topbar { position: relative; order: 0; flex-direction: column; padding: 1rem; gap: 1rem; }
+  .dr1-page .brand { max-width: none; padding: 0; }
+  .dr1-page .toolbar { display: flex; width: auto; max-width: 100%; min-width: 0; justify-content: flex-start; flex-wrap: wrap; }
+  .dr1-page .text-button--wide { width: auto; margin-right: 0; }
+  .dr1-page #viewer { position: relative; order: 1; height: 60svh; min-height: 18rem; }
+  .dr1-page .status { position: relative; order: 2; inset: auto; transform: none; width: auto; max-width: 100%; margin: 1rem; }
+  .dr1-page .partner-logos { position: relative; order: 3; inset: auto; padding: 1rem; }
+  .dr1-page .brand__text { font-size: 1.3rem; line-height: 1.2; }
+  .dr1-page .distance-label { font-size: .8rem; }
+  .dr1-page .text-button { font-size: .875rem; }
+}
+@media (forced-colors: active) {
+  .dr1-page .feature-hotspot { color: ButtonText; }
+  .dr1-page .feature-hotspot__ring { box-shadow: none; }
+  .dr1-page .brand { background: Canvas; }
+  .dr1-page :is(.brand__text, .distance-marker) { color: CanvasText; }
+}

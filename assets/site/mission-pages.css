@@ -1,0 +1,71 @@
+/* Science and technology sections share the site's typography and themes. */
+.content-section[id] { scroll-margin-top: calc(var(--sticky-masthead-offset, 8rem) + 1rem); }
+.mission-design { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+.mission-design > *, .mission-stats > * { min-width: 0; }
+.mission-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; padding-block: 1.5rem; border-block: 1px solid currentColor; }
+.mission-stats > div { flex: 1 1 8rem; display: flex; flex-direction: column; }
+.mission-stats dt { order: 2; font-size: 1rem; }
+.mission-stats dd { order: 1; margin: 0 0 .5rem; font-family: Anton, sans-serif; font-size: 2.5rem; }
+.mission-model, .mission-video { margin: 2rem 0; }
+.mission-model iframe { width: 100%; height: 36rem; border: 1px solid currentColor; }
+.mission-video { max-width: 24rem; }
+.mission-video iframe { width: 100%; aspect-ratio: 9 / 16; border: 1px solid currentColor; }
+.mission-model figcaption, .mission-video figcaption, .matter-reveal figcaption { font-size: 1rem; line-height: 1.65; margin-top: .75rem; }
+.matter-reveal { margin: 2rem 0; max-width: 65rem; }
+.matter-frame { position: relative; container-type: inline-size; }
+.matter-frame > img { display: block; width: 100%; height: auto; }
+.matter-reveal.is-ready .matter-frame { aspect-ratio: 1; }
+.matter-reveal.is-ready .matter-frame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.matter-reveal.is-ready .matter-overlay { clip-path: circle(13cqw at clamp(20.445%, var(--matter-x, 50%), 63.555%) clamp(20.445%, var(--matter-y, 55%), 63.555%)); }
+.matter-reveal.is-full .matter-overlay { clip-path: none; }
+.matter-reveal.is-ready .matter-glass { display: block; position: absolute; width: 56.889%; left: clamp(20.445%, var(--matter-x, 50%), 63.555%); top: clamp(20.445%, var(--matter-y, 55%), 63.555%); transform: translate(-35.9375%, -35.9375%); pointer-events: none; overflow: visible; }
+.matter-glass circle { fill: none; stroke: #050505; stroke-width: 38; }
+.matter-glass path { stroke: #050505; stroke-width: 62; stroke-linecap: round; }
+.matter-reveal.is-full .matter-glass { display: none; }
+.matter-controls { display: flex; flex-wrap: wrap; align-items: start; gap: 1rem; padding-block: 1rem; }
+.matter-controls[hidden] { display: none; }
+.matter-controls > div { flex: 1 1 14rem; min-width: 0; }
+.matter-controls label { display: block; }
+.matter-controls input { width: 100%; min-height: 2.75rem; }
+.matter-controls button { min-height: 2.75rem; max-width: 100%; padding: .65rem 1rem; border: 1px solid currentColor; border-radius: .35rem; background: var(--surface); color: var(--ink); }
+.matter-controls button[aria-pressed="true"] { border-width: 3px; font-weight: 700; }
+@media (max-width: 55rem) { .mission-design { grid-template-columns: minmax(0, 1fr); } .mission-model iframe { height: 25rem; } }
+@media (forced-colors: active) { .matter-controls button { background: ButtonFace; color: ButtonText; } }
+
+/* The two portrait videos sit beside the science introduction. */
+.science-introduction-layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+.science-introduction-copy, .science-video-cards { min-width: 0; }
+.science-video-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.science-video-cards .mission-video { width: 100%; max-width: none; margin: 0; border-radius: .75rem; background: var(--control-hover); }
+.science-video-cards iframe { display: block; border: 0; border-radius: .75rem .75rem 0 0; background: #000; }
+.science-video-cards figcaption { margin: 0; padding: 1rem; font-family: Anton, sans-serif; text-transform: uppercase; line-height: 1.35; border-radius: 0 0 .75rem .75rem; }
+.science-video-cards figcaption a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--ink); }
+@media (max-width: 65rem) { .science-introduction-layout { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 30rem) { .science-video-cards { grid-template-columns: minmax(0, 1fr); max-width: 24rem; margin-inline: auto; } }
+@media (forced-colors: active) { .science-video-cards .mission-video { background: Canvas; color: CanvasText; border: 1px solid CanvasText; } }
+
+button.matter-frame { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: start; }
+
+.science-video-cards figcaption { font-size: 1.25rem; }
+.science-video-cards figcaption a { text-decoration: none; }
+
+.cosmic-clues-layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+.cosmic-clues-copy { min-width: 0; }
+.cosmic-clues-layout .matter-reveal { position: relative; min-width: 0; max-width: none; margin: 0; }
+.cosmic-clues-layout .matter-frame { border-radius: .75rem; overflow: hidden; }
+.cosmic-clues-layout .matter-controls { position: absolute; top: 1rem; right: 1rem; padding: 0; gap: .75rem; flex-direction: row-reverse; }
+.cosmic-clues-layout .matter-icon-button { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 3rem; height: 3rem; min-height: 3rem; padding: 0; border: 1px solid rgb(255 255 255 / .3); border-radius: 50%; color: #fff; background: #15101f; box-shadow: 0 .25rem 1rem rgb(0 0 0 / .2); }
+.cosmic-clues-layout .matter-icon-button[aria-pressed="true"] { background: #643892; border-width: 2px; }
+.cosmic-clues-layout .matter-icon-button:is(:hover, :focus-visible) { border-color: #fff; }
+.cosmic-clues-layout .matter-icon-button:focus-visible { outline-color: #fff; outline-offset: 3px; }
+.matter-icon-button svg { width: 1.375rem; height: 1.375rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.matter-icon-state, .matter-sound-on, [data-matter-sound][aria-pressed="true"] .matter-sound-off { display: none; }
+[data-matter-full][aria-pressed="true"] .matter-icon-state, [data-matter-sound][aria-pressed="true"] .matter-sound-on { display: inline; }
+.content-section.science-wide-section > :is(p, ul, ol) { max-width: none; }
+@media (max-width: 65rem) { .cosmic-clues-layout { grid-template-columns: minmax(0, 1fr); } }
+@media (forced-colors: active) { .cosmic-clues-layout .matter-icon-button, .cosmic-clues-layout .matter-icon-button[aria-pressed="true"] { background: ButtonFace; color: ButtonText; border-color: ButtonText; box-shadow: none; } .cosmic-clues-layout .matter-icon-button[aria-pressed="true"] { border-style: double; border-width: 4px; } }
+
+.science-clues-guidance { margin-top: 1.5rem; }
+.science-clues-guidance p, .science-intro-guidance p { border-left: .1875rem solid var(--amber); padding-left: 1.25rem; }
+.science-clues-link { margin-top: .5rem; }
+.science-video-cards figcaption a:is(:hover, :focus-visible) { text-decoration: none; }

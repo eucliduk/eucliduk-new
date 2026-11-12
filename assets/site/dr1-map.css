@@ -1,0 +1,105 @@
+@font-face { font-family: "Anton"; src: url("../fonts/anton-regular.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("../fonts/space-grotesk-variable.ttf") format("truetype"); font-weight: 300 700; font-display: swap; }
+* { box-sizing: border-box; }
+html { color-scheme: dark; background: #000; color: #fff; }
+body { margin: 0; font-family: "Space Grotesk", system-ui, sans-serif; line-height: 1.5; }
+a { color: inherit; text-underline-offset: .2em; }
+button, summary { font: inherit; cursor: pointer; }
+:is(a, button, summary, nav):focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+[hidden] { display: none !important; }
+.skip-link { position: fixed; inset: 1rem auto auto 1rem; z-index: 10; padding: .75rem; background: #000; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+.sky-explorer { position: relative; min-height: 100svh; isolation: isolate; }
+.sky-map { position: fixed; inset: 0; z-index: -1; }
+.sky-map > :is(img, svg) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.sky-map > svg { overflow: visible; }
+.map-region { cursor: pointer; }
+.map-region path { fill: transparent; stroke: #fff488; stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; transition: fill .18s ease, stroke .18s ease, filter .18s ease; }
+.map-region:is(:hover, :focus-visible, :active, .is-highlighted) path { fill: #fff15655; stroke: #fff; stroke-width: 2.5; filter: drop-shadow(0 0 10px #ffeb4d); }
+.map-region:focus-visible { outline: none; }
+.map-header { display: flex; align-items: start; justify-content: space-between; gap: 1rem; padding: 1.5rem 3.6%; pointer-events: none; }
+.map-header > div { min-width: 0; }
+.map-header .map-branding { display: flex; flex: none; align-items: flex-start; gap: 1rem; }
+.map-logo { display: block; width: clamp(8rem, 12vw, 11rem); height: auto; }
+.map-header :is(a, button) { pointer-events: auto; }
+h1 { font-family: "Anton", "Arial Narrow", sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(2rem, 3.5vw, 3.25rem); line-height: 1.1; margin: 0; overflow-wrap: anywhere; }
+#map-fullscreen { display: grid; place-items: center; flex: none; width: 2.75rem; height: 2.75rem; border: 1px solid #fff; color: #fff; background: #000b; }
+#map-fullscreen svg { width: 1.5rem; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.map-footer { position: absolute; inset: auto 3.6% 1.5rem; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; }
+.map-footer-tools { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 1rem; margin-inline-start: auto; min-width: 0; }
+#regions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.region-link { display: flex; flex-direction: column; justify-content: center; padding: .4rem .65rem; min-height: 2.75rem; border: 1px solid #aaa; background: #000d; text-decoration: none; }
+.region-link > span:first-child { font-size: 1rem; font-family: "Anton", "Arial Narrow", sans-serif; text-transform: uppercase; }
+.region-detail { font-size: .7rem; }
+.region-link:is(:hover, :focus-visible, .is-highlighted) { border-color: #fff156; color: #fff488; }
+.map-credit { flex: none; }
+.map-credit summary { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid #fff; background: #000b; list-style: none; }
+.map-credit summary::-webkit-details-marker { display: none; }
+.map-credit summary svg { width: 1.5rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+.map-credit[open] summary { color: #fff488; }
+.map-credit-panel { position: absolute; z-index: 3; right: 0; bottom: calc(100% + .75rem); width: min(24rem, calc(100vw - 2.5rem)); max-height: 65svh; overflow: auto; padding: 1rem; border: 1px solid #fff; background: #000; font-size: .875rem; overflow-wrap: anywhere; }
+.map-credit-panel h2 { font-family: "Anton", "Arial Narrow", sans-serif; font-size: 1.4rem; font-weight: 400; line-height: 1.2; margin: 0 0 .75rem; }
+.map-credit-panel p { margin: .75rem 0 0; }
+.map-partners { display: flex; align-items: center; gap: .85rem; }
+.map-partners img { display: block; height: 1.5rem; width: auto; }
+@media (max-width: 45rem) {
+  .sky-explorer { display: flex; flex-direction: column; }
+  .sky-map { position: relative; z-index: 0; order: 1; flex: 1; min-height: calc(100vw * 9 / 16); }
+  .map-header { padding: .75rem 1.25rem; }
+  .map-header .map-branding { flex-direction: column-reverse; align-items: flex-end; gap: .5rem; }
+  .map-logo { width: 6.5rem; }
+  .map-footer { position: relative; inset: auto; order: 2; margin: .75rem 1.25rem; gap: .5rem; }
+  .map-footer-tools { width: 100%; justify-content: flex-end; }
+  .map-partners img { height: 1.25rem; }
+  #regions { width: 100%; }
+  .region-link { flex: 1 1 14rem; }
+}
+@media (max-height: 36rem) and (orientation: landscape) {
+  .map-header { padding-block: .5rem; }
+  .map-footer { bottom: .5rem; }
+}
+@media (max-width: 22rem), (max-height: 26rem) {
+  .sky-explorer { display: flex; flex-direction: column; min-height: 100svh; }
+  .map-header { order: 0; }
+  .sky-map { position: relative; z-index: 0; order: 1; aspect-ratio: 16/9; flex: none; }
+  .map-footer { position: relative; inset: auto; order: 2; margin: 1rem 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) { .map-region path { transition: none; } }
+@media (forced-colors: active) {
+  .map-region path { stroke: LinkText; }
+  .map-region:is(:hover, :focus-visible, .is-highlighted) path { stroke: Highlight; fill: transparent; filter: none; }
+  .region-link { border-color: LinkText; }
+}
+
+/* Use the same dimensions, type and corners as the shared filter controls. */
+.region-link, #map-fullscreen, .map-credit summary { min-height: 2.75rem; border: 1px solid transparent; border-radius: .35rem; padding: .55rem 1rem; background: #1f1730; color: #e4d2f2; font-family: "Anton", "Arial Narrow", sans-serif; font-size: 1.05rem; font-weight: 400; line-height: 1.4; text-transform: uppercase; text-decoration: none; box-shadow: none; }
+.region-link > span:first-child { font: inherit; }
+.region-link .region-detail { font-family: "Space Grotesk", system-ui, sans-serif; font-size: .7rem; text-transform: none; }
+.region-link:is(:hover, :focus-visible, .is-highlighted) { background: #e4d2f2; color: #1f1730; border-color: currentColor; text-decoration: none; }
+#map-fullscreen, .map-credit summary { width: 2.75rem; padding: .55rem; }
+@media (max-width: 45rem) { .region-link { flex: 0 1 auto; } }
+@media (forced-colors: active) {
+  .region-link, .region-link:is(:hover, :focus-visible, .is-highlighted), #map-fullscreen, .map-credit summary { background: ButtonFace; color: ButtonText; border-color: ButtonText; }
+}
+.region-link .region-detail { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 45rem) {
+  .region-link { font-size: 1rem; padding-inline: .65rem; }
+}
+
+/* Monochrome controls match the Galactic Centre explorer. */
+.region-link, #map-fullscreen, .map-credit summary,
+.region-link:is(:hover, :focus-visible, .is-highlighted), .map-credit[open] summary { background: #fff; color: #000; border-color: transparent; }
+.region-link.is-highlighted { border-color: #555; }
+.map-footer > .map-partners { margin-inline-end: auto; }
+.map-footer-tools { margin-inline-start: auto; justify-content: flex-end; gap: .5rem; }
+#regions { justify-content: flex-end; gap: .5rem; }
+@media (forced-colors: active) {
+  .region-link, #map-fullscreen, .map-credit summary,
+  .region-link:is(:hover, :focus-visible, .is-highlighted), .map-credit[open] summary { background: ButtonFace; color: ButtonText; border-color: ButtonText; }
+}
+
+.map-footer > .map-partners { flex-wrap: wrap; min-width: 0; max-width: 100%; }
+.map-footer-tools, #regions { min-width: 0; max-width: 100%; }
+.map-credit-panel { border: 0; border-radius: .5rem; background: #111; color: #fff; padding: 1.25rem; }
+@media (forced-colors: active) { .map-credit-panel { background: Canvas; color: CanvasText; } }
+#map-fullscreen svg { stroke-linecap: round; stroke-linejoin: round; }

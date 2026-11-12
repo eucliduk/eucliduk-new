@@ -1,0 +1,49 @@
+.dr1-page .topbar { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: start; padding: .75rem 1rem; gap: 1rem; }
+.dr1-page .brand { grid-column: 1; grid-row: 1; min-width: 0; max-width: 100%; padding: 0; gap: .5rem; }
+.dr1-page .brand__text { font-family: var(--font-heading); font-weight: 400; line-height: 1.2; overflow-wrap: anywhere; }
+.dr1-page .toolbar { grid-column: 2; grid-row: 1; justify-content: center; width: 100%; gap: .5rem; align-items: flex-start; }
+.dr1-page .explorer-home-link { grid-column: 3; grid-row: 1; justify-self: end; pointer-events: auto; }
+.dr1-page .toolbar :is(.text-button, .icon-button) { min-height: 2.75rem; height: auto; background: #fff; color: #000; border: 1px solid transparent; border-radius: .35rem; font-family: var(--font-heading); font-weight: 400; line-height: 1.3; padding: .4rem .7rem; font-size: .9rem; text-decoration: none; box-shadow: none; transform: none; }
+.dr1-page .toolbar .text-button--wide { margin-right: 0; }
+.dr1-page .toolbar .icon-button { width: 2.75rem; min-width: 2.75rem; }
+.dr1-page .toolbar .control-panel { display: none; }
+.dr1-page #app .toolbar button:focus:not(:focus-visible) { outline: none; }
+.dr1-page #app .toolbar button:focus-visible { outline: 2px solid #000; outline-offset: -4px; }
+.dr1-page .moon-toggle[aria-pressed="true"] img { outline: none; }
+.dr1-page .image-dialog { width: min(42rem, 100%); max-width: 100%; background: #111; color: #fff; border: 0; border-radius: .5rem; box-shadow: none; overflow-wrap: anywhere; }
+.dr1-page .image-dialog .video-dialog__header { padding: 1.5rem 4.5rem 1rem 1.5rem; }
+.dr1-page .image-dialog .video-dialog__close { top: .75rem; right: .75rem; color: #fff; background: transparent; border: 0; box-shadow: none; }
+.dr1-page .image-dialog__body { padding: 0 1.5rem 1.5rem; font-family: var(--font-body); font-size: 1rem; line-height: 1.6; }
+.dr1-page .image-dialog__body .text-button { background: #fff; color: #000; border: 1px solid transparent; border-radius: .35rem; padding: .55rem 1rem; font-family: var(--font-heading); font-size: 1rem; font-weight: 400; text-transform: uppercase; }
+@media (max-width: 70rem) {
+  .dr1-page .topbar { grid-template-columns: minmax(0, 1fr) auto; }
+  .dr1-page .explorer-home-link { grid-column: 2; }
+  .dr1-page .toolbar { grid-column: 1 / -1; grid-row: 2; }
+}
+@media (max-width: 48rem), (max-height: 32rem) {
+  .dr1-page .topbar { display: grid; position: relative; }
+  .dr1-page .toolbar { width: 100%; justify-content: center; }
+  .dr1-page .brand { min-width: 0; }
+}
+@media (forced-colors: active) {
+  .dr1-page .toolbar :is(.text-button, .icon-button), .dr1-page .image-dialog__body .text-button { background: ButtonFace; color: ButtonText; border-color: ButtonText; }
+  .dr1-page .image-dialog { background: Canvas; color: CanvasText; }
+  .dr1-page .image-dialog .video-dialog__close { color: ButtonText; }
+  .dr1-page #app .toolbar button:focus-visible { outline-color: Highlight; }
+}
+.dr1-page #app #about-close:focus-visible { outline: none; text-decoration: underline; text-underline-offset: .15em; }
+/* Show the preview until the first tiled view has painted. */
+.dr1-page #viewer > #overview { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.dr1-page #app #viewer:focus:not(:focus-visible), .dr1-page #app #viewer .openseadragon-canvas:focus:not(:focus-visible) { outline: none; }
+.dr1-page #app #viewer:focus-visible, .dr1-page #app #viewer .openseadragon-canvas:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+.dr1-page .toolbar #fullscreen svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.dr1-page .scene-region-links { grid-column: 1 / -1; justify-content: center; }
+.dr1-page .scene-region-links:empty { display: none; }
+.dr1-page .scene-region-links .text-button { background: #fff; color: #000; border: 1px solid transparent; border-radius: .35rem; padding: .4rem .7rem; font-family: var(--font-heading); font-size: .9rem; font-weight: 400; text-transform: uppercase; }
+@media (forced-colors: active) {
+  .dr1-page .scene-region-links .text-button { background: ButtonFace; color: ButtonText; border-color: ButtonText; }
+  .dr1-page #app #viewer:focus-visible { outline-color: Highlight; }
+}
+/* OpenSeadragon focuses its internal canvas on pointer clicks. The surrounding
+   keyboard-tab stop retains its own visible focus indicator. */
+.dr1-page #app #viewer .openseadragon-canvas:focus { outline: none; }

@@ -1,0 +1,31 @@
+<script src="euclid-orbit-data.js"></script>
+<script src="euclid-lunar-data.js?v=20261002-1"></script>
+<script src="euclid-star-data.js"></script>
+<script src="euclid-survey-progress-data.js?v=20260729-2"></script>
+<script src="vendor/three-r128/three.min.js"></script>
+<script src="vendor/three-r128/GLTFLoader.js"></script>
+<script src="vendor/three-r128/OrbitControls.js"></script>
+<script>
+    if (window.location.protocol === "file:") {
+      const compactEarthTexture = window.matchMedia("(max-width: 760px)").matches;
+      document.write('<script src="assets/models/euclid/euclid-spacecraft.base64.js?v=20260730-2"><\/script>');
+      document.write(
+        compactEarthTexture
+          ? '<script src="assets/textures/earth-blue-marble-2048.base64.js"><\/script>'
+          : '<script src="assets/textures/earth-blue-marble-4096.base64.js"><\/script>'
+      );
+      document.write(
+        compactEarthTexture
+          ? '<script src="assets/textures/earth-black-marble-2016-2048.base64.js"><\/script>'
+          : '<script src="assets/textures/earth-black-marble-2016-4096.base64.js"><\/script>'
+      );
+      document.write('<script src="assets/textures/moon-lroc-2k.base64.js"><\/script>');
+      document.write('<script src="assets/textures/sun-nasa-sdo-stereo-2048.base64.js"><\/script>');
+      document.write('<script src="assets/textures/milky-way-gaia-edr3-2048.base64.js"><\/script>');
+      document.write('<script src="assets/textures/euclid-galactic-bulge-sky-1024.base64.js"><\/script>');
+      document.write('<script src="assets/textures/euclid-first-one-percent-mosaic-2048.base64.js"><\/script>');
+      document.write('<script src="assets/textures/euclid-survey-progress-rg.base64.js?v=20260729-2"><\/script>');
+    }
+  </script>
+
+<script src="euclid-orbit-3d.js?v=20261006-1"></script>

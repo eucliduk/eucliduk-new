@@ -1,0 +1,3760 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Euclid: The Dark Universe Detective</title>
+<meta name="description" content="Euclid: The Dark Universe Detective — the UK based team behind ESA's Euclid space telescope at the Royal Society Summer Science Exhibition 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Source+Sans+3:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  // Google Analytics loads only after the visitor accepts analytics cookies.
+  (function () {
+    var measurementId = 'G-5GXQG08G76';
+    var storageKey = 'euclid-analytics-consent';
+    var loaded = false;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
+
+    function getChoice() {
+      try { return localStorage.getItem(storageKey); } catch (e) { return null; }
+    }
+
+    function setChoice(value) {
+      try { localStorage.setItem(storageKey, value); } catch (e) {}
+    }
+
+    function deleteCookie(name) {
+      var hostParts = location.hostname.split('.');
+      var domains = ['', location.hostname];
+      if (hostParts.length > 2) domains.push('.' + hostParts.slice(-2).join('.'));
+      domains.forEach(function (domain) {
+        document.cookie = name + '=; Max-Age=0; path=/; SameSite=Lax' + (domain ? '; domain=' + domain : '');
+      });
+    }
+
+    function clearAnalyticsCookies() {
+      deleteCookie('_ga');
+      deleteCookie('_gid');
+      deleteCookie('_gat');
+      deleteCookie('_ga_' + measurementId.replace(/^G-/, ''));
+    }
+
+    function loadAnalytics() {
+      if (loaded) return;
+      loaded = true;
+      window.gtag('consent', 'update', { analytics_storage: 'granted' });
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+      document.head.appendChild(script);
+      window.gtag('js', new Date());
+      window.gtag('config', measurementId);
+    }
+
+    function declineAnalytics() {
+      window.gtag('consent', 'update', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied'
+      });
+      clearAnalyticsCookies();
+    }
+
+    function ensureConsentUi() {
+      if (document.getElementById('analytics-consent-style')) return;
+      var style = document.createElement('style');
+      style.id = 'analytics-consent-style';
+      style.textContent =
+        '.analytics-consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:3000;max-width:560px;margin:0 auto;padding:22px 24px;border:2px solid #fff;border-radius:8px;background:#000;color:#fff;box-shadow:0 18px 44px rgba(0,0,0,.36)}' +
+        '.analytics-consent-title{margin:0 0 10px;font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:30px;font-weight:700;line-height:1;letter-spacing:0;text-transform:uppercase;color:#fff}' +
+        '.analytics-consent-banner p{margin:0 0 16px;font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;font-weight:500;line-height:1.42;letter-spacing:0;color:#fff}' +
+        '.analytics-consent-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}' +
+        '.analytics-consent-actions button{min-height:42px;border:2px solid #fff;border-radius:6px;padding:9px 14px;font:700 15px "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:0;text-transform:none;cursor:pointer;transition:background 180ms ease,color 180ms ease,transform 180ms ease}' +
+        '.analytics-consent-actions button:hover{transform:translateY(-1px)}' +
+        '.analytics-consent-accept{background:#fff;color:#000}.analytics-consent-decline{background:#000;color:#fff}' +
+        '.analytics-consent-decline:hover{background:#fff;color:#000}.analytics-consent-accept:hover{background:#e6e6e6;color:#000}' +
+        '@media(max-width:560px){.analytics-consent-banner{left:10px;right:10px;bottom:10px;padding:18px}.analytics-consent-title{font-size:24px}.analytics-consent-actions{grid-template-columns:1fr}.analytics-consent-actions button{min-height:46px;font-size:15px}}';
+      document.head.appendChild(style);
+    }
+
+    function removeBanner() {
+      var existing = document.getElementById('analytics-consent-banner');
+      if (existing) existing.remove();
+    }
+
+    function showSettingsButton() {
+      if (document.documentElement.dataset.analyticsSettingsBound === 'true') return;
+      document.documentElement.dataset.analyticsSettingsBound = 'true';
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest && event.target.closest('[data-analytics-settings]');
+        if (!link) return;
+        event.preventDefault();
+        showBanner();
+      });
+    }
+
+    function showBanner() {
+      ensureConsentUi();
+      removeBanner();
+      var banner = document.createElement('div');
+      banner.id = 'analytics-consent-banner';
+      banner.className = 'analytics-consent-banner';
+      banner.setAttribute('role', 'dialog');
+      banner.setAttribute('aria-live', 'polite');
+      banner.setAttribute('aria-label', 'Analytics cookie settings');
+      banner.innerHTML =
+        '<h2 class="analytics-consent-title">We value your privacy</h2>' +
+        '<p>We use cookies to understand how our visitors use these pages. Please choose whether to accept these analytics.</p>' +
+        '<div class="analytics-consent-actions">' +
+        '<button type="button" class="analytics-consent-decline">Reject</button>' +
+        '<button type="button" class="analytics-consent-accept">Accept</button>' +
+        '</div>';
+      banner.querySelector('.analytics-consent-accept').addEventListener('click', function () {
+        setChoice('granted');
+        loadAnalytics();
+        removeBanner();
+        showSettingsButton();
+      });
+      banner.querySelector('.analytics-consent-decline').addEventListener('click', function () {
+        setChoice('denied');
+        declineAnalytics();
+        removeBanner();
+        showSettingsButton();
+      });
+      document.body.appendChild(banner);
+    }
+
+    function initConsent() {
+      ensureConsentUi();
+      var choice = getChoice();
+      if (choice === 'granted') {
+        loadAnalytics();
+        showSettingsButton();
+      } else if (choice === 'denied') {
+        declineAnalytics();
+        showSettingsButton();
+      } else {
+        showBanner();
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initConsent);
+    } else {
+      initConsent();
+    }
+  })();
+</script>
+<script>
+  // Apply an explicit theme choice before paint, otherwise follow the device.
+  (function () {
+    try {
+      var t = localStorage.getItem('euclid-theme-choice');
+      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (t === 'light' || t === 'dark') ? t : (systemDark ? 'dark' : 'light'));
+    } catch (e) {}
+  })();
+</script>
+<script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ── Theme tokens ──────────────────────────────────────────── */
+  /* Dark mode is sampled directly from the Euclid image of M78:
+       deep violet-tinged void · lavender nebula cores · copper dust clouds.
+     Page surfaces step from a near-black void up through dim plum cards;
+     primary text is a warm star-light off-white, body copy a soft
+     lavender-grey. The accent overrides at the bottom of this block return
+     `--purple-*` to actual purples (lavender, lilac) and `--orange-*` to
+     warm rusts/coppers, replacing the amber/olive defaults declared in the
+     brand-tokens block below — so light mode keeps the brand palette while
+     dark mode wears M78. */
+  :root, html[data-theme="dark"] {
+    --space-black:  #0E0A18;   /* cosmic void · primary page base */
+    --space-deep:   #15101F;   /* alt sections — one step lifted */
+    --space-mid:    #1F1730;   /* card surfaces — dim plum */
+    --cream:        #F2EAD9;   /* primary text · warm star-light · AA 14:1 */
+    --grey-mid:     #BBA9CB;   /* body · soft lavender-grey */
+    --grey-dark:    #8A7E96;   /* captions · dusted mauve */
+    --border:       #332846;   /* muted plum border */
+    --border-bright:#B86E36;   /* copper dust accent */
+
+    --nav-bg-top:      rgba(14,10,24,0.82);
+    --nav-bg-scrolled: rgba(14,10,24,0.94);
+    --card-tint:       rgba(168,139,217,0.10);  /* lavender wash */
+    --card-tint-hover: rgba(168,139,217,0.22);
+    --slide-scrim:     linear-gradient(180deg, rgba(14,10,24,0.35) 0%, rgba(14,10,24,0.7) 70%, rgba(14,10,24,0.9) 100%);
+    --slide-filter:    brightness(0.85);
+    --tactile-logo-filter: brightness(0) invert(1) sepia(10%) saturate(390%) hue-rotate(337deg) brightness(100%) contrast(94%) drop-shadow(0 10px 24px rgba(0,0,0,0.24));
+    --tactile-model-color: #9F7ADA;
+    --tactile-model-emissive: #1B102A;
+    --tactile-model-rim: #C9A9F0;
+
+    /* M78 accent overrides — only apply in dark mode.
+       Higher specificity than the :root brand block, so light mode keeps
+       the amber/olive defaults declared further down. */
+    --purple-primary:#A88BD9;  /* lavender — nebula core */
+    --purple-light:  #C9A9F0;  /* brighter lilac highlight */
+    --purple-lighter:#E4D2F2;  /* palest lilac — bright cores */
+    --purple-dark:   #6E54A3;  /* deep violet */
+    --purple-nebula: #2A1A45;  /* very dark plum (depth) */
+    --orange-primary:#B86E36;  /* rust copper — dust clouds */
+    --orange-glow:   #D4824A;  /* brighter rust glow */
+  }
+  html[data-theme="light"] {
+    --space-black:  #F2F2F2;   /* off-white page base */
+    --space-deep:   #EBEDF0;   /* alt sections */
+    --space-mid:    #E2E5E9;   /* cards */
+    --cream:        #293740;   /* primary text · AA 11.1:1 on off-white */
+    --grey-mid:     #3A4653;   /* body */
+    --grey-dark:    #5E6B77;   /* captions */
+    --border:       #D1D6DC;
+    --border-bright:#736436;
+
+    --nav-bg-top:      rgba(242,242,242,0.88);
+    --nav-bg-scrolled: rgba(242,242,242,0.94);
+    --card-tint:       rgba(115,100,54,0.06);
+    --card-tint-hover: rgba(115,100,54,0.14);
+    --slide-scrim:     linear-gradient(180deg, rgba(242,242,242,0.2) 0%, rgba(242,242,242,0.55) 70%, rgba(242,242,242,0.82) 100%);
+    --slide-filter:    brightness(1);
+    --tactile-logo-filter: drop-shadow(0 10px 24px rgba(0,0,0,0.18));
+    --tactile-model-color: #736436;
+    --tactile-model-emissive: #F2F2F2;
+    --tactile-model-rim: #D99C2B;
+  }
+
+  /* ── Brand tokens (unchanged between themes) ──────────────── */
+  /* Six-colour palette:
+       #000000 ink · #293740 slate · #736436 olive ·
+       #D99C2B amber · #BBD8F2 pale blue · #F2F2F2 off-white
+     Note: legacy names retained for compatibility —
+     "purple" now maps to the amber accent (#D99C2B) and pale blue tint,
+     "orange" now maps to the olive accent (#736436). */
+  :root {
+    --ink:           #000000;
+    --purple-primary:#D99C2B; --purple-light:#E8B454; --purple-lighter:#BBD8F2;
+    --purple-dark:#A47520;    --purple-nebula:#4A3514;
+    --orange-primary:#736436; --orange-glow:#8E7E45;
+
+    /* Accurate-name aliases for the same six-colour palette.
+       Prefer these in new code; the legacy --purple-* / --orange-*
+       tokens are kept above so existing refs continue to work. */
+    --amber-primary:  var(--purple-primary);   /* #D99C2B */
+    --amber-light:    var(--purple-light);     /* #E8B454 */
+    --amber-dark:     var(--purple-dark);      /* #A47520 */
+    --amber-deep:     var(--purple-nebula);    /* #4A3514 */
+    --paleblue:       var(--purple-lighter);   /* #BBD8F2 */
+    --olive-primary:  var(--orange-primary);   /* #736436 */
+    --olive-light:    var(--orange-glow);      /* #8E7E45 */
+
+    --font-display:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-heading:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-accent:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-campaign:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-script:'Grand Hotel',cursive;
+    --font-body:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'Space Mono',monospace;
+    --ease-space:cubic-bezier(0.25,0,0,1);
+  }
+
+  html { scroll-behavior: smooth; }
+  html, body {
+    background: var(--space-black); color: var(--cream);
+    font-family: var(--font-body); -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    transition: background 400ms var(--ease-space), color 400ms var(--ease-space);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+  #root { min-height: 100%; }
+  button { cursor: pointer; font-family: var(--font-body); }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--purple-light); outline-offset: 3px; border-radius: 4px; }
+  .cosmic-cta-lockup {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .cosmic-cta-lockup--selfie {
+    align-items: center;
+    margin-left: auto;
+  }
+  .cosmic-cta-logo-slot {
+    min-height: 64px;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  .cosmic-cta-logo-slot--selfie {
+    justify-content: center;
+  }
+  .instawarp-cta-logo {
+    color: var(--cream);
+    font-family: var(--font-script);
+    font-size: clamp(42px, 4.5vw, 62px);
+    font-weight: 400;
+    line-height: 0.82;
+    letter-spacing: 0;
+    text-decoration: none;
+  }
+  .section-pill {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    color: var(--grey-mid);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    padding: 8px 14px;
+  }
+  @media (max-width: 760px) {
+    .detective-grid { grid-template-columns: 1fr !important; }
+    .detective-copy { display: contents; }
+    .detective-intro { order: 1; }
+    .detective-model { order: 2; }
+    .detective-body { order: 3; }
+  }
+  @media (min-width: 1024px) {
+    .partner-logo-wrap {
+      flex-wrap: nowrap !important;
+      gap: clamp(10px, 1.4vw, 22px) !important;
+    }
+    .partner-logo-row {
+      flex: 1 1 0;
+      min-width: 0;
+      flex-wrap: nowrap !important;
+      gap: clamp(8px, 1.1vw, 18px) !important;
+    }
+    .partner-logo-row--universities {
+      gap: clamp(18px, 2.2vw, 32px) !important;
+    }
+    .partner-logo-row--agencies {
+      gap: clamp(14px, 1.5vw, 22px) !important;
+    }
+    .partner-logo-link {
+      min-width: 0;
+      height: auto !important;
+    }
+    .partner-logo-img {
+      width: auto !important;
+      max-width: none !important;
+    }
+  }
+  @media (max-width: 1023px) {
+    .partner-logo-wrap { flex-wrap: wrap !important; }
+    .partner-logo-divider { display: none !important; }
+    .partner-logo-row {
+      width: 100%;
+      flex-wrap: wrap !important;
+      gap: 18px 28px !important;
+    }
+    .partner-logo-link {
+      flex: 0 1 auto;
+    }
+  }
+  @media (max-width: 560px) {
+    .cosmic-cta-row {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 18px !important;
+    }
+    .cosmic-cta {
+      width: 100% !important;
+      justify-content: center !important;
+      margin-left: 0 !important;
+      text-align: center;
+    }
+    .cosmic-cta-lockup,
+    .cosmic-cta-lockup--selfie {
+      width: 100%;
+      margin-left: 0;
+      align-items: stretch;
+    }
+    .cosmic-cta-logo-slot,
+    .cosmic-cta-logo-slot--selfie {
+      min-height: auto;
+      justify-content: center;
+    }
+    .partner-logo-row {
+      flex-wrap: nowrap !important;
+      gap: 8px !important;
+    }
+    .partner-logo-link {
+      min-width: 0;
+      max-width: min(72vw, 260px);
+    }
+    .partner-logo-img {
+      width: auto !important;
+      max-width: 100%;
+    }
+    .partner-logo-row--universities .partner-logo-img {
+      height: clamp(20px, 5.4vw, 26px) !important;
+    }
+    .partner-logo-row--agencies .partner-logo-img {
+      height: clamp(24px, 8vw, 36px) !important;
+    }
+    .partner-logo-row--agencies .partner-logo-link:nth-child(2) .partner-logo-img {
+      height: clamp(22px, 7vw, 32px) !important;
+    }
+    .partner-logo-row--agencies .partner-logo-link:nth-child(4) .partner-logo-img {
+      height: clamp(30px, 10vw, 42px) !important;
+    }
+  }
+  .big-type-word {
+    letter-spacing: -0.055em;
+  }
+  @media (max-width: 560px) {
+    .section-headline {
+      width: 100%;
+      max-width: calc(100vw - 40px);
+      line-height: 0.9 !important;
+      margin: 0 auto 28px !important;
+    }
+    .section-headline__kicker {
+      line-height: 1.02 !important;
+    }
+    #missing-matter-title {
+      font-size: clamp(72px, 20.5vw, 96px) !important;
+    }
+    #missing-matter-title .section-headline__kicker {
+      font-size: 0.35em !important;
+    }
+    #cosmic-clues-title {
+      font-size: clamp(102px, 34vw, 140px) !important;
+      text-align: center;
+    }
+    #cosmic-clues-title .section-headline__kicker {
+      font-size: 0.24em !important;
+    }
+    #detective-title {
+      font-size: clamp(70px, 20.5vw, 94px) !important;
+    }
+    #detective-title .section-headline__kicker {
+      font-size: 0.34em !important;
+    }
+  }
+  @media (min-width: 561px) and (max-width: 980px) {
+    .section-headline {
+      width: 100%;
+      line-height: 0.9 !important;
+      margin-bottom: 30px !important;
+    }
+    .section-headline__kicker {
+      line-height: 1.04 !important;
+    }
+    #missing-matter-title {
+      font-size: clamp(86px, 12vw, 92px) !important;
+    }
+    #missing-matter-title .section-headline__kicker {
+      font-size: 0.36em !important;
+    }
+    #cosmic-clues-title {
+      font-size: clamp(118px, 15vw, 140px) !important;
+      text-align: center;
+    }
+    #cosmic-clues-title .section-headline__kicker {
+      font-size: 0.26em !important;
+    }
+    #detective-title {
+      font-size: clamp(78px, 10.5vw, 88px) !important;
+    }
+    #detective-title .section-headline__kicker {
+      font-size: 0.36em !important;
+    }
+  }
+  .skip-link {
+    position: absolute; left: -9999px; top: 12px;
+    background: var(--cream); color: var(--space-black);
+    padding: 10px 16px; border-radius: 6px; font-weight: 600; z-index: 200;
+  }
+  .skip-link:focus { left: 12px; }
+
+  /* ── Carousel slide backgrounds (theme-aware via CSS) ─────── */
+  .slide-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-size: cover; background-position: center;
+    transition: filter 400ms var(--ease-space);
+    transform-origin: center center;
+  }
+  /* When .slide-bg is a <video> (used for slide 1 in light mode), make it
+     behave like a cover background: fill the container and crop to centre. */
+  video.slide-bg {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+
+  /* Subtle Ken-Burns drift on every slide. Animations run only while a
+     slide is active; removing .is-active resets them so they restart
+     each time the slide returns. Range kept small for a minimal effect. */
+  @keyframes euclid-slide-zoom {
+    from { transform: scale(1.00); }
+    to   { transform: scale(1.05); }
+  }
+
+  /* Ken-Burns drift applied to slides 2 and 3 only. Slide 1 hosts an
+     autoplaying video which already supplies its own motion, so it
+     opts out of the scale animation. */
+  .euclid-slide.is-active .slide-bg-2,
+  .euclid-slide.is-active .slide-bg-3 { animation: euclid-slide-zoom 16s var(--ease-space) both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .euclid-slide.is-active .slide-bg-2,
+    .euclid-slide.is-active .slide-bg-3 { animation: none; }
+  }
+  /* Slide 1 — The Dark Universe Detective.
+     Plays an autoplaying ESA clip in both themes (rendered as a real
+     <video> in Hero.jsx). In dark mode we apply the slide brightness
+     filter so the clip sits at the same level as the rest of the
+     dark-mode imagery. */
+  html[data-theme="dark"]  .slide-bg-1 { filter: var(--slide-filter); }
+  .slide-bg-1 { background-position: center; transform-origin: center center; }
+  video.slide-bg-1--cosmic-web {
+    transform: none;
+  }
+  /* Slide 2 — A Mystery of Missing Matter.
+     Use cover so the image fills the frame (no letterboxing). */
+  html[data-theme="light"] .slide-bg-2 { background-image: url('images/Euclid_s_view_of_the_Perseus_cluster_of_galaxies.jpg'); }
+  html[data-theme="dark"]  .slide-bg-2 { background-image: url('images/PR_FS2_stripe_image.webp'); filter: brightness(0.6); }
+  /* Slide 3 — Cosmic Clues */
+  html[data-theme="light"] .slide-bg-3 { background-image: url('images/slide3_bg.jpg'); }
+  html[data-theme="dark"]  .slide-bg-3 { background-image: url('images/slide3_bg_bw.jpg'); filter: var(--slide-filter); }
+  /* Slide 4 — Mapping the Dark Universe.
+     Show the entire mosaic uncropped: contain instead of cover, no transform. */
+  html[data-theme="light"] .slide-bg-4 { background-image: url('images/Mosaic_of_Euclid_observations_in_the_Southern_Sky-2.jpg'); }
+  html[data-theme="dark"]  .slide-bg-4 { background-image: url('images/Mosaic_of_Euclid_observations_in_the_Southern_Sky-2_bw.jpg'); filter: var(--slide-filter); }
+  .slide-bg-4 { background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #000; transform: none; }
+
+  .slide-scrim {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: var(--slide-scrim);
+  }
+
+  /* ── Theme-aware image variants ───────────────────────────── */
+  /* Use !important so these beat any inline display styles. */
+  html[data-theme="dark"]  .logo-img--light-only { display: none !important; }
+  html[data-theme="light"] .logo-img--dark-only  { display: none !important; }
+
+  /* ── Background accents (bright-stars + galaxies) ────────── */
+  /* Decorative SVG ornaments scattered across the viewport. The
+     wrapper sets `color`, the inline SVGs draw with currentColor,
+     so a single rule per theme drives every accent. Light mode uses
+     the brand amber (warm, like a sunlit star); dark mode uses the
+     M78 lilac (matches the nebula highlights elsewhere).
+
+     Each accent layer is now an absolutely-positioned child of the
+     section it belongs to, so it scrolls with the section content
+     and lives in the marginal space flanking the centred text
+     column. Each host <section> needs `position: relative` for this
+     to anchor correctly. */
+  .euclid-accents {
+    position: absolute; inset: 0; z-index: 0;
+    pointer-events: none;
+    overflow: hidden;        /* contain rotated edges within section bounds */
+  }
+  /* Light mode: track --cream (deep ink-blue) so accents match the
+     paragraph text. Dark mode: switch to --purple-light, the same
+     lilac used for accent words ("mystery", "detective") and section
+     eyebrow labels — so the ornaments feel keyed to the page's
+     highlight palette rather than its plain body copy. */
+  .euclid-accents { color: var(--cream); }
+  html[data-theme="dark"] .euclid-accents { color: var(--purple-light); }
+  .euclid-accent {
+    position: absolute;
+    display: block;
+    transition: opacity 600ms var(--ease-space);
+  }
+  /* Accents render at full opacity (matching body text) so no bloom
+     filter is applied — a drop-shadow at this strength would smudge
+     the glyph edges rather than soften them. */
+  /* On narrow viewports section padding collapses, leaving no
+     marginal space for ornaments — hide them entirely there so they
+     don't crowd or overlap the text column. */
+  @media (max-width: 1024px) {
+    .euclid-accents { display: none; }
+  }
+
+  /* ── Map band — theme-aware aspect ratio ──────────────────── */
+  /* The map band swaps images on theme: in light mode it shows the
+     real Euclid observations mosaic (11400×3600 ≈ 3.17:1); in dark
+     mode it shows the Euclid Flagship simulation cosmic-web stripe
+     (1752×728 ≈ 2.41:1). Setting the band's aspect-ratio to match
+     each image exactly means objectFit:contain shows the full image
+     with no letterbox in either theme. */
+  .image-band--map { aspect-ratio: 3.17 / 1; }
+  html[data-theme="dark"] .image-band--map { aspect-ratio: 2.41 / 1; }
+  @media (max-width: 860px) {
+    .cosmic-map-section {
+      grid-template-columns: 1fr !important;
+    }
+    .cosmic-map-title {
+      font-size: clamp(32px, 8.6vw, 38px) !important;
+      line-height: 1 !important;
+      white-space: nowrap;
+    }
+    .cosmic-map-title__kicker,
+    .cosmic-map-title__word {
+      display: inline !important;
+      font-size: inherit !important;
+      line-height: inherit !important;
+    }
+  }
+  .cosmic-map-panel { background: var(--purple-light); }
+
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="root"></div>
+<script>
+  // Light-switch click sound, ported from rssse.html
+  window.__euclidToggleSound = function playToggleSound(toDark) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    try {
+      var ctx = new (window.AudioContext || window.webkitAudioContext)();
+      var now = ctx.currentTime;
+      var noiseDuration = 0.12;
+      var buf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * noiseDuration), ctx.sampleRate);
+      var data = buf.getChannelData(0);
+      for (var i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+      function click(offset, opts) {
+        var src = ctx.createBufferSource(); src.buffer = buf;
+        var bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = opts.freq; bp.Q.value = opts.q;
+        var hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 700;
+        var g = ctx.createGain();
+        var start = now + offset;
+        g.gain.setValueAtTime(0, start);
+        g.gain.linearRampToValueAtTime(opts.gain, start + 0.001);
+        g.gain.exponentialRampToValueAtTime(0.0001, start + opts.decay);
+        src.connect(bp).connect(hp).connect(g).connect(ctx.destination);
+        src.start(start); src.stop(start + opts.decay + 0.01);
+      }
+      // Two quick clicks — mechanical switch character
+      click(0,    { freq: toDark ? 2200 : 2600, q: 5, gain: 0.35, decay: 0.04 });
+      click(0.07, { freq: toDark ? 1600 : 2000, q: 4, gain: 0.28, decay: 0.06 });
+      setTimeout(function () { try { ctx.close(); } catch (e) {} }, 400);
+    } catch (e) {}
+  };
+</script>
+<script type="text/babel">
+  /* ===== Inlined from Accents.jsx ===== */
+// Accents.jsx — section-anchored decorative ornaments.
+//
+// Renders bright-star and galaxy glyphs in the empty margins that flank
+// each section's centred text column. The accents are absolutely-
+// positioned children of the host <section>, which means they scroll
+// with the content (rather than floating in the viewport like a
+// detached background) and stay tied to whatever section they belong
+// to. Each section gets its own preset arrangement via the `variant`
+// prop, so the placements feel custom rather than templated.
+//
+// Color is theme-aware via .euclid-accents in index.html, which tracks
+// --cream — the same token the body text uses — so accents render in the
+// same hue and at the same opacity (1.0) as the surrounding paragraphs.
+// pointer-events: none keeps the layer fully passive; aria-hidden hides
+// it from AT.
+//
+// On narrow viewports (<1024px), accents are hidden — section padding
+// collapses to ~20px there and there's no marginal space to occupy.
+//
+// Stars always render in their original SVG orientation (no rotation)
+// — they're a single recognisable mark, like a punctuation glyph, and
+// look wrong tilted. Galaxies have a `rotate` field because their
+// spiral form benefits from variation; stars never do.
+//
+// Sizing: stars span ~22–52px with a few standout marks; galaxies are
+// the quieter mark and live in the ~22–40px range so they read as a
+// distant smudge rather than a hero element.
+const ACCENT_VARIANTS = {
+  // ── #missing-matter (Dark Matter & Dark Energy) ──
+  // Two-column grid section with cards. Sprinkle accents along the
+  // outside edges, varying vertical anchor so it doesn't feel zip-lined.
+  'missing-matter': [
+    { kind: 'galaxy', top: '4%',   left:  '2%',   size: 36, rotate: -16 },
+    { kind: 'star',   top: '12%',  right: '2%',   size: 44 },
+    { kind: 'star',   top: '24%',  left:  '3%',   size: 26 },
+    { kind: 'galaxy', top: '34%',  right: '1.5%', size: 24, rotate:  -6 },
+    { kind: 'star',   top: '46%',  left:  '1.5%', size: 38 },
+    { kind: 'star',   top: '58%',  right: '4%',   size: 28 },
+    { kind: 'galaxy', top: '70%',  right: '2.5%', size: 40, rotate:  18 },
+    { kind: 'star',   top: '78%',  left:  '2%',   size: 32 },
+    { kind: 'star',   bottom: '8%', right: '6%',  size: 24 },
+    { kind: 'star',   bottom: '4%', left:  '4%',  size: 36 },
+  ],
+  // ── #cosmic-clues (Gravitational Lensing) ──
+  // Narrow centred column (max 760), so plenty of margin on either side.
+  // Heavier ornaments here to fill that wider negative space.
+  'cosmic-clues': [
+    { kind: 'star',   top: '6%',   right: '4%',   size: 48 },
+    { kind: 'star',   top: '18%',  left:  '5%',   size: 30 },
+    { kind: 'galaxy', top: '28%',  left:  '3%',   size: 40, rotate:  14 },
+    { kind: 'star',   top: '40%',  right: '6%',   size: 24 },
+    { kind: 'star',   top: '50%',  right: '3%',   size: 38 },
+    { kind: 'galaxy', top: '58%',  right: '8%',   size: 22, rotate:   8 },
+    { kind: 'star',   top: '68%',  left:  '5%',   size: 28 },
+    { kind: 'galaxy', top: '76%',  right: '3%',   size: 32, rotate: -22 },
+    { kind: 'star',   top: '88%',  left:  '3%',   size: 42 },
+    { kind: 'star',   bottom: '6%', right: '5%',  size: 30 },
+    { kind: 'star',   bottom: '12%', left: '7%',  size: 22 },
+  ],
+  // ── #detective (Dark Universe Detective) ──
+  // Two-column grid with the 3D model on the right. Keep accents
+  // toward the outside corners so they don't overlap the model frame.
+  'detective': [
+    { kind: 'star',   top: '4%',   left:  '4%',   size: 26 },
+    { kind: 'galaxy', top: '6%',   right: '3%',   size: 38, rotate: -18 },
+    { kind: 'star',   top: '18%',  left:  '2%',   size: 40 },
+    { kind: 'star',   top: '32%',  right: '2%',   size: 30 },
+    { kind: 'galaxy', top: '44%',  right: '5%',   size: 22, rotate:  -4 },
+    { kind: 'star',   top: '52%',  left:  '5%',   size: 28 },
+    { kind: 'galaxy', top: '62%',  left:  '2.5%', size: 28, rotate:  10 },
+    { kind: 'star',   top: '76%',  left:  '3%',   size: 36 },
+    { kind: 'galaxy', top: '84%',  right: '4%',   size: 24, rotate: -10 },
+    { kind: 'star',   bottom: '12%', right: '2%', size: 50 },
+    { kind: 'star',   bottom: '4%', left:  '6%',  size: 30 },
+  ],
+  // ── footer (humans / sign-off) ──
+  // Two anchor stars flank the partnership statement at much larger
+  // sizes than elsewhere on the page, so the footer reads as the
+  // visual close of the document. Smaller marks fill in around them.
+  'humans': [
+    { kind: 'star',   top: '14%',  left:  '4%',   size: 84 },   /* anchor — left */
+    { kind: 'star',   top: '20%',  right: '5%',   size: 72 },   /* anchor — right */
+    { kind: 'galaxy', top: '46%',  right: '9%',   size: 24, rotate: -14 },
+    { kind: 'star',   top: '56%',  left:  '8%',   size: 26 },
+    { kind: 'galaxy', top: '66%',  left:  '5%',   size: 20, rotate:   6 },
+    { kind: 'star',   top: '74%',  right: '7%',   size: 30 },
+  ],
+};
+
+// Layout constants for each section, used by the no-overlay clamp.
+// CONTENT_MAX is the max-width of the centred text column; SECTION_PADDING
+// is the section's horizontal padding (which becomes the rail width when
+// the viewport is too narrow for the column to hit its max-width).
+const CONTENT_MAX = {
+  'missing-matter': 1200,
+  'cosmic-clues':   760,
+  'detective':      1200,
+  'humans':         1200,
+};
+const SECTION_PADDING = {
+  'missing-matter': 'clamp(20px, 6vw, 80px)',
+  'cosmic-clues':   'clamp(20px, 6vw, 80px)',
+  'detective':      'clamp(20px, 6vw, 80px)',
+  'humans':         'clamp(20px, 6vw, 60px)',
+};
+// Minimum gap (px) between an accent's inner edge and the content column.
+const CONTENT_GAP = 16;
+
+function SectionAccents({ variant }) {
+  const items = ACCENT_VARIANTS[variant] || [];
+  // Distance from the section's outer edge to the nearest content edge.
+  // = max(horizontal padding, (sectionWidth - contentMax) / 2)
+  // The padding term wins on viewports too narrow for the content cap to
+  // engage; the calc term wins once there's a true rail outside the
+  // capped content column.
+  const halfContent = (CONTENT_MAX[variant] || 1200) / 2;
+  const padding = SECTION_PADDING[variant] || 'clamp(20px, 6vw, 80px)';
+  const contentEdge = `max(${padding}, calc(50% - ${halfContent}px))`;
+  return (
+    <div className="euclid-accents" aria-hidden="true">
+      {items.map((it, i) => {
+        // Stars stay in their original SVG orientation. Galaxies
+        // honour the `rotate` field so the spiral varies.
+        const angle = it.kind === 'galaxy' ? (it.rotate || 0) : 0;
+        // Per-kind modifier class lets CSS theme stars and galaxies
+        // independently (e.g. purple stars in dark mode).
+        const cls = `euclid-accent euclid-accent--${it.kind}`;
+        // Clamp the data-provided horizontal anchor so the accent's
+        // inner edge can never cross into the centred text column.
+        // The data position wins when there's enough rail; otherwise
+        // CSS min() returns the safer (smaller) calc value, pushing
+        // the accent toward — and if necessary off — the section's
+        // outer edge, where overflow:hidden on the section clips it.
+        const safeMax = `calc(${contentEdge} - ${CONTENT_GAP}px - ${it.size}px)`;
+        const left  = it.left  != null ? `min(${it.left}, ${safeMax})`  : undefined;
+        const right = it.right != null ? `min(${it.right}, ${safeMax})` : undefined;
+        return (
+          <span key={i} className={cls} style={{
+            top: it.top, bottom: it.bottom,
+            left, right,
+            width: it.size, height: it.size,
+            transform: `rotate(${angle}deg)`,
+          }}>
+            {it.kind === 'star' ? <BrightStar /> : <Galaxy />}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+// Bright-star glyph — multi-arm starburst with a centre dot.
+// Path lifted from images/brightstar.svg; viewBox cropped to the
+// bounding box of the visible artwork (the source SVG had ~70%
+// empty padding around the shape).
+function BrightStar() {
+  return (
+    <svg viewBox="208 315 180 195" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+         style={{ width: '100%', height: '100%', display: 'block' }}>
+      <path d="M230.5,353.8l66.1,53.5,15.7-85-11.5,86,78.7-28.3-77.6,33.6,63,56.7-66.1-53.5-15.7,85,11.5-86-78.7,28.3,77.6-33.6-63-56.7Z" />
+      <circle cx="298.7" cy="411.5" r="8.4" />
+    </svg>
+  );
+}
+
+// Galaxy glyph — a curling spiral.
+// Path lifted from images/galaxy.svg; viewBox cropped to the visible
+// artwork extents.
+function Galaxy() {
+  return (
+    <svg viewBox="263 386 87 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+         style={{ width: '100%', height: '100%', display: 'block' }}>
+      <path d="M319.6,389.4s.5,0,1,.5c.5,0,1,.5,1.5,1,1.5,1.5,3,3,3.5,5,2,5,.5,11-2,16-1.5,3-3.5,5.5-5.5,7.5-3.5,3.5-7.5,6.5-12,9-1.5,1-3.5,1.5-5,2.5-1,0-2,1-3.5,1.5-1,0-2,.5-3,1h-5.5c-3,0-6.5-.5-9-3.5,0,0-.5-1-1-1.5,0-.5,0-1.5-.5-2.5v4c0,1,1,2,2,3,1.5,1,3,2,5,2,3,.5,6.5,0,9.5,0,3-.5,5.5-1.5,8-3,.5,0,1.5-.5,2-1,5-2.5,9.5-6,13.5-9.5,2.5-2,4.5-4.5,6-7.5.5-1,1-2,1.5-3,1.5-4,3-8,2-12.5,0-1,0-1.5-1-2.5-.5-1-1-2.5-2-3.5s-2-1.5-3-2c-.5,0-1.5-.5-2-1h-1M266.6,413.9s0-.5.5-1c0-.5,1-1,1.5-1.5,2-2,3.5-3.5,5.5-5,3.5-3,7.5-5.5,12-7.5,5-2,10-4,15-4.5,2,0,4,0,6,.5,1.5,0,3,1,4.5,2,1,.5,2,1.5,3,2.5s1,1.5,1,2v1.5c1,5-1.5,9.5-4.5,13.5-.5.5-1.5,1.5-2,2-1,1-2,1.5-3,2.5-4,3-8.5,5.5-14,5.5s-2.5,0-3.5-1-1-2.5-.5-3.5c0,0,0-1,.5-1,0,.5,1,1,1.5,1.5,2.5,2.5,6,2.5,9,1,1.5-1,3-2.5,3.5-4v-2l.5-.5s1-1,1-1.5c1.5-2,3-4,3-6.5s-.5-3-1.5-4c-.5-.5-1.5-1-2.5-1h-4.5c-2,0-4,0-6,1-2.5.5-4.5,2-6.5,3-4.5,2.5-8,6-11,10-2,3-4,6.5-4.5,10v3.5c0,1,.5,2,1,2.5,0,.5,1,1.5,1,2,2,2,4,3.5,7,4.5h1c2,0,4,.5,6,.5,4,0,8-1,12-2.5,6.5-2.5,12-5.5,17.5-10,2-1.5,4-3.5,6-6,0-.5,1-1,1.5-1.5,0,0,.5-.5,1-1,0,0-.5.5-1,1-.5.5-1.5,1.5-2,2-1.5,2-3.5,3.5-5.5,5-4.5,4-10,7-16,9-4.5,1.5-9,3-14,2.5-1.5,0-3.5,0-5-1h-.5c-1,0-2-1-2.5-1.5-2-1.5-3.5-3.5-4-6v-2.5c0-1.5,0-3,1-4.5,1-3,3-5.5,5-7.5,3-3,6.5-6,10.5-7.5,2-1,4.5-1.5,7-1.5h2.5c1,0,2,1.5,2,2.5v2h0v-.5l-1.5-1.5c-2-1.5-5.5-2-8-1-1.5,1-3,2-3.5,4v2l-.5.5-1.5,1.5c-1.5,1.5-3,4-3,6.5s0,3,1.5,4c0,0,1,.5,1,1,.5,0,1.5.5,2,.5h3.5c2,0,4-.5,6.5-1,2-.5,4-1.5,6-3,4.5-2.5,9-6.5,12-11,2-2.5,3.5-6,4-9.5v-4c0-1-.5-2-1-3-.5-1-1-2-2-2.5l-.5-.5c-.5-.5-1.5-1-2-1.5-2-1-4.5-2-7-2h-3c-3,0-6,.5-9,1.5-2,.5-4,1.5-6,2-5,2.5-10,5-14.5,9-2,1.5-4,3.5-5.5,5.5,0,.5-1,1-1.5,1.5l-.5,1M271.6,445.9h-1c-.5,0-1-.5-1.5-1-1.5-1-2.5-2.5-3.5-4.5-2.5-5.5-1-12,2-17.5,2.5-4,5.5-8,9.5-11,3.5-3,7.5-5.5,12-7.5,2-1,4-1.5,6-2.5,2-.5,4.5-1,7-1s3.5,0,5.5,1c1.5.5,3,1.5,3.5,3,0,0,.5,1,.5,1.5v2-1.5c0-2-1-4-2.5-5s-3-1.5-4.5-2c-3-.5-6.5,0-9.5,0s-4,1-5.5,2c-1,0-2,1-3,1.5-5,2.5-9.5,5.5-14,9-4,3.5-7,7.5-9,12-2,4-3,9-1.5,13.5.5,1.5,1.5,3,2.5,4.5,1,1,2,1.5,3,2,1,0,1.5.5,2.5,1h1l.5.5Z" />
+    </svg>
+  );
+}
+
+Object.assign(window, { SectionAccents });
+
+  /* ===== Inlined from Nav.jsx ===== */
+// Nav.jsx — Euclid: The Dark Universe Detective
+// Single-page scroll navigation with anchor links + light/dark toggle.
+const NAV_ITEMS = [
+  { id: 'missing-matter', label: 'Missing Matter' },
+  { id: 'cosmic-clues',   label: 'Cosmic Clues' },
+  { id: 'detective',      label: 'The Detective' },
+  { id: 'humans',         label: 'Humans of Euclid', href: 'humans.html' },
+  { id: 'latest-images',  label: 'Latest Image', href: 'q2release.html' },
+];
+
+// Social icons rendered to the right of the nav. Same Simple Icons set
+// used in the footer, kept in sync visually.
+const NAV_SOCIALS = [
+  {
+    href: 'https://www.instagram.com/euclid_uk/', label: 'Instagram',
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+    ),
+  },
+  {
+    href: 'https://bsky.app/profile/eucliduk.bsky.social', label: 'Bluesky',
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/>
+      </svg>
+    ),
+  },
+  {
+    href: 'https://www.linkedin.com/company/euclid-uk/', label: 'LinkedIn',
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    ),
+  },
+];
+
+function EuclidNav({ theme, onToggleTheme, showCampaignBrand }) {
+  const [scrolled, setScrolled] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [isNarrow, setIsNarrow] = React.useState(typeof window !== 'undefined' && window.innerWidth < 960);
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onResize = () => setIsNarrow(window.innerWidth < 960);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onResize); };
+  }, []);
+
+  function goTo(item, e) {
+    if (item.external) return;
+    e.preventDefault();
+    setMobileOpen(false);
+    const el = document.getElementById(item.id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  return (
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+      background: scrolled ? 'var(--nav-bg-scrolled)' : 'var(--nav-bg-top)',
+      backdropFilter: 'blur(16px)',
+      WebkitBackdropFilter: 'blur(16px)',
+      borderBottom: `1px solid ${scrolled ? 'var(--border)' : 'transparent'}`,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '0 clamp(16px, 4vw, 40px) 0 clamp(8px, 2vw, 22px)', height: isNarrow ? 70 : 76,
+      transition: 'background 300ms var(--ease-space), border-color 300ms var(--ease-space)',
+    }}>
+      <span
+        aria-label={showCampaignBrand ? 'Euclid: The Dark Universe Detective' : 'ESA and Euclid Consortium'}
+        style={{
+          display: 'inline-flex', alignItems: 'center', gap: showCampaignBrand ? (isNarrow ? 10 : 12) : (isNarrow ? 6 : 10),
+          fontFamily: 'var(--font-display)',
+          fontSize: isNarrow ? 13.5 : 'clamp(12px, 1.05vw, 14px)',
+          fontWeight: 400,
+          // Match the wordmark image exactly: pure white in dark mode
+          // (the off-white wordmark is rendered at #FFFFFF, not --cream),
+          // dark slate in light mode (the dark wordmark is the same hue
+          // as --cream-in-light, i.e. #293740).
+          color: theme === 'dark' ? '#FFFFFF' : 'var(--cream)',
+          letterSpacing: 0,
+          whiteSpace: 'nowrap',
+          textDecoration: 'none',
+        }}>
+        {showCampaignBrand ? (
+          <>
+            <img
+              src="images/logos/euclid_wordmark_dark.png"
+              alt="" aria-hidden="true"
+              className="logo-img logo-img--light-only"
+              style={{ height: isNarrow ? '1.78em' : '1.7em', width: 'auto', display: 'block' }}
+            />
+            <img
+              src="images/logos/euclid_wordmark.png"
+              alt="" aria-hidden="true"
+              className="logo-img logo-img--dark-only"
+              style={{ height: isNarrow ? '1.78em' : '1.7em', width: 'auto', display: 'block' }}
+            />
+            <span style={{
+              display: 'inline-flex', flexDirection: 'column',
+              lineHeight: 1.05, textAlign: 'left',
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 500,
+              letterSpacing: 0,
+            }}>
+              <span>The Dark Universe</span>
+              <span style={{ fontFamily: 'var(--font-accent)' }}>Detective</span>
+            </span>
+          </>
+        ) : (
+          <>
+            <a
+              href="https://www.esa.int/Science_Exploration/Space_Science/Euclid"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ESA Euclid mission"
+              style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+              <img
+                src="assets/euclid_mission_patch.png"
+                alt="" aria-hidden="true"
+                style={{
+                  height: isNarrow ? 54 : 68,
+                  width: 'auto',
+                  display: 'block',
+                  filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.16))',
+                }}
+              />
+            </a>
+            <a
+              href="https://www.euclid-ec.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Euclid Consortium"
+              style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+              <img
+                src="images/EC_logos_official_black_with_text.png"
+                alt="" aria-hidden="true"
+                className="logo-img logo-img--light-only"
+                style={{ height: isNarrow ? 44 : 58, maxWidth: isNarrow ? 214 : 306, width: 'auto', display: 'block', objectFit: 'contain' }}
+              />
+              <img
+                src="images/logos/EC_logos_official_white_with_text.png"
+                alt="" aria-hidden="true"
+                className="logo-img logo-img--dark-only"
+                style={{ height: isNarrow ? 44 : 58, maxWidth: isNarrow ? 214 : 306, width: 'auto', display: 'block', objectFit: 'contain' }}
+              />
+            </a>
+          </>
+        )}
+      </span>
+
+      {/* Desktop nav */}
+      {!isNarrow && (
+        <>
+          <div style={{
+            position: 'absolute', left: '50%', transform: 'translateX(-50%)',
+            display: 'flex', alignItems: 'center', gap: 4,
+          }}>
+            {NAV_ITEMS.map(item => {
+              const common = {
+                fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 700,
+                padding: '8px 14px', borderRadius: 6, cursor: 'pointer',
+                color: 'var(--grey-mid)', background: 'transparent',
+                border: 'none', textDecoration: 'none',
+                transition: 'all 200ms var(--ease-space)',
+              };
+              return item.href ? (
+                <a key={item.id} href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noopener noreferrer' : undefined} style={common}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--cream)'; e.currentTarget.style.background = 'var(--card-tint)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--grey-mid)'; e.currentTarget.style.background = 'transparent'; }}>
+                  {item.label}
+                  {item.external && <span style={{ fontSize: 10, marginLeft: 5, opacity: 0.7 }}>↗</span>}
+                </a>
+              ) : (
+                <a key={item.id} href={`#${item.id}`} onClick={e => goTo(item, e)} style={common}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--cream)'; e.currentTarget.style.background = 'var(--card-tint)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--grey-mid)'; e.currentTarget.style.background = 'transparent'; }}>
+                  {item.label}
+                </a>
+              );
+            })}
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 'auto' }}>
+            <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+            <SocialRow style={{ marginLeft: 6 }} />
+          </div>
+        </>
+      )}
+
+      {/* Mobile right-side: theme toggle + burger */}
+      {isNarrow && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+          <button onClick={() => setMobileOpen(v => !v)} aria-label="Toggle menu" aria-expanded={mobileOpen} style={{
+            background: 'transparent', border: '1px solid var(--border)', borderRadius: 6,
+            width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: 'var(--cream)', cursor: 'pointer',
+          }}>
+            <div style={{ width: 18, display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <span style={{ height: 2, background: 'currentColor', transformOrigin: 'center', transition: 'transform 200ms var(--ease-space)', transform: mobileOpen ? 'translateY(6px) rotate(45deg)' : 'none' }} />
+              <span style={{ height: 2, background: 'currentColor', opacity: mobileOpen ? 0 : 1, transition: 'opacity 150ms var(--ease-space)' }} />
+              <span style={{ height: 2, background: 'currentColor', transformOrigin: 'center', transition: 'transform 200ms var(--ease-space)', transform: mobileOpen ? 'translateY(-6px) rotate(-45deg)' : 'none' }} />
+            </div>
+          </button>
+        </div>
+      )}
+
+      {/* Mobile drawer */}
+      {isNarrow && mobileOpen && (
+        <div style={{
+          position: 'fixed', top: 70, left: 0, right: 0, bottom: 0,
+          background: 'var(--nav-bg-scrolled)', backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderTop: '1px solid var(--border)',
+          padding: 'clamp(32px, 9vh, 72px) 20px calc(28px + env(safe-area-inset-bottom))',
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', gap: 8,
+          minHeight: 'calc(100vh - 64px)',
+          overflowY: 'auto',
+        }}>
+          {NAV_ITEMS.map(item => item.href ? (
+            <a key={item.id} href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noopener noreferrer' : undefined} style={{
+              color: 'var(--cream)', padding: '18px 20px', borderRadius: 8,
+              fontFamily: 'var(--font-body)', fontSize: 'clamp(22px, 6vw, 30px)', fontWeight: 700,
+              textDecoration: 'none', textAlign: 'center', minWidth: 260,
+              transition: 'color 200ms var(--ease-space), transform 200ms var(--ease-space)',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.color = 'var(--purple-primary)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'var(--cream)'; e.currentTarget.style.transform = 'none'; }}>
+              {item.label}
+              {item.external && ' ↗'}
+            </a>
+          ) : (
+            <a key={item.id} href={`#${item.id}`} onClick={e => goTo(item, e)} style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              color: 'var(--cream)', padding: '18px 20px', borderRadius: 8,
+              fontFamily: 'var(--font-body)', fontSize: 'clamp(22px, 6vw, 30px)', fontWeight: 700,
+              textDecoration: 'none', textAlign: 'center', minWidth: 260,
+              justifyContent: 'center',
+              transition: 'color 200ms var(--ease-space), transform 200ms var(--ease-space)',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.color = 'var(--purple-primary)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'var(--cream)'; e.currentTarget.style.transform = 'none'; }}>
+              {item.label}
+            </a>
+          ))}
+          <SocialRow style={{ marginTop: 28, justifyContent: 'center' }} size={52} iconSize={24} gap={14} />
+        </div>
+      )}
+    </nav>
+  );
+}
+
+// ── Social icon row (Instagram · Bluesky · LinkedIn) ─────────
+function SocialRow({ style, size = 36, iconSize = 18, gap = 6 }) {
+  return (
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap, ...(style || {}) }}>
+      {NAV_SOCIALS.map(s => (
+        <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+          aria-label={s.label} title={s.label}
+          style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: size, height: size, borderRadius: 9999,
+            background: 'transparent', color: 'var(--cream)',
+            border: 'none', textDecoration: 'none',
+            transition: 'color 200ms var(--ease-space), transform 200ms var(--ease-space)',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.color = 'var(--purple-primary)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'var(--cream)'; e.currentTarget.style.transform = 'none'; }}>
+          {React.cloneElement(s.icon, { width: iconSize, height: iconSize })}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+// ── Theme toggle ─────────────────────────────────────────────
+function ThemeToggle({ theme, onToggle }) {
+  const isDark = theme === 'dark';
+  return (
+    <button
+      onClick={onToggle}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={isDark}
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      style={{
+        background: 'transparent', border: '1px solid var(--border)',
+        borderRadius: 9999, width: 40, height: 40,
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        color: 'var(--cream)', marginLeft: 6, marginRight: 2,
+        transition: 'all 220ms var(--ease-space)',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--purple-light)'; e.currentTarget.style.background = 'var(--card-tint)'; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'transparent'; }}>
+      {isDark ? <MoonIcon /> : <SunIcon />}
+    </button>
+  );
+}
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+    </svg>
+  );
+}
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+    </svg>
+  );
+}
+
+Object.assign(window, { EuclidNav });
+
+  /* ===== Inlined from Hero.jsx ===== */
+// Hero.jsx — Single static hero (no carousel).
+// Wordmark · Space Grotesk tagline (Detective accented) · body · CTAs · Royal Society chartermark.
+// Background uses the existing .slide-bg-1 imagery with the Ken-Burns drift
+// from index.html (kept on .euclid-slide.is-active).
+const HERO_BACKGROUNDS = {
+  light: {
+    video: 'images/orig-2301_026_AR_EN_hero.mp4',
+    poster: 'images/orig-2301_026_AR_EN_hero_poster.jpg',
+  },
+  dark: {
+    video: 'images/CosmicWeb_hero.mp4',
+    poster: 'images/CosmicWeb_hero_poster.jpg',
+  },
+};
+
+function HeroBackground({ theme, isNarrow }) {
+  const videoRef = React.useRef(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = React.useState(false);
+  const [videoReady, setVideoReady] = React.useState(false);
+  const activeTheme = theme === 'dark' ? 'dark' : 'light';
+  const background = HERO_BACKGROUNDS[activeTheme];
+
+  React.useEffect(() => {
+    setVideoReady(false);
+    const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+    const reducedMotion = Boolean(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    if (saveData || reducedMotion) {
+      setShouldLoadVideo(false);
+      return undefined;
+    }
+
+    const start = () => setShouldLoadVideo(true);
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(start, { timeout: 900 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+    const timer = window.setTimeout(start, 350);
+    return () => window.clearTimeout(timer);
+  }, [activeTheme]);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !shouldLoadVideo) return undefined;
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      tryPlay();
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries[0] && entries[0].isIntersecting;
+      if (visible) {
+        tryPlay();
+      } else {
+        video.pause();
+      }
+    }, { threshold: 0.08 });
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [shouldLoadVideo, background.video]);
+
+  return (
+    <>
+      <div
+        className={`slide-bg slide-bg-1 ${activeTheme === 'dark' ? 'slide-bg-1--cosmic-web' : ''}`}
+        aria-hidden="true"
+        style={{
+          backgroundImage: `url("${background.poster}")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+        }}
+      />
+      {shouldLoadVideo && (
+        <video
+          key={background.video}
+          ref={videoRef}
+          className={`slide-bg slide-bg-1 ${activeTheme === 'dark' ? 'slide-bg-1--cosmic-web' : ''}`}
+          src={background.video}
+          poster={background.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          onCanPlay={() => setVideoReady(true)}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center center',
+            opacity: videoReady ? 1 : 0,
+            transition: 'opacity 500ms var(--ease-space)',
+          }}
+        />
+      )}
+    </>
+  );
+}
+
+function EuclidHero({ theme }) {
+  const [isNarrow, setIsNarrow] = React.useState(typeof window !== 'undefined' && window.innerWidth < 720);
+
+  React.useEffect(() => {
+    const onResize = () => setIsNarrow(window.innerWidth < 720);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  function scrollToId(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  return (
+    <section
+      id="top"
+      aria-label="Euclid: The Dark Universe Detective"
+      className="euclid-slide is-active"
+      style={{
+        position: 'relative',
+        minHeight: isNarrow ? '100svh' : '100vh',
+        height: isNarrow ? '100svh' : undefined,
+        paddingTop: 64,
+        display: 'flex', overflow: 'hidden', background: 'var(--space-black)',
+      }}>
+      <HeroBackground theme={theme} isNarrow={isNarrow} />
+
+      {/* Vignette scrim — boosts white-text contrast over busy imagery */}
+      <div aria-hidden style={{
+        position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
+        background:
+          'radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.32) 45%, rgba(0,0,0,0.12) 80%, rgba(0,0,0,0) 100%)',
+      }} />
+
+      {/* Content stack */}
+      <div style={{
+        position: 'relative', zIndex: 2,
+        margin: 'auto', maxWidth: isNarrow ? 680 : 920,
+        padding: isNarrow
+          ? '74px 18px 42px'
+          : 'clamp(72px, 12vh, 140px) clamp(20px, 6vw, 80px) clamp(48px, 8vh, 96px)',
+        textAlign: 'center',
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+        gap: isNarrow ? 18 : 'clamp(18px, 3vh, 32px)',
+      }}>
+        {/* Wordmark — plain "euclid" wordmark, no cone, no consortium text.
+           Sits transparently over the video background. */}
+        <img
+          src="images/logos/euclid_wordmark.png"
+          alt="Euclid"
+          style={{
+            display: 'block',
+            width: isNarrow ? 'min(58vw, 250px)' : 'auto',
+            height: isNarrow ? 'auto' : 'clamp(80px, 15vw, 196px)',
+            maxWidth: isNarrow ? '100%' : '95%',
+          }}
+        />
+
+        {/* Tagline — single typeface, weight + colour for hierarchy.
+           "Detective" carries the accent colour to echo the campaign
+           lockup without leaning on serif italic decoration. */}
+        <h1 style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: isNarrow ? 34 : 'clamp(30px, 4.8vw, 58px)',
+          fontWeight: 700,
+          color: '#FFFFFF',
+          lineHeight: isNarrow ? 0.98 : 0.94,
+          letterSpacing: 0,
+          textWrap: 'balance',
+          margin: 0,
+        }}>
+          The{' '}
+          <span style={{ fontFamily: 'var(--font-accent)', color: 'var(--purple-light)', fontWeight: 700 }}>Dark Universe</span>
+          {' '}Detective
+        </h1>
+
+        {/* Body lead-in */}
+        <p style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: isNarrow ? 17 : 'clamp(16px, 1.5vw, 19px)',
+          fontWeight: 500,
+          color: '#FFFFFF',
+          lineHeight: isNarrow ? 1.45 : 1.65, maxWidth: isNarrow ? 500 : 620, textWrap: 'pretty',
+          margin: 0,
+        }}>
+          We are the UK based team working on the European Space Agency's Euclid space telescope, on a mission to map the dark Universe!
+        </p>
+
+        {/* CTA group */}
+        <div style={{
+          display: 'flex', gap: 14, flexWrap: 'wrap', justifyContent: 'center',
+          marginTop: 4,
+        }}>
+          <button onClick={() => scrollToId('missing-matter')}
+            style={primaryCta()}
+            onMouseEnter={e => { e.currentTarget.style.background = 'var(--purple-light)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'var(--purple-primary)'; e.currentTarget.style.transform = 'none'; }}>
+            Explore the mission <span style={{ marginLeft: 6 }}>→</span>
+          </button>
+          <a href="humans.html"
+            style={outlineCta()}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.14)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.65)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; }}>
+            Meet the Team <span style={{ marginLeft: 6 }}>→</span>
+          </a>
+        </div>
+
+        {/* Royal Society chartermark — credential, not crown */}
+        <a href="https://royalsociety.org/science-events-and-lectures/summer-science-exhibition/"
+           target="_blank" rel="noopener noreferrer"
+           data-chartermark="hero"
+           aria-label="Selected for the Royal Society Summer Science Exhibition 2026"
+           style={{ display: 'inline-block', marginTop: 'clamp(8px, 2vh, 20px)' }}>
+          <img
+            src="images/logos/DES9400_6_SSE 2026_Chartermark_red.png"
+            className="logo-img--light-only"
+            alt="Royal Society Summer Science Exhibition 2026"
+            style={{ width: 'clamp(108px, 11vw, 144px)', height: 'auto', display: 'block', filter: 'drop-shadow(0 4px 18px rgba(0,0,0,0.35))' }} />
+          <img
+            src="images/logos/DES9400_6_SSE 2026_Chartermark.png"
+            className="logo-img--dark-only"
+            alt="Royal Society Summer Science Exhibition 2026"
+            style={{ width: 'clamp(108px, 11vw, 144px)', height: 'auto', display: 'block', filter: 'drop-shadow(0 4px 18px rgba(0,0,0,0.6))' }} />
+        </a>
+      </div>
+
+      {/* Scroll cue */}
+      <button
+        onClick={() => scrollToId('partners')}
+        aria-label="Scroll to next section"
+        style={{
+          position: 'absolute', bottom: 24, left: '50%',
+          transform: 'translateX(-50%)', zIndex: 3,
+          width: 36, height: 36, padding: 0,
+          background: 'transparent', border: 'none',
+          color: '#FFFFFF', opacity: 0.85,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer',
+          animation: 'euclid-scroll-cue 2.4s ease-in-out infinite',
+        }}>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+
+      <style>{`
+        @keyframes euclid-scroll-cue {
+          0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
+          50%      { transform: translate(-50%, 6px); opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [aria-label="Scroll to next section"] { animation: none !important; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+function primaryCta() {
+  return {
+    display: 'inline-flex', alignItems: 'center',
+    background: 'var(--purple-primary)', color: '#FFFFFF',
+    border: 'none', borderRadius: 8,
+    fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600,
+    padding: '14px 28px', cursor: 'pointer', textDecoration: 'none',
+    letterSpacing: '0.02em',
+    transition: 'all 220ms var(--ease-space)',
+  };
+}
+
+function outlineCta() {
+  return {
+    display: 'inline-flex', alignItems: 'center',
+    background: 'rgba(255,255,255,0.04)', color: '#FFFFFF',
+    border: '1px solid rgba(255,255,255,0.4)', borderRadius: 8,
+    fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600,
+    padding: '13px 26px', cursor: 'pointer', textDecoration: 'none',
+    letterSpacing: '0.02em',
+    backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)',
+    transition: 'all 220ms var(--ease-space)',
+  };
+}
+
+Object.assign(window, { EuclidHero });
+
+  /* ===== Inlined from ScienceSection.jsx ===== */
+// ScienceSection.jsx
+// Two adjacent sections:
+//   1. PartnersShowcase — partner / agency logos.
+//   2. Missing Matter — copy column + Vimeo pair, with the
+//      main dark matter and dark energy story.
+function ScienceSection() {
+  return (
+    <>
+      <PartnersShowcase />
+
+      {/* Section: A Mystery of Missing Matter */}
+      <section id="missing-matter" aria-labelledby="missing-matter-title"
+        style={{
+          position: 'relative',          /* anchors <SectionAccents> */
+          background: 'var(--space-deep)',
+          padding: 'clamp(64px, 8vw, 110px) clamp(20px, 6vw, 80px)',
+          borderTop: '1px solid var(--border)',
+          borderBottom: '1px solid var(--border)',
+          overflow: 'hidden',             /* clip rotated accent edges */
+        }}>
+        <SectionAccents variant="missing-matter" />
+        <div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            columnGap: 'clamp(32px, 5vw, 64px)',
+            rowGap: 24,
+            alignItems: 'start',
+          }}>
+            {/* Copy */}
+            <div>
+              <div className="section-pill" style={{ marginBottom: 14 }}>
+                Dark Matter and Dark Energy
+              </div>
+              <h2 id="missing-matter-title" className="section-headline" style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(42px, 6.8vw, 92px)',
+                fontWeight: 700,
+                color: 'var(--cream)', lineHeight: 0.92,
+                letterSpacing: 0,
+                marginBottom: 24,
+              }}>
+                <span className="section-headline__kicker" style={{ display: 'block', fontSize: '0.38em', lineHeight: 1.12 }}>A missing matter</span>
+                <span className="big-type-word section-headline__word" style={{ display: 'block', fontFamily: 'var(--font-accent)', color: 'var(--purple-light)', fontWeight: 700 }}>mystery</span>
+              </h2>
+
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 18 }}>
+                Until 20 to 30 years ago, scientists thought that the Universe was composed of ordinary matter: protons, neutrons and electrons. Now we know that this accounts for only <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>5% of the Universe's mass-energy budget</strong>.
+              </p>
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 18 }}>
+                The rest is composed of two mysterious components — <strong style={{ color: 'var(--orange-glow)', fontWeight: 600 }}>dark matter</strong> and <strong style={{ color: 'var(--purple-light)', fontWeight: 600 }}>dark energy</strong> — which are causing the expansion of the Universe to accelerate, and which cannot be adequately explained by our current knowledge of fundamental physics.
+              </p>
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 18 }}>
+                The European Space Agency's Euclid mission is designed to explore the composition and evolution of the dark Universe. The space telescope will create a great map of the large-scale structure of the Universe across space and time by observing billions of galaxies out to 10 billion light-years, across more than a third of the sky.
+              </p>
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 18 }}>
+                Euclid will explore how the Universe has expanded and how structure has formed over cosmic history, revealing more about the role of gravity and the nature of dark energy and dark matter.
+              </p>
+              <p style={{
+                fontSize: 15, color: 'var(--cream)', lineHeight: 1.65,
+                marginBottom: 18,
+                paddingLeft: 16,
+                borderLeft: '2px solid var(--purple-light)',
+              }}>
+                Watch the videos to find out more, and meet some of the people involved in the Euclid mission ahead of this year's Royal Society Summer Science Exhibition.
+              </p>
+            </div>
+
+            {/* Vimeo pair */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: 20,
+              alignItems: 'start',
+            }}>
+              <VimeoCard label="What is dark matter?" id="1119049471" accent="orange" />
+              <VimeoCard label="What is dark energy?" id="1119049937" accent="purple" />
+            </div>
+
+            <div style={{ gridColumn: '1 / 2' }}>
+              <p style={{
+                fontSize: 15, color: 'var(--cream)', lineHeight: 1.65,
+                marginBottom: 24, paddingLeft: 16,
+                borderLeft: '2px solid var(--purple-light)',
+              }}>
+                Move the magnifying glass above the image of Abell 2390 to search for the dark matter that Euclid has found so far. You can also toggle the audio button to hear a sonification of this data.
+              </p>
+              <a href="https://www.euclid-ec.org/euclid-starts-seeing-darkness/"
+                target="_blank" rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  background: 'transparent', color: 'var(--cream)',
+                  border: '1px solid var(--purple-primary)', borderRadius: 8, textDecoration: 'none',
+                  fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600,
+                  padding: '13px 26px', letterSpacing: '0.02em',
+                  transition: 'all 220ms var(--ease-space)',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'var(--card-tint-hover)'; e.currentTarget.style.borderColor = 'var(--purple-light)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'var(--purple-primary)'; e.currentTarget.style.transform = 'none'; }}>
+                Euclid starts seeing darkness <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+// Partner / agency logos — moved up from the footer so they sit immediately
+// after the hero. Universities + agencies on a single line, separated by a
+// vertical rule. Logo heights use clamp() so the row scales down gracefully
+// on narrow viewports without breaking onto two lines.
+const PARTNER_IMG = 'images';
+const PARTNER_UNIVERSITIES = [
+  {
+    href: 'https://www.ed.ac.uk/news/fresh-satellite-data-reveals-spectacular-space-discoveries',
+    alt: 'University of Edinburgh',
+    light: `${PARTNER_IMG}/UoE_Stacked Logo_CMYK_v1_160215.png`,
+    dark:  `${PARTNER_IMG}/UoE_Stacked Logo_White_v1_160215 v1.svg`,
+    h: 'clamp(30px, 3.1vw, 42px)',
+  },
+  {
+    href: 'https://www.sussex.ac.uk/broadcast/read/68563',
+    alt: 'University of Sussex',
+    light: `${PARTNER_IMG}/university_of_sussex_custom_logo.png`,
+    dark:  `${PARTNER_IMG}/university_of_sussex_custom_logo_white.png`,
+    h: 'clamp(30px, 3.1vw, 42px)',
+  },
+  {
+    href: 'https://www.open.ac.uk/blogs/news/science-mct/euclid-mission-reveals-spectacular-new-space-discoveries/',
+    alt: 'The Open University',
+    light: `${PARTNER_IMG}/The_Open_University_logo.svg`,
+    dark:  `${PARTNER_IMG}/The_Open_University_logo_white.svg`,
+    h: 'clamp(30px, 3.1vw, 42px)',
+  },
+];
+const PARTNER_AGENCIES = [
+  {
+    href: 'https://www.gov.uk/government/news/uk-science-uncovers-mysteries-of-dark-universe-with-euclid-data',
+    alt: 'UK Space Agency',
+    light: `${PARTNER_IMG}/logos/full_transparent.png`,
+    dark:  `${PARTNER_IMG}/logos/white_transparent.png`,
+    h: 'clamp(46px, 4.45vw, 64px)',
+  },
+  {
+    href: 'https://www.ukri.org/councils/stfc/',
+    alt: 'Science and Technology Facilities Council',
+    light: 'assets/STFC_logo_light.png',
+    dark:  'assets/STFC_logo_dark.png',
+    h: 'clamp(42px, 4vw, 58px)',
+  },
+  {
+    href: 'https://www.euclid-ec.org',
+    alt: 'Euclid Consortium',
+    light: `${PARTNER_IMG}/logos/EC_logos_official_Blue_with_text.png`,
+    dark:  `${PARTNER_IMG}/logos/EC_logos_official_white_with_text.png`,
+    h: 'clamp(46px, 4.45vw, 64px)',
+  },
+  {
+    href: 'https://www.esa.int/Science_Exploration/Space_Science/Euclid',
+    alt: 'ESA',
+    light: `${PARTNER_IMG}/logos/ESA_logo_2020_Deep.png`,
+    dark:  `${PARTNER_IMG}/logos/ESA_logo_2020_White.png`,
+    h: 'clamp(54px, 5.15vw, 74px)',
+  },
+];
+
+function PartnersShowcase() {
+  return (
+    <section
+      id="partners"
+      aria-label="Mission partners"
+      style={{
+        background: 'var(--space-black)',
+        padding: 'clamp(18px, 2.4vw, 32px) clamp(16px, 4vw, 60px)',
+        borderTop: '1px solid var(--border)',
+      }}>
+      <div style={{ maxWidth: 1600, margin: '0 auto' }}>
+        <div className="partner-logo-wrap" style={{
+          display: 'flex', flexWrap: 'nowrap',
+          gap: 'clamp(20px, 2vw, 32px)',
+          justifyContent: 'center', alignItems: 'center',
+        }}>
+          <LogoRow logos={PARTNER_UNIVERSITIES} variant="universities" />
+          <div className="partner-logo-divider" style={{
+            flexShrink: 0, width: 1,
+            height: 'clamp(32px, 5vw, 56px)',
+            background: 'var(--border)', display: 'block',
+          }} aria-hidden />
+          <LogoRow logos={PARTNER_AGENCIES} variant="agencies" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LogoRow({ logos, variant }) {
+  return (
+    <div className={`partner-logo-row partner-logo-row--${variant}`} style={{
+      display: 'flex', flexWrap: 'nowrap',
+      gap: 'clamp(12px, 2vw, 28px)',
+      alignItems: 'center', justifyContent: 'center',
+    }}>
+      {logos.map(l => (
+        <a key={l.alt} href={l.href} target="_blank" rel="noopener noreferrer" aria-label={l.alt}
+          className="partner-logo-link"
+          style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            height: l.h, flex: '0 1 auto', opacity: 0.88,
+            transition: 'opacity 200ms var(--ease-space), transform 200ms var(--ease-space)',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'none'; }}>
+          {/* Light-mode source */}
+          <img src={l.light} alt={l.alt}
+            className="logo-img logo-img--light-only partner-logo-img"
+            style={{ height: l.h, maxWidth: l.maxW || 'min(34vw, 260px)', width: 'auto', display: 'block', objectFit: 'contain' }} />
+          {/* Dark-mode source */}
+          <img src={l.dark} alt={l.alt}
+            className="logo-img logo-img--dark-only partner-logo-img"
+            style={{ height: l.h, maxWidth: l.maxW || 'min(34vw, 260px)', width: 'auto', display: 'block', objectFit: 'contain' }} />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function VimeoCard({ label, id, accent }) {
+  const [hovered, setHovered] = React.useState(false);
+  return (
+    <figure
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: 'var(--space-mid)', borderRadius: 12, padding: 12,
+        border: `1px solid ${hovered ? (accent === 'orange' ? 'var(--orange-primary)' : 'var(--purple-light)') : 'var(--border)'}`,
+        transition: 'all 240ms var(--ease-space)',
+        transform: hovered ? 'translateY(-2px)' : 'none',
+        margin: 0,
+      }}>
+      <figcaption style={{
+        fontFamily: 'var(--font-display)', fontSize: 16,
+        fontWeight: 600,
+        color: accent === 'orange' ? 'var(--orange-glow)' : 'var(--purple-primary)',
+        letterSpacing: 0,
+        padding: '6px 8px 12px', textAlign: 'center',
+      }}>{label}</figcaption>
+      <div style={{
+        position: 'relative', aspectRatio: '9 / 16',
+        borderRadius: 8, overflow: 'hidden', background: 'var(--space-black)',
+      }}>
+        <iframe
+          src={`https://player.vimeo.com/video/${id}?autoplay=0&title=0&byline=0&portrait=0`}
+          title={label}
+          loading="lazy"
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }} />
+      </div>
+    </figure>
+  );
+}
+
+Object.assign(window, { ScienceSection });
+
+  /* ===== Inlined from NewsSection.jsx ===== */
+// NewsSection.jsx — "Cosmic Clues" / Gravitational Lensing.
+// The Abell 2390 dark matter reveal is the visual anchor of the page;
+// it spans the full viewport width with a credit overlay along the
+// bottom, and the copy sits below in a centered narrow column.
+// A second full-bleed band (Messier 78) closes the section.
+function NewsSection() {
+  return (
+    <>
+      <CosmicCluesImageCarousel />
+
+      {/* Copy */}
+      <section id="cosmic-clues" aria-labelledby="cosmic-clues-title"
+        style={{
+          background: 'var(--space-black)',
+          padding: 'clamp(64px, 8vw, 110px) clamp(20px, 6vw, 80px)',
+          position: 'relative',
+          overflow: 'hidden',
+        }}>
+        <SectionAccents variant="cosmic-clues" />
+        <div style={{ position: 'relative', maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
+          <div className="section-pill" style={{ marginBottom: 16 }}>
+            Gravitational Lensing
+          </div>
+          <h2 id="cosmic-clues-title" className="section-headline" style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(48px, 7.4vw, 104px)',
+            fontWeight: 700,
+            color: 'var(--cream)', lineHeight: 0.92,
+            letterSpacing: 0,
+            marginBottom: 24,
+          }}>
+            <span className="section-headline__kicker" style={{ display: 'block', fontSize: '0.42em', lineHeight: 1.1 }}>Finding the cosmic</span>
+            <span className="big-type-word section-headline__word" style={{ display: 'block', fontFamily: 'var(--font-accent)', color: 'var(--purple-light)', fontWeight: 700 }}>clues</span>
+          </h2>
+
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(19px, 2vw, 24px)',
+            fontWeight: 500,
+            color: 'var(--cream)', lineHeight: 1.4,
+            letterSpacing: 0,
+            marginBottom: 36, textWrap: 'balance',
+          }}>
+            Imagine a galaxy, behind another galaxy. Think you won't see it? Think again.
+          </p>
+
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+              While we can't see dark matter directly, Euclid can see clues of its presence. One such clue is where galaxies appear as warped or distorted illusions of their true selves — an effect known as <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>gravitational lensing</strong>.
+            </p>
+            <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+              This happens when massive objects bend and magnify light, revealing otherwise hidden mass — including dark matter.
+            </p>
+            <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+              Astronomers and software developers at <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>The University of Edinburgh</strong> lead on Euclid's gravitational lensing data analysis.
+            </p>
+            <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+              Euclid's data is revolutionising the study of strong lensing. New techniques using machine learning and AI have been developed to find these rare objects. Citizen science has also contributed significantly, with over <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>1,000 volunteers</strong> participating in visual inspections, and you can get involved too. Head over to the Zooniverse Space Warps project to make your own discoveries of strong gravitational lenses!
+            </p>
+            <p style={{
+              fontSize: 15, color: 'var(--cream)', lineHeight: 1.65,
+              marginBottom: 32, paddingLeft: 16,
+              borderLeft: '2px solid var(--purple-light)',
+            }}>
+              At this year's Royal Society Summer Science Exhibition you'll experience gravitational lensing firsthand — watching the cosmos warp as light bends around you, mimicking Euclid's ability to detect distant galaxies distorted by gravity.
+            </p>
+          </div>
+
+          {/* Citizen-science CTAs */}
+          <div className="cosmic-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: 24, alignItems: 'flex-end', width: '100%' }}>
+            <div className="cosmic-cta-lockup">
+              <a href="https://www.zooniverse.org/projects/aprajita/space-warps-esa-euclid"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Zooniverse Space Warps"
+                className="cosmic-cta-logo-slot">
+                <img
+                  src="assets/zooniverse_logo_light.png"
+                  alt="Zooniverse: People-Powered Research"
+                  className="logo-img logo-img--light-only"
+                  style={{ width: 'min(236px, 68vw)', height: 'auto', display: 'block' }}
+                />
+                <img
+                  src="assets/zooniverse_logo_dark.png"
+                  alt="Zooniverse: People-Powered Research"
+                  className="logo-img logo-img--dark-only"
+                  style={{ width: 'min(236px, 68vw)', height: 'auto', display: 'block' }}
+                />
+              </a>
+              <a href="https://www.zooniverse.org/projects/aprajita/space-warps-esa-euclid"
+                target="_blank" rel="noopener noreferrer"
+                className="cosmic-cta"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  background: 'var(--orange-primary)', color: '#fff',
+                  border: 'none', borderRadius: 8, textDecoration: 'none',
+                  fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600,
+                  padding: '14px 28px', letterSpacing: '0.02em',
+                  transition: 'all 220ms var(--ease-space)',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'var(--orange-glow)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'var(--orange-primary)'; e.currentTarget.style.transform = 'none'; }}>
+                Take me to Space Warps <span>↗</span>
+              </a>
+            </div>
+            <div className="cosmic-cta-lockup cosmic-cta-lockup--selfie">
+              <div className="cosmic-cta-logo-slot cosmic-cta-logo-slot--selfie">
+                <a href="https://eucliduk.net/gravitational-lens.html"
+                  target="_blank" rel="noopener noreferrer"
+                  className="instawarp-cta-logo"
+                  aria-label="Instawarp">
+                  instawarp
+                </a>
+              </div>
+                <a href="https://eucliduk.net/gravitational-lens.html"
+                  target="_blank" rel="noopener noreferrer"
+                  className="cosmic-cta cosmic-cta--selfie"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    background: 'transparent', color: 'var(--cream)',
+                    border: '1px solid var(--purple-primary)', borderRadius: 8, textDecoration: 'none',
+                    fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600,
+                    padding: '13px 26px', letterSpacing: '0.02em',
+                    transition: 'all 220ms var(--ease-space)',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--card-tint-hover)'; e.currentTarget.style.borderColor = 'var(--purple-light)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'var(--purple-primary)'; e.currentTarget.style.transform = 'none'; }}>
+                  Take a spacetime selfie!
+                </a>
+                <a href="https://apps.apple.com/gb/app/gravylensing/id6783065795"
+                  target="_blank" rel="noopener noreferrer"
+                  className="app-store-link"
+                  aria-label="Download GravyLensing on the App Store"
+                  style={{ display: 'inline-flex', marginTop: 14, lineHeight: 0, transition: 'opacity 220ms var(--ease-space), transform 220ms var(--ease-space)' }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'none'; }}>
+                  <img
+                    src="images/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg"
+                    alt="Download on the App Store"
+                    className="logo-img logo-img--light-only"
+                    style={{ width: 'min(190px, 62vw)', height: 'auto', display: 'block' }}
+                  />
+                  <img
+                    src="images/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+                    alt="Download on the App Store"
+                    className="logo-img logo-img--dark-only"
+                    style={{ width: 'min(190px, 62vw)', height: 'auto', display: 'block' }}
+                  />
+                </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Full-bleed Messier 78 — closes the section */}
+      <FullBleedImage
+        src="images/Euclid_s_new_image_of_star-forming_region_Messier_78.jpg"
+        alt="Euclid's image of the star-forming region Messier 78"
+        label="Star-forming region · Messier 78"
+        actionVideoSrc="https://dlmultimedia.esa.int/download/public/videos/2024/12/033/2412_033_AR_EN.mp4"
+        actionLabel="Listen to M78 sonification"
+        expandTitle="Stellar Nursery M78"
+        expandDistance="1,300 light-years from Earth"
+        expandText={`In May 2024, stunning new views of the nearby
+Universe as seen by the Euclid space
+telescope were revealed.
+
+Here we see a beautiful cloud of glowing interstellar
+gas and dust giving birth to brand new stars. Known
+as Messier 78, this stellar nursery had never before
+been captured in its entirety with such clarity.
+
+300,000 new objects were uncovered in this image
+alone, including newly forming planets.
+
+Usually hidden from view behind the dust, Euclid
+used its infrared camera to see through the clouds.
+Scientists will use this data to learn more about how
+populations of stars form and change over time.`}
+      />
+    </>
+  );
+}
+
+const NEWS_IMG_BASE = 'images';
+const A2390_VISIBLE = `${NEWS_IMG_BASE}/A2390/Abell2390.jpg`;
+const A2390_DARK_MATTER = `${NEWS_IMG_BASE}/A2390/Abell2390_dark_matter_purple.jpg`;
+const A2390_PURPLE_INTENSITY = [[0.016,0.015,0.01,0.009,0.008,0.008,0.007,0.006,0.007,0.004,0.005,0.002,0.003,0.01,0.021,0.016,0.015,0.021,0.031,0.03,0.03,0.041,0.059,0.048],[0.026,0.013,0.006,0.006,0.01,0.015,0.011,0.004,0.005,0.004,0,0,0.008,0.016,0.023,0.021,0.021,0.027,0.023,0.026,0.016,0.024,0.042,0.036],[0.036,0.02,0.013,0.018,0.029,0.03,0.019,0.009,0.008,0.005,0.01,0.022,0.042,0.049,0.057,0.056,0.064,0.045,0.031,0.018,0.017,0.032,0.021,0.028],[0.028,0.032,0.035,0.045,0.04,0.033,0.026,0.02,0.021,0.04,0.074,0.124,0.172,0.185,0.175,0.168,0.142,0.114,0.065,0.04,0.029,0.024,0.025,0.029],[0.02,0.032,0.038,0.016,0.026,0.014,0.015,0.042,0.064,0.101,0.18,0.286,0.382,0.463,0.436,0.361,0.268,0.183,0.127,0.069,0.043,0.039,0.044,0.031],[0.015,0.021,0.021,0.029,0.031,0.015,0.036,0.132,0.204,0.261,0.408,0.6,0.732,0.752,0.654,0.583,0.44,0.33,0.215,0.116,0.064,0.053,0.038,0.026],[0.018,0.02,0.024,0.038,0.058,0.097,0.164,0.299,0.46,0.61,0.793,0.942,1,0.887,0.786,0.688,0.613,0.461,0.311,0.163,0.096,0.045,0.024,0.016],[0.01,0.014,0.004,0.008,0.053,0.11,0.215,0.403,0.631,0.806,0.971,0.974,0.943,0.883,0.744,0.655,0.534,0.462,0.305,0.185,0.089,0.038,0.02,0.014],[0.015,0.016,0.009,0.022,0.052,0.146,0.246,0.391,0.646,0.835,0.849,0.754,0.823,0.791,0.656,0.472,0.249,0.243,0.179,0.132,0.068,0.031,0.021,0.018],[0.018,0.017,0.024,0.033,0.074,0.138,0.181,0.356,0.533,0.637,0.656,0.635,0.603,0.527,0.434,0.301,0.166,0.074,0.048,0.037,0.045,0.029,0.028,0.025],[0.025,0.032,0.043,0.058,0.093,0.141,0.176,0.278,0.369,0.411,0.48,0.47,0.383,0.311,0.219,0.141,0.06,0.026,0.023,0.031,0.041,0.043,0.037,0.044],[0.034,0.045,0.061,0.097,0.127,0.13,0.124,0.191,0.147,0.162,0.366,0.376,0.258,0.186,0.118,0.067,0.033,0.022,0.019,0.027,0.041,0.04,0.051,0.059],[0.028,0.015,0.019,0.046,0.089,0.133,0.134,0.154,0.184,0.242,0.223,0.222,0.171,0.142,0.091,0.056,0.029,0.015,0.012,0.012,0.016,0.019,0.021,0.025],[0.017,0.006,0.002,0.026,0.066,0.081,0.097,0.087,0.115,0.14,0.126,0.101,0.061,0.037,0.022,0.021,0.012,0.008,0.007,0.003,0.007,0.008,0.008,0.012],[0.008,0.007,0.018,0.028,0.039,0.036,0.037,0.059,0.094,0.085,0.073,0.038,0.007,0.003,0.009,0.01,0.009,0.008,0.009,0.002,0.003,0.004,0.008,0.008]];
+
+function CosmicCluesImageCarousel() {
+  const [activeSlide, setActiveSlide] = React.useState(() => (
+    typeof window !== 'undefined' && window.location.hash === '#einstein-ring' ? 1 : 0
+  ));
+  const goToSlide = React.useCallback(direction => {
+    setActiveSlide(current => (current + direction + 2) % 2);
+  }, []);
+  const targetSlideLabel = activeSlide === 0 ? 'Show Einstein ring image' : 'Show Abell 2390 dark matter image';
+
+  return (
+    <div id="cosmic-clues-carousel" aria-label="Gravitational lensing image carousel" style={{ position: 'relative', background: '#000' }}>
+      {activeSlide === 0 ? <A2390DarkMatterSlide /> : <EinsteinRingSlide />}
+      <CarouselArrow direction="previous" ariaLabel={targetSlideLabel} onClick={() => goToSlide(-1)} />
+      <CarouselArrow direction="next" ariaLabel={targetSlideLabel} onClick={() => goToSlide(1)} />
+    </div>
+  );
+}
+
+function EinsteinRingSlide() {
+  return (
+    <FullBleedImage
+      src={`${NEWS_IMG_BASE}/Euclid_image_of_a_bright_Einstein_ring_around_galaxy_NGC_6505.jpg`}
+      alt="A bright Einstein ring of distorted light around galaxy NGC 6505, captured by Euclid"
+      label="Einstein ring · NGC 6505"
+      expandTitle="One Einstein Ring to rule them all"
+      expandTitlePrefix="One"
+      expandTitleEmphasis="Einstein Ring"
+      expandTitleSuffix="to rule them all"
+      expandDistance="4.42 billion light-years from Earth"
+      modelSrc={`${NEWS_IMG_BASE}/EinsteinRing.stl`}
+      modelLabel="Touch astronomical objects."
+      modelLogoSrc="assets/tactile_universe_device_purple.png"
+      modelLogoAlt="Tactile Universe"
+      modelDescription={
+        <>
+          Thanks to the <a href="https://tactileuniverse.org" target="_blank" rel="noopener noreferrer">Tactile Universe</a> project, you can explore astronomical objects like stars, galaxies and gravitational lenses through 3D-printed tactile representations at this year's Royal Society Summer Science Exhibition. The models give us more insight into Euclid's discoveries, and enable everyone to discover the space telescope's incredible data.
+        </>
+      }
+      modelCredit={
+        <>
+          Credit: Coleman Krawczyk, & Tactile Universe. (2018, October 26). TactileUniverse/3D-Printed-Galaxy-Software. Zenodo. <a href="http://doi.org/10.5281/zenodo.814181" target="_blank" rel="noopener noreferrer">http://doi.org/10.5281/zenodo.814181</a>
+        </>
+      }
+      expandText={`In February 2025, ESA’s Euclid space telescope saw
+this beautiful example of an Einstein Ring.
+
+A ring of light is surrounding the centre of a galaxy
+known as NGC 6505, which acts as a gravitational
+lens and distorts the light from a galaxy far behind it.
+
+NGC 6505 is lined up almost perfectly with the
+background galaxy when viewed by Euclid, so it
+bends and magnifies the other galaxy’s light
+into this spectacular ring.
+
+Euclid can take incredibly wide images of space, so
+in this view we see the the Einstein ring surrounded
+by colourful foreground stars and
+background galaxies.`}
+    />
+  );
+}
+
+function A2390DarkMatterSlide() {
+  const [spot, setSpot] = React.useState({ x: 50, y: 55 });
+  const [active, setActive] = React.useState(false);
+  const [locked, setLocked] = React.useState(false);
+  const [audioEnabled, setAudioEnabled] = React.useState(false);
+  const [radius, setRadius] = React.useState(150);
+  const frameRef = React.useRef(null);
+  const audioRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const syncRadius = () => {
+      const rect = frameRef.current ? frameRef.current.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight };
+      setRadius(Math.max(96, Math.min(190, Math.min(rect.width, rect.height) * 0.2)));
+    };
+    syncRadius();
+    window.addEventListener('resize', syncRadius);
+    return () => window.removeEventListener('resize', syncRadius);
+  }, []);
+
+  React.useEffect(() => () => {
+    if (!audioRef.current) return;
+    const { ctx, carrier, shimmer } = audioRef.current;
+    try {
+      carrier.stop();
+      shimmer.stop();
+      ctx.close();
+    } catch (error) {}
+    audioRef.current = null;
+  }, []);
+
+  const rimWidth = Math.max(12, radius * 0.14);
+  const revealRadius = Math.max(58, radius - rimWidth);
+
+  const getAudioEngine = React.useCallback(() => {
+    if (typeof window === 'undefined') return null;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return null;
+
+    if (!audioRef.current) {
+      const ctx = new AudioContext();
+      const carrier = ctx.createOscillator();
+      const shimmer = ctx.createOscillator();
+      const carrierGain = ctx.createGain();
+      const shimmerGain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+      const master = ctx.createGain();
+
+      carrier.type = 'sine';
+      shimmer.type = 'triangle';
+      carrier.frequency.value = 180;
+      shimmer.frequency.value = 360;
+      carrierGain.gain.value = 0.7;
+      shimmerGain.gain.value = 0.06;
+      filter.type = 'bandpass';
+      filter.frequency.value = 520;
+      filter.Q.value = 7;
+      master.gain.value = 0;
+
+      carrier.connect(carrierGain);
+      shimmer.connect(shimmerGain);
+      carrierGain.connect(filter);
+      shimmerGain.connect(filter);
+      filter.connect(master);
+      master.connect(ctx.destination);
+      carrier.start();
+      shimmer.start();
+      audioRef.current = { ctx, carrier, shimmer, carrierGain, shimmerGain, filter, master };
+    }
+
+    if (audioRef.current.ctx.state === 'suspended') {
+      audioRef.current.ctx.resume().catch(() => {});
+    }
+    return audioRef.current;
+  }, []);
+
+  const primeSonification = React.useCallback(() => {
+    const engine = getAudioEngine();
+    if (!engine) return;
+    const now = engine.ctx.currentTime;
+    engine.master.gain.setTargetAtTime(0.001, now, 0.04);
+  }, [getAudioEngine]);
+
+  const fadeAudio = React.useCallback(() => {
+    const engine = audioRef.current;
+    if (!engine) return;
+    engine.master.gain.setTargetAtTime(0, engine.ctx.currentTime, 0.12);
+  }, []);
+
+  const measurePurpleIntensity = React.useCallback((xPercent, yPercent, screenRadius) => {
+    const frame = frameRef.current;
+    if (!frame) return 0;
+
+    const rect = frame.getBoundingClientRect();
+    const map = A2390_PURPLE_INTENSITY;
+    const rows = map.length;
+    const cols = map[0].length;
+    const displayedWidth = Math.max(rect.width, rect.height);
+    const displayedHeight = displayedWidth;
+    const offsetX = (rect.width - displayedWidth) / 2;
+    const offsetY = (rect.height - displayedHeight) / 2;
+    const centerX = ((xPercent / 100) * rect.width - offsetX) / displayedWidth;
+    const centerY = ((yPercent / 100) * rect.height - offsetY) / displayedHeight;
+    const sampleRadiusX = screenRadius / displayedWidth;
+    const sampleRadiusY = screenRadius / displayedHeight;
+    const sampleSteps = 4;
+    let total = 0;
+    let count = 0;
+
+    function sampleMap(nx, ny) {
+      const x = Math.max(0, Math.min(1, nx)) * (cols - 1);
+      const y = Math.max(0, Math.min(1, ny)) * (rows - 1);
+      const x0 = Math.floor(x);
+      const y0 = Math.floor(y);
+      const x1 = Math.min(cols - 1, x0 + 1);
+      const y1 = Math.min(rows - 1, y0 + 1);
+      const tx = x - x0;
+      const ty = y - y0;
+      const top = map[y0][x0] * (1 - tx) + map[y0][x1] * tx;
+      const bottom = map[y1][x0] * (1 - tx) + map[y1][x1] * tx;
+      return top * (1 - ty) + bottom * ty;
+    }
+
+    for (let gy = -sampleSteps; gy <= sampleSteps; gy++) {
+      for (let gx = -sampleSteps; gx <= sampleSteps; gx++) {
+        const dx = gx / sampleSteps;
+        const dy = gy / sampleSteps;
+        if (dx * dx + dy * dy > 1) continue;
+        total += sampleMap(centerX + dx * sampleRadiusX, centerY + dy * sampleRadiusY);
+        count++;
+      }
+    }
+
+    return count ? Math.min(1, total / count) : 0;
+  }, []);
+
+  const playSonification = React.useCallback((xPercent, yPercent, enabled = true) => {
+    if (!enabled) {
+      fadeAudio();
+      return;
+    }
+    const engine = getAudioEngine();
+    if (!engine) return;
+    const intensity = measurePurpleIntensity(xPercent, yPercent, revealRadius);
+    const shaped = Math.pow(Math.max(0, Math.min(1, intensity)), 0.58);
+    const now = engine.ctx.currentTime;
+    engine.master.gain.setTargetAtTime(0.018 + shaped * 0.16, now, 0.055);
+    engine.carrier.frequency.setTargetAtTime(95 + shaped * 1050, now, 0.055);
+    engine.shimmer.frequency.setTargetAtTime(180 + shaped * 2300, now, 0.055);
+    engine.filter.frequency.setTargetAtTime(260 + shaped * 3600, now, 0.055);
+    engine.filter.Q.setTargetAtTime(4 + shaped * 16, now, 0.055);
+    engine.shimmerGain.gain.setTargetAtTime(0.01 + shaped * 0.19, now, 0.055);
+  }, [fadeAudio, getAudioEngine, measurePurpleIntensity, revealRadius]);
+
+  const updateSpot = React.useCallback(event => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    const nextSpot = {
+      x: Math.max(0, Math.min(100, x)),
+      y: Math.max(0, Math.min(100, y)),
+    };
+    setSpot(nextSpot);
+    playSonification(nextSpot.x, nextSpot.y, audioEnabled);
+  }, [audioEnabled, playSonification]);
+
+  const handleAudioToggle = React.useCallback(() => {
+    const nextAudioEnabled = !audioEnabled;
+    setAudioEnabled(nextAudioEnabled);
+    if (nextAudioEnabled) {
+      setActive(true);
+      primeSonification();
+      playSonification(spot.x, spot.y, true);
+    } else {
+      fadeAudio();
+    }
+  }, [audioEnabled, fadeAudio, playSonification, primeSonification, spot.x, spot.y]);
+
+  React.useEffect(() => {
+    if (!audioEnabled) fadeAudio();
+  }, [audioEnabled, fadeAudio]);
+
+  const handleKeyDown = event => {
+    const step = event.shiftKey ? 10 : 4;
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      event.preventDefault();
+      setActive(true);
+      setSpot(prev => {
+        const nextSpot = {
+          x: Math.max(0, Math.min(100, prev.x + (event.key === 'ArrowRight' ? step : event.key === 'ArrowLeft' ? -step : 0))),
+          y: Math.max(0, Math.min(100, prev.y + (event.key === 'ArrowDown' ? step : event.key === 'ArrowUp' ? -step : 0))),
+        };
+        playSonification(nextSpot.x, nextSpot.y, audioEnabled);
+        return nextSpot;
+      });
+    }
+  };
+
+  const revealed = active || locked;
+  const magnifierViewBox = 512;
+  const glassCenter = 184;
+  const glassRadius = 136;
+  const glassStroke = 38;
+  const glassOuterRadius = glassRadius + glassStroke / 2;
+  const magnifierSize = (radius * 2 * magnifierViewBox) / (glassOuterRadius * 2);
+  const magnifierOffset = `${(glassCenter / magnifierViewBox) * 100}%`;
+  const lensMask = locked
+    ? 'circle(150% at 50% 50%)'
+    : `circle(${revealed ? revealRadius : 0}px at ${spot.x}% ${spot.y}%)`;
+
+  return (
+    <section
+      ref={frameRef}
+      aria-label="Abell 2390 dark matter map reveal"
+      tabIndex={0}
+      onPointerMove={event => {
+        setActive(true);
+        if (audioEnabled) primeSonification();
+        updateSpot(event);
+      }}
+      onPointerEnter={event => {
+        setActive(true);
+        if (audioEnabled) primeSonification();
+        updateSpot(event);
+      }}
+      onPointerDown={event => {
+        setActive(true);
+        if (event.pointerType !== 'mouse' && event.currentTarget.setPointerCapture) {
+          event.currentTarget.setPointerCapture(event.pointerId);
+        }
+        if (audioEnabled) primeSonification();
+        updateSpot(event);
+      }}
+      onPointerUp={event => {
+        if (event.pointerType !== 'mouse') {
+          if (event.currentTarget.releasePointerCapture) {
+            event.currentTarget.releasePointerCapture(event.pointerId);
+          }
+          setActive(false);
+          fadeAudio();
+        }
+      }}
+      onPointerCancel={() => {
+        setActive(false);
+        fadeAudio();
+      }}
+      onPointerLeave={() => {
+        if (!locked) setActive(false);
+        fadeAudio();
+      }}
+      onFocus={() => setActive(true)}
+      onBlur={() => {
+        if (!locked) setActive(false);
+        fadeAudio();
+      }}
+      onKeyDown={handleKeyDown}
+      style={{
+        position: 'relative',
+        width: '100%',
+        minHeight: 'clamp(360px, 75vh, 800px)',
+        overflow: 'hidden',
+        background: '#000',
+        cursor: locked ? 'default' : 'none',
+        touchAction: 'none',
+      }}>
+      <img
+        src={A2390_VISIBLE}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+      />
+      <img
+        src={A2390_DARK_MATTER}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center',
+          display: 'block',
+          opacity: revealed ? 1 : 0,
+          clipPath: lensMask,
+          transition: 'none',
+          willChange: 'clip-path',
+        }}
+      />
+      {!locked && (
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 512 512" style={{
+          position: 'absolute',
+          left: `${spot.x}%`,
+          top: `${spot.y}%`,
+          width: magnifierSize,
+          height: magnifierSize,
+          overflow: 'visible',
+          transform: `translate(-${magnifierOffset}, -${magnifierOffset})`,
+          opacity: revealed ? 1 : 0,
+          pointerEvents: 'none',
+          transition: 'none',
+          zIndex: 2,
+        }}>
+          <line
+            x1="290" y1="290" x2="438" y2="438"
+            stroke="rgba(3,3,5,0.96)"
+            strokeWidth="62"
+            strokeLinecap="round"
+          />
+          <circle
+            cx={glassCenter}
+            cy={glassCenter}
+            r={glassRadius}
+            fill="none"
+            stroke="rgba(3,3,5,0.96)"
+            strokeWidth={glassStroke}
+          />
+        </svg>
+      )}
+      <div aria-hidden style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 1,
+        pointerEvents: 'none',
+        background: 'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0.75) 100%)',
+      }} />
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0,
+        zIndex: 4,
+        padding: 'clamp(16px, 2.5vw, 28px) clamp(20px, 6vw, 80px)',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
+        fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 500,
+        color: '#F2F2F2', letterSpacing: '0.06em', textTransform: 'uppercase',
+        gap: 12, flexWrap: 'wrap',
+        pointerEvents: 'none',
+      }}>
+        <span>ABELL 2390</span>
+        <span>ESA / EUCLID</span>
+      </div>
+      <a href="https://www.euclid-ec.org/euclid-starts-seeing-darkness/"
+        target="_blank" rel="noopener noreferrer"
+        style={{
+          position: 'absolute',
+          right: 'clamp(16px, 3vw, 32px)',
+          bottom: 'clamp(54px, 8vw, 84px)',
+          zIndex: 5,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 8,
+          background: 'var(--nav-bg-scrolled)',
+          color: 'var(--cream)',
+          border: '1px solid rgba(255,255,255,0.28)',
+          borderRadius: 8,
+          textDecoration: 'none',
+          fontFamily: 'var(--font-body)',
+          fontSize: 14,
+          fontWeight: 700,
+          lineHeight: 1,
+          letterSpacing: '0.02em',
+          padding: '13px 18px',
+          minHeight: 42,
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          boxShadow: '0 16px 38px rgba(0,0,0,0.28)',
+          transition: 'all 220ms var(--ease-space)',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = 'var(--card-tint)';
+          e.currentTarget.style.borderColor = 'var(--purple-light)';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = 'var(--nav-bg-scrolled)';
+          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)';
+          e.currentTarget.style.transform = 'none';
+        }}>
+        Learn more
+      </a>
+      <TopRightIconButton
+        ariaLabel={audioEnabled ? 'Turn Abell 2390 sonification off' : 'Turn Abell 2390 sonification on'}
+        pressed={audioEnabled}
+        onClick={handleAudioToggle}
+        rightOffset="calc(clamp(16px, 3vw, 32px) + 60px)"
+      >
+        {audioEnabled ? (
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+            <path d="M19 5a10 10 0 0 1 0 14" />
+          </svg>
+        ) : (
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <line x1="22" y1="9" x2="16" y2="15" />
+            <line x1="16" y1="9" x2="22" y2="15" />
+          </svg>
+        )}
+      </TopRightIconButton>
+      <TopRightIconButton
+        ariaLabel={locked ? 'Hide full dark matter map' : 'Reveal full dark matter map'}
+        pressed={locked}
+        onClick={() => {
+          setLocked(value => !value);
+          setActive(true);
+        }}
+      >
+        {locked ? (
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 3l18 18" />
+            <path d="M10.6 10.6A2 2 0 0 0 13.4 13.4" />
+            <path d="M9.9 4.2A10.8 10.8 0 0 1 12 4c5 0 9 5 10 8a14.6 14.6 0 0 1-2.1 3.6" />
+            <path d="M6.6 6.6A14.2 14.2 0 0 0 2 12c1 3 5 8 10 8a10.7 10.7 0 0 0 4.1-.8" />
+          </svg>
+        ) : (
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        )}
+      </TopRightIconButton>
+    </section>
+  );
+}
+
+function TopRightIconButton({ ariaLabel, pressed, onClick, children, rightOffset = 'clamp(16px, 3vw, 32px)' }) {
+  return (
+    <button type="button"
+      aria-label={ariaLabel}
+      aria-pressed={pressed}
+      onClick={onClick}
+      style={{
+        position: 'absolute',
+        top: 'clamp(16px, 3vw, 32px)',
+        right: rightOffset,
+        zIndex: 5,
+        width: 48,
+        height: 48,
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: pressed ? 'var(--purple-primary)' : 'var(--nav-bg-scrolled)',
+        color: 'var(--cream)',
+        border: '1px solid var(--border)',
+        borderRadius: '50%',
+        padding: 0,
+        backdropFilter: 'blur(14px)',
+        WebkitBackdropFilter: 'blur(14px)',
+        boxShadow: '0 16px 38px rgba(0,0,0,0.28)',
+        transition: 'all 220ms var(--ease-space)',
+        cursor: 'pointer',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.background = pressed ? 'var(--purple-primary)' : 'var(--card-tint)';
+        e.currentTarget.style.borderColor = 'var(--purple-light)';
+        e.currentTarget.style.transform = 'translateY(-2px)';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.background = pressed ? 'var(--purple-primary)' : 'var(--nav-bg-scrolled)';
+        e.currentTarget.style.borderColor = 'var(--border)';
+        e.currentTarget.style.transform = 'none';
+      }}>
+      {children}
+    </button>
+  );
+}
+
+function CarouselArrow({ direction, ariaLabel, onClick }) {
+  const isNext = direction === 'next';
+  return (
+    <button type="button"
+      aria-label={ariaLabel}
+      onClick={onClick}
+      style={{
+        position: 'absolute',
+        top: '50%',
+        [isNext ? 'right' : 'left']: 'clamp(16px, 3vw, 32px)',
+        zIndex: 6,
+        width: 36,
+        height: 36,
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'transparent',
+        color: '#FFFFFF',
+        opacity: 0.82,
+        border: 'none',
+        borderRadius: 0,
+        padding: 0,
+        transform: 'translateY(-50%)',
+        textShadow: '0 2px 14px rgba(0,0,0,0.55)',
+        filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.5))',
+        transition: 'opacity 180ms var(--ease-space), transform 180ms var(--ease-space)',
+        cursor: 'pointer',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.opacity = '1';
+        e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.opacity = '0.82';
+        e.currentTarget.style.transform = 'translateY(-50%)';
+      }}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none"
+        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        {isNext ? <polyline points="9 6 15 12 9 18" /> : <polyline points="15 6 9 12 15 18" />}
+      </svg>
+    </button>
+  );
+}
+
+// Reusable full-bleed image band — used for the Einstein ring, Messier 78,
+// and the Euclid map. A single shared component keeps the visual treatment
+// consistent across the page (same gradient, same credit row).
+//
+// Theme-aware swap: pass srcDark (and optionally altDark / labelDark) to
+// show a different image in dark mode. The swap reuses the existing
+// .logo-img--light-only / .logo-img--dark-only display:none pattern from
+// index.html, so no extra runtime theme wiring is needed.
+//
+// Sizing: pass `aspectRatio` (e.g. "3 / 1") for panoramic strips that
+// should stay uncropped, OR pass `className` to drive sizing from CSS
+// (useful when sizing is theme-dependent), OR fall back to `minHeight`
+// for cinematic hero-style bands that crop to fill.
+//
+// Background defaults to #000 so cropped imagery sits on void; pass
+// "transparent" if the band should let the page background show through
+// any letterbox area (e.g. when the band hosts a panoramic strip on a
+// page with a non-black background).
+function FullBleedImage({
+  src, alt, label, credit = 'ESA / Euclid',
+  srcDark, altDark, labelDark,
+  aspectRatio,
+  minHeight = 'clamp(360px, 75vh, 800px)',
+  objectFit = 'cover',
+  objectPosition = 'center',
+  className,
+  background = '#000',
+  actionVideoSrc,
+  actionLabel,
+  expandTitle,
+  expandTitlePrefix,
+  expandTitleEmphasis,
+  expandTitleSuffix,
+  expandDistance,
+  expandText,
+  modelSrc,
+  modelLabel = 'Interactive 3D model',
+  modelLogoSrc,
+  modelLogoAlt = '',
+  modelDescription = null,
+  modelCredit,
+}) {
+  const [actionOpen, setActionOpen] = React.useState(false);
+  const [modelOpen, setModelOpen] = React.useState(false);
+  const [expandOpen, setExpandOpen] = React.useState(false);
+  const [expandedHeight, setExpandedHeight] = React.useState(
+    typeof window !== 'undefined' ? `${window.innerHeight}px` : '100vh'
+  );
+  const sectionRef = React.useRef(null);
+
+  const openExpand = React.useCallback(() => {
+    setExpandOpen(open => {
+      const next = !open;
+      if (next) {
+        setExpandedHeight(`${window.innerHeight}px`);
+        window.requestAnimationFrame(() => {
+          if (sectionRef.current) {
+            sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+      return next;
+    });
+  }, []);
+
+  React.useEffect(() => {
+    if (!actionOpen && !expandOpen && !modelOpen) return undefined;
+    const onKeyDown = event => {
+      if (event.key === 'Escape') {
+        setActionOpen(false);
+        setModelOpen(false);
+        setExpandOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [actionOpen, expandOpen, modelOpen]);
+
+  React.useEffect(() => {
+    if (!expandOpen) return undefined;
+    const syncHeight = () => setExpandedHeight(`${window.innerHeight}px`);
+    syncHeight();
+    window.addEventListener('resize', syncHeight);
+    return () => window.removeEventListener('resize', syncHeight);
+  }, [expandOpen]);
+
+  // If CSS-driven sizing is in play (className present and no explicit
+  // aspectRatio), don't add inline sizing — let the stylesheet win.
+  const isExpandedImage = expandOpen && expandTitle && expandText;
+  const sizing = isExpandedImage
+    ? { minHeight: expandedHeight }
+    : aspectRatio
+    ? { aspectRatio }
+    : className ? {} : { minHeight };
+  const containerStyle = {
+    position: 'relative', width: '100%',
+    overflow: 'hidden', background,
+    zIndex: isExpandedImage ? 121 : 'auto',
+    transition: 'min-height 650ms var(--ease-space), height 650ms var(--ease-space)',
+    ...sizing,
+  };
+  const imgStyle = {
+    position: 'absolute', inset: 0, width: '100%', height: '100%',
+    objectFit, objectPosition, display: 'block',
+  };
+  return (
+    <section ref={sectionRef} aria-label={alt} className={className} style={containerStyle}>
+      {srcDark ? (
+        <>
+          <img src={src} alt={alt} loading="lazy"
+               className="logo-img logo-img--light-only" style={imgStyle} />
+          <img src={srcDark} alt={altDark || alt} loading="lazy"
+               className="logo-img logo-img--dark-only" style={imgStyle} />
+        </>
+      ) : (
+        <img src={src} alt={alt} loading="lazy" style={imgStyle} />
+      )}
+      {/* Bottom gradient for credit legibility */}
+      <div aria-hidden style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background:
+          'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0.75) 100%)',
+      }} />
+      {expandTitle && expandText && (
+        <button type="button"
+          aria-label={expandOpen ? `Collapse ${expandTitle} image` : `Expand ${expandTitle} image`}
+          aria-expanded={expandOpen}
+          onClick={openExpand}
+          style={{
+            position: 'absolute',
+            top: 'clamp(16px, 3vw, 32px)',
+            right: (actionVideoSrc || modelSrc) ? 'calc(clamp(16px, 3vw, 32px) + 60px)' : 'clamp(16px, 3vw, 32px)',
+            zIndex: 3,
+            width: 48, height: 48,
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            background: 'var(--nav-bg-scrolled)', color: 'var(--cream)',
+            border: '1px solid var(--border)',
+            borderRadius: '50%', padding: 0,
+            backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+            boxShadow: '0 16px 38px rgba(0,0,0,0.28)',
+            transition: 'all 220ms var(--ease-space)',
+            cursor: 'pointer',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'var(--card-tint)';
+            e.currentTarget.style.borderColor = 'var(--purple-light)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'var(--nav-bg-scrolled)';
+            e.currentTarget.style.borderColor = 'var(--border)';
+            e.currentTarget.style.transform = 'none';
+          }}>
+          {expandOpen ? (
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m15 9 6-6" />
+              <path d="M21 9V3h-6" />
+              <path d="m9 15-6 6" />
+              <path d="M3 15v6h6" />
+            </svg>
+          ) : (
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M8 3H3v5" />
+              <path d="M16 3h5v5" />
+              <path d="M21 16v5h-5" />
+              <path d="M8 21H3v-5" />
+            </svg>
+          )}
+        </button>
+      )}
+      {modelSrc && (
+        <button type="button"
+          aria-label={`Open ${modelLabel}`}
+          aria-expanded={modelOpen}
+          onClick={() => setModelOpen(true)}
+          style={{
+            position: 'absolute',
+            top: 'clamp(16px, 3vw, 32px)',
+            right: 'clamp(16px, 3vw, 32px)',
+            zIndex: 3,
+            width: 48, height: 48,
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            background: 'var(--nav-bg-scrolled)', color: 'var(--cream)',
+            border: '1px solid var(--border)',
+            borderRadius: '50%', padding: 0,
+            backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+            boxShadow: '0 16px 38px rgba(0,0,0,0.28)',
+            transition: 'all 220ms var(--ease-space)',
+            cursor: 'pointer',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'var(--card-tint)';
+            e.currentTarget.style.borderColor = 'var(--purple-light)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'var(--nav-bg-scrolled)';
+            e.currentTarget.style.borderColor = 'var(--border)';
+            e.currentTarget.style.transform = 'none';
+          }}>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 11V7a2 2 0 0 0-4 0v3" />
+            <path d="M14 10V6a2 2 0 0 0-4 0v6" />
+            <path d="M10 12V8a2 2 0 0 0-4 0v7" />
+            <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-16 0" />
+          </svg>
+        </button>
+      )}
+      {actionVideoSrc && actionLabel && (
+        <button type="button"
+          aria-label={`${actionLabel} from ESA`}
+          aria-expanded={actionOpen}
+          onClick={() => setActionOpen(true)}
+          style={{
+            position: 'absolute',
+            top: 'clamp(16px, 3vw, 32px)',
+            right: 'clamp(16px, 3vw, 32px)',
+            zIndex: 3,
+            width: 48, height: 48,
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            background: 'var(--nav-bg-scrolled)', color: 'var(--cream)',
+            border: '1px solid var(--border)',
+            borderRadius: '50%', padding: 0,
+            backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+            boxShadow: '0 16px 38px rgba(0,0,0,0.28)',
+            transition: 'all 220ms var(--ease-space)',
+            cursor: 'pointer',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'var(--card-tint)';
+            e.currentTarget.style.borderColor = 'var(--purple-light)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'var(--nav-bg-scrolled)';
+            e.currentTarget.style.borderColor = 'var(--border)';
+            e.currentTarget.style.transform = 'none';
+          }}>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+            <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+          </svg>
+        </button>
+      )}
+      {actionOpen && actionVideoSrc && (
+        <div role="dialog" aria-modal="true" aria-label={actionLabel}
+          onClick={() => setActionOpen(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 1200,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: 'clamp(18px, 4vw, 40px)',
+            background: 'color-mix(in srgb, var(--space-black) 86%, transparent)',
+            backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)',
+          }}>
+          <button type="button" aria-label="Close sonification video"
+            onClick={() => setActionOpen(false)}
+            style={{
+              position: 'fixed',
+              top: 'clamp(16px, 3vw, 32px)',
+              right: 'clamp(16px, 3vw, 32px)',
+              zIndex: 1201,
+              width: 48, height: 48, borderRadius: '50%',
+              border: '1px solid var(--border)',
+              background: 'var(--nav-bg-scrolled)', color: 'var(--cream)',
+              fontFamily: 'var(--font-body)', fontSize: 28, lineHeight: 1,
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer',
+              backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+              boxShadow: '0 12px 32px rgba(0,0,0,0.28)',
+            }}>
+            ×
+          </button>
+          <div onClick={e => e.stopPropagation()} style={{
+            position: 'relative', width: 'min(92vw, 820px)',
+            color: 'var(--cream)',
+          }}>
+            <div style={{
+              aspectRatio: '649 / 360', width: '100%', background: '#000',
+              border: '1px solid var(--border)',
+              borderRadius: 8, overflow: 'hidden',
+              boxShadow: '0 24px 70px rgba(0,0,0,0.42)',
+            }}>
+              <video
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                src={actionVideoSrc}
+                aria-label={actionLabel}
+                style={{ width: '100%', height: '100%', display: 'block', background: '#000' }}>
+                <a href={actionVideoSrc}>Open the ESA sonification video</a>
+              </video>
+            </div>
+            <div style={{
+              padding: '18px 0 0',
+            }}>
+              <h3 style={{
+                margin: '0 0 8px',
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(18px, 2.4vw, 24px)',
+                fontWeight: 700,
+                lineHeight: 1.25,
+                letterSpacing: 0,
+              }}>
+                Cosmic jingles: listen to Euclid’s image of M78
+              </h3>
+              <p style={{
+                margin: 0,
+                color: 'var(--grey-mid)',
+                fontFamily: 'var(--font-body)',
+                fontSize: 13,
+                lineHeight: 1.5,
+              }}>
+                Credit: ESA/Euclid/Euclid Consortium/NASA, image processing by J.-C. Cuillandre (CEA Paris-Saclay) and G. Anselmi, sonification by K. Nielsen (DTU Space/Maple Pools).
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {modelOpen && modelSrc && (
+        <div role="dialog" aria-modal="true" aria-label={modelLabel}
+          onClick={() => setModelOpen(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 1200,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: 'clamp(18px, 4vw, 40px)',
+            background: 'color-mix(in srgb, var(--space-black) 86%, transparent)',
+            backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)',
+          }}>
+          <button type="button" aria-label="Close 3D model"
+            onClick={() => setModelOpen(false)}
+            style={{
+              position: 'fixed',
+              top: 'clamp(16px, 3vw, 32px)',
+              right: 'clamp(16px, 3vw, 32px)',
+              zIndex: 1201,
+              width: 48, height: 48, borderRadius: '50%',
+              border: '1px solid var(--border)',
+              background: 'var(--nav-bg-scrolled)', color: 'var(--cream)',
+              fontFamily: 'var(--font-body)', fontSize: 28, lineHeight: 1,
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer',
+              backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+              boxShadow: '0 12px 32px rgba(0,0,0,0.28)',
+            }}>
+            ×
+          </button>
+          <div onClick={e => e.stopPropagation()} style={{
+            position: 'relative', width: 'min(92vw, 900px)',
+            color: 'var(--cream)',
+          }}>
+            <div style={{
+              height: 'min(70vh, 620px)', minHeight: 360, width: '100%',
+              border: '1px solid var(--border)',
+              borderRadius: 8, overflow: 'hidden', position: 'relative',
+              background: 'radial-gradient(circle at 50% 42%, var(--card-tint-hover), var(--space-black) 62%)',
+              boxShadow: '0 24px 70px rgba(0,0,0,0.42)',
+            }}>
+              <StlModelViewer src={modelSrc} label={modelLabel} />
+              {modelLogoSrc && (
+                <img
+                  src={modelLogoSrc}
+                  alt={modelLogoAlt}
+                  style={{
+                    position: 'absolute',
+                    top: 'clamp(14px, 2vw, 22px)',
+                    right: 'clamp(14px, 2vw, 22px)',
+                    width: 'clamp(74px, 11vw, 126px)',
+                    height: 'auto',
+                    opacity: 0.9,
+                    filter: 'var(--tactile-logo-filter, drop-shadow(0 10px 24px rgba(0,0,0,0.24)))',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                  }}
+                />
+              )}
+            </div>
+            <h3 style={{
+              margin: '18px 0 0',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(18px, 2.4vw, 24px)',
+              fontWeight: 700,
+              lineHeight: 1.25,
+              letterSpacing: 0,
+            }}>
+              {modelLabel}
+            </h3>
+            {modelDescription && (
+              <p style={{
+                margin: '10px 0 0',
+                maxWidth: 760,
+                color: 'var(--grey-mid)',
+                fontFamily: 'var(--font-body)',
+                fontSize: 'clamp(14px, 1.7vw, 16px)',
+                lineHeight: 1.6,
+              }}>
+                {modelDescription}
+              </p>
+            )}
+            {modelCredit && (
+              <p style={{
+                margin: '14px 0 0',
+                maxWidth: 760,
+                color: 'var(--grey-dark)',
+                fontFamily: 'var(--font-body)',
+                fontSize: 12,
+                fontWeight: 500,
+                lineHeight: 1.5,
+                letterSpacing: '0.02em',
+              }}>
+                {modelCredit}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+      {expandTitle && expandText && (
+        <div aria-hidden={!expandOpen} style={{
+          position: 'absolute', inset: 0,
+          opacity: expandOpen ? 1 : 0,
+          pointerEvents: 'none',
+          transition: 'opacity 360ms var(--ease-space)',
+        }}>
+          <div aria-hidden style={{
+            position: 'absolute', inset: 0,
+            background:
+              'linear-gradient(90deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.34) 30%, rgba(0,0,0,0.04) 58%, rgba(0,0,0,0.10) 100%), linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.04) 46%, rgba(0,0,0,0.42) 100%)',
+          }} />
+          <div style={{
+            position: 'relative', zIndex: 1,
+            minHeight: '100%',
+            display: 'flex', alignItems: 'center',
+            padding: 'clamp(76px, 9vh, 96px) clamp(24px, 7vw, 96px) clamp(34px, 6vh, 58px)',
+            color: '#F2F2F2',
+          }}>
+            <div style={{ maxWidth: 540, textShadow: '0 2px 16px rgba(0,0,0,0.46)' }}>
+              <h2 style={{
+                margin: '0 0 12px',
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                lineHeight: 1,
+                letterSpacing: 0,
+              }}>
+                {expandTitleEmphasis ? (
+                  <>
+                    {expandTitlePrefix && (
+                      <span style={{
+                        display: 'block',
+                        fontSize: 'clamp(24px, 3vw, 36px)',
+                        lineHeight: 0.95,
+                      }}>{expandTitlePrefix}</span>
+                    )}
+                    <span style={{
+                      display: 'block',
+                      width: 'max-content',
+                      maxWidth: '118%',
+                      fontSize: 'clamp(48px, 7.2vw, 92px)',
+                      lineHeight: 0.78,
+                      letterSpacing: 0,
+                      transform: 'scaleX(0.82)',
+                      transformOrigin: 'left center',
+                    }}>{expandTitleEmphasis}</span>
+                    {expandTitleSuffix && (
+                      <span style={{
+                        display: 'block',
+                        fontSize: 'clamp(24px, 3vw, 36px)',
+                        lineHeight: 0.95,
+                        marginTop: 6,
+                      }}>{expandTitleSuffix}</span>
+                    )}
+                  </>
+                ) : (
+                  <span style={{ fontSize: 'clamp(36px, 5vw, 66px)' }}>{expandTitle}</span>
+                )}
+              </h2>
+              {expandDistance && (
+                <>
+                  <div style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: 'clamp(15px, 1.5vw, 18px)',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    color: 'var(--purple-lighter)',
+                  }}>
+                    {expandDistance}
+                  </div>
+                  <div aria-hidden style={{
+                    width: 'min(320px, 58vw)',
+                    height: 2,
+                    margin: expandTitleEmphasis ? '10px 0 14px' : '12px 0 20px',
+                    background: 'linear-gradient(90deg, var(--purple-light), rgba(242,242,242,0.18))',
+                  }} />
+                </>
+              )}
+              <p style={{
+                margin: 0,
+                maxWidth: expandTitleEmphasis ? 500 : 430,
+                fontFamily: 'var(--font-body)',
+                fontSize: expandTitleEmphasis ? 'clamp(12px, 1vw, 13px)' : 'clamp(14px, 1.15vw, 15px)',
+                fontWeight: 500,
+                lineHeight: expandTitleEmphasis ? 1.34 : 1.44,
+                whiteSpace: 'pre-line',
+                color: 'rgba(242,242,242,0.9)',
+              }}>
+                {expandText}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0,
+        padding: 'clamp(16px, 2.5vw, 28px) clamp(20px, 6vw, 80px)',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
+        fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 500,
+        color: '#F2F2F2', letterSpacing: '0.06em', textTransform: 'uppercase',
+        gap: 12, flexWrap: 'wrap',
+        opacity: expandOpen ? 0 : 1,
+        transition: 'opacity 220ms var(--ease-space)',
+        pointerEvents: expandOpen ? 'none' : 'auto',
+      }}>
+        {labelDark ? (
+          <>
+            <span className="logo-img--light-only">{label}</span>
+            <span className="logo-img--dark-only">{labelDark}</span>
+          </>
+        ) : (
+          <span>{label}</span>
+        )}
+        <span>{credit}</span>
+      </div>
+    </section>
+  );
+}
+
+function loadScriptOnce(src) {
+  window.__euclidScriptPromises = window.__euclidScriptPromises || {};
+  if (!window.__euclidScriptPromises[src]) {
+    window.__euclidScriptPromises[src] = new Promise((resolve, reject) => {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing) {
+        existing.addEventListener('load', resolve, { once: true });
+        existing.addEventListener('error', reject, { once: true });
+        if (existing.dataset.loaded === 'true') resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.onload = () => { script.dataset.loaded = 'true'; resolve(); };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  return window.__euclidScriptPromises[src];
+}
+
+function StlModelViewer({ src, label }) {
+  const mountRef = React.useRef(null);
+  const [status, setStatus] = React.useState('Loading 3D model…');
+
+  React.useEffect(() => {
+    let disposed = false;
+    let renderer;
+    let controls;
+    let animationId;
+    let resizeObserver;
+
+    async function init() {
+      try {
+        const importModule = window.__euclidImportModule || (window.__euclidImportModule = new Function('url', 'return import(url)'));
+        const THREE = await importModule('https://esm.sh/three@0.128.0');
+        const { STLLoader } = await importModule('https://esm.sh/three@0.128.0/examples/jsm/loaders/STLLoader.js');
+        const { OrbitControls } = await importModule('https://esm.sh/three@0.128.0/examples/jsm/controls/OrbitControls.js');
+        if (disposed || !mountRef.current) return;
+
+        const mount = mountRef.current;
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.domElement.style.touchAction = 'none';
+        renderer.domElement.style.cursor = 'grab';
+        mount.appendChild(renderer.domElement);
+
+        const themeValue = (name, fallback) => (
+          getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback
+        );
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+        camera.position.set(0, 0.12, 5.6);
+        controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.enablePan = true;
+        controls.screenSpacePanning = true;
+        controls.enableZoom = true;
+        controls.minDistance = 1.8;
+        controls.maxDistance = 10;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.45;
+        controls.target.set(0, 0, 0);
+        controls.update();
+        controls.addEventListener('start', () => {
+          controls.autoRotate = false;
+          renderer.domElement.style.cursor = 'grabbing';
+        });
+        controls.addEventListener('end', () => {
+          renderer.domElement.style.cursor = 'grab';
+        });
+        scene.add(new THREE.HemisphereLight('#FFFFFF', themeValue('--space-mid', '#35204D'), 0.9));
+        const key = new THREE.DirectionalLight('#FFFFFF', 1.15);
+        key.position.set(3, 4, 5);
+        scene.add(key);
+        const rim = new THREE.DirectionalLight(themeValue('--tactile-model-rim', '#C9A9F0'), 0.7);
+        rim.position.set(-4, 1.5, -2);
+        scene.add(rim);
+
+        const group = new THREE.Group();
+        scene.add(group);
+
+        const resize = () => {
+          if (!mount) return;
+          const rect = mount.getBoundingClientRect();
+          const width = Math.max(rect.width, 1);
+          const height = Math.max(rect.height, 1);
+          renderer.setSize(width, height, true);
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+        };
+        resizeObserver = new ResizeObserver(resize);
+        resizeObserver.observe(mount);
+        resize();
+
+        new STLLoader().load(src, geometry => {
+          if (disposed) return;
+          geometry.computeVertexNormals();
+          geometry.computeBoundingBox();
+          const box = geometry.boundingBox;
+          const center = new THREE.Vector3();
+          const size = new THREE.Vector3();
+          box.getCenter(center);
+          box.getSize(size);
+          geometry.translate(-center.x, -center.y, -center.z);
+          const maxDim = Math.max(size.x, size.y, size.z) || 1;
+          const material = new THREE.MeshStandardMaterial({
+            color: themeValue('--tactile-model-color', '#9F7ADA'),
+            roughness: 0.62,
+            metalness: 0.02,
+            emissive: themeValue('--tactile-model-emissive', '#1B102A'),
+            emissiveIntensity: 0.05,
+            side: THREE.DoubleSide,
+          });
+          const mesh = new THREE.Mesh(geometry, material);
+          mesh.scale.setScalar(2.2 / maxDim);
+          mesh.rotation.x = -Math.PI / 2;
+          mesh.rotation.z = -0.04;
+          group.add(mesh);
+          setStatus('');
+        }, undefined, error => {
+          window.__euclidStlViewerError = error && error.message ? error.message : String(error || '');
+          if (!disposed) setStatus('The 3D model could not be loaded.');
+        });
+
+        const clock = new THREE.Clock();
+        const animate = () => {
+          animationId = window.requestAnimationFrame(animate);
+          const elapsed = clock.getElapsedTime();
+          group.rotation.y = Math.sin(elapsed * 0.45) * 0.12;
+          group.rotation.x = Math.sin(elapsed * 0.32) * 0.04;
+          if (controls) controls.update();
+          renderer.render(scene, camera);
+        };
+        animate();
+      } catch (error) {
+        window.__euclidStlViewerError = error && error.message ? error.message : String(error || '');
+        if (!disposed) setStatus('The 3D viewer could not be started.');
+      }
+    }
+
+    init();
+
+    return () => {
+      disposed = true;
+      if (animationId) window.cancelAnimationFrame(animationId);
+      if (resizeObserver) resizeObserver.disconnect();
+      if (controls) controls.dispose();
+      if (renderer) {
+        renderer.dispose();
+        if (renderer.domElement && renderer.domElement.parentNode) {
+          renderer.domElement.parentNode.removeChild(renderer.domElement);
+        }
+      }
+    };
+  }, [src]);
+
+  return (
+    <div aria-label={label} style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <div ref={mountRef} style={{ position: 'absolute', inset: 0, touchAction: 'none' }} />
+      {status && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: 'rgba(242,242,242,0.78)',
+          fontFamily: 'var(--font-body)', fontSize: 14,
+          letterSpacing: '0.04em', textTransform: 'uppercase',
+        }}>
+          {status}
+        </div>
+      )}
+    </div>
+  );
+}
+
+Object.assign(window, { NewsSection, FullBleedImage, StlModelViewer });
+
+  /* ===== Inlined from DetectiveSection.jsx ===== */
+// DetectiveSection.jsx — "Dark Universe Detective" section
+// The Euclid space telescope: Sketchfab 3D model + UK team contributions.
+// A full-bleed Euclid map ("1% of the cosmic atlas") closes the section.
+function DetectiveSection() {
+  return (
+    <>
+    <section id="detective" aria-labelledby="detective-title"
+      style={{
+        position: 'relative',
+        background: 'var(--space-deep)',
+        padding: 'clamp(64px, 8vw, 110px) clamp(20px, 6vw, 80px)',
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
+        overflow: 'hidden',
+      }}>
+      <SectionAccents variant="detective" />
+      <div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto' }}>
+        <div className="detective-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+          gap: 'clamp(32px, 5vw, 64px)',
+          alignItems: 'stretch',
+        }}>
+          {/* Copy */}
+          <div className="detective-copy">
+            <div className="detective-intro">
+              <div className="section-pill" style={{ marginBottom: 14 }}>
+                Euclid Space Telescope
+              </div>
+              <h2 id="detective-title" className="section-headline" style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(44px, 6.8vw, 96px)',
+                fontWeight: 700,
+                color: 'var(--cream)', lineHeight: 0.92,
+                letterSpacing: 0,
+                marginBottom: 28,
+              }}>
+                <span className="section-headline__kicker" style={{ display: 'block', fontSize: '0.36em', lineHeight: 1.1 }}>Designing a dark universe</span>
+                <span className="big-type-word section-headline__word" style={{ display: 'block', fontFamily: 'var(--font-accent)', color: 'var(--purple-light)', fontWeight: 700 }}>detective</span>
+              </h2>
+
+              {/* Mission stats */}
+              <div style={{
+                display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16,
+                marginBottom: 32, paddingBottom: 28,
+                borderBottom: '1px solid var(--border)',
+              }}>
+                {[
+                  { n: '1.2m', l: 'Mirror diameter' },
+                  { n: 'L2', l: 'Orbit · 1.5M km from Earth' },
+                  { n: '6 yrs', l: 'Mission duration' },
+                ].map(s => (
+                  <div key={s.n}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 600, color: 'var(--cream)', lineHeight: 1, letterSpacing: 0 }}>{s.n}</div>
+                    <div style={{ fontSize: 11, color: 'var(--grey-mid)', marginTop: 6, letterSpacing: '0.04em' }}>{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="detective-body">
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+                Euclid is a flagship space telescope launched by the <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>European Space Agency in July 2023</strong>. While its main mirror is only about half the size of the Hubble Space Telescope's at 1.2 m, Euclid can image a much larger part of the sky in one go — observing more of the Universe in a few days than Hubble will ever see.
+              </p>
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+                Euclid is based at <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>L2</strong>, a dark and calm spot four times further from Earth than the Moon, following Earth's orbit around the Sun. It is creating a map of the deep Universe over six years, covering all of the sky not obscured by our own galaxy.
+              </p>
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+                On board Euclid are two instruments: the visible light instrument, <strong style={{ color: 'var(--purple-light)', fontWeight: 600 }}>VIS</strong>, is among the largest digital cameras ever to go into space. <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>University College London (UCL)</strong> contributed to its design and build. A second camera, <strong style={{ color: 'var(--purple-light)', fontWeight: 600 }}>NISP</strong>, captures infrared light that usually gets blocked by Earth's atmosphere.
+              </p>
+              <p style={{ fontSize: 16, color: 'var(--grey-mid)', lineHeight: 1.75, marginBottom: 16 }}>
+                Scientists at the <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>University of Edinburgh</strong> lead the UK's involvement in Euclid's data analysis and host the UK's Science Data Centre, processing huge amounts of data ready for astronomers to make discoveries.
+              </p>
+              <p style={{
+                fontSize: 15, color: 'var(--cream)', lineHeight: 1.65,
+                marginBottom: 32, paddingLeft: 16,
+                borderLeft: '2px solid var(--purple-light)',
+              }}>
+                At this year's Royal Society Summer Science Exhibition you'll be able to get up close to a scale model of the Euclid space telescope.
+              </p>
+
+              <a href="humans.html"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  background: 'var(--purple-primary)', color: '#fff',
+                  border: 'none', borderRadius: 8, textDecoration: 'none',
+                  fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600,
+                  padding: '14px 28px', letterSpacing: '0.02em',
+                  transition: 'all 220ms var(--ease-space)',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'var(--purple-light)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'var(--purple-primary)'; e.currentTarget.style.transform = 'none'; }}>
+                Meet the Team
+              </a>
+            </div>
+          </div>
+
+          {/* Sketchfab embed — borderless, blends with page background.
+             Stretches to match the height of the text column on wider
+             viewports; falls back to a comfortable square-ish size when
+             the layout collapses to a single column. */}
+          <div className="detective-model" style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{
+              position: 'relative', width: '100%',
+              flex: '1 1 auto', minHeight: 'min(560px, 90vw)',
+              overflow: 'hidden', background: 'transparent',
+            }}>
+              <iframe
+                title="Interactive 3D model of the Euclid space telescope"
+                frameBorder="0" loading="lazy" allowFullScreen allowtransparency="true"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                src="https://sketchfab.com/models/9a442399d7734a0898c379011af2e984/embed?autospin=1&autostart=1&preload=1&transparent=1&ui_theme=dark&ui_infos=0&ui_controls=0&ui_watermark=0"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0, background: 'transparent' }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Field-of-Sky viewer with a compact location panel. */}
+    <section
+      className="cosmic-map-section"
+      aria-label="Interactive Euclid Field-of-Sky viewer"
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'minmax(0, 1fr) minmax(280px, 0.34fr)',
+        minHeight: 'clamp(420px, 56vh, 620px)',
+        background: 'var(--space-black)',
+        borderTop: '1px solid var(--border)',
+        overflow: 'hidden',
+      }}>
+      <div style={{ position: 'relative', minHeight: 380 }}>
+        <iframe
+          title="Euclid Field-of-Sky Viewer"
+          src="https://willjroper.github.io/explore-euclid-imaging/"
+          loading="lazy"
+          frameBorder="0"
+          allowFullScreen
+          allow="fullscreen"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            border: 0, background: 'transparent',
+            display: 'block',
+          }}
+        />
+      </div>
+      <div
+        className="cosmic-map-panel"
+        style={{
+          display: 'flex', flexDirection: 'column', justifyContent: 'center',
+          gap: 24,
+          padding: 'clamp(28px, 4vw, 56px)',
+          color: '#0E0A18',
+        }}>
+        <h2 className="cosmic-map-title" style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: 'clamp(30px, 4vw, 54px)',
+          fontWeight: 700,
+          lineHeight: 0.94,
+          letterSpacing: 0,
+          margin: 0,
+        }}>
+          <span className="cosmic-map-title__kicker" style={{ display: 'block', fontSize: '0.52em', lineHeight: 1.1 }}>Mapping the</span>{' '}
+          <span className="big-type-word cosmic-map-title__word" style={{ display: 'block', fontFamily: 'var(--font-accent)', fontWeight: 700 }}>Universe</span>
+        </h2>
+        <div style={{
+          display: 'grid', gap: 12,
+          fontFamily: 'var(--font-body)',
+          fontSize: 'clamp(16px, 1.45vw, 21px)',
+          lineHeight: 1.28,
+          fontWeight: 500,
+        }}>
+          {['Euclid Space Telescope', 'L2', 'The Solar System', 'Milky Way Galaxy', 'Universe'].map(item => (
+            <div key={item}>{item}</div>
+          ))}
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 18 }}>
+          <button
+            type="button"
+            aria-label="Directions coming soon"
+            style={{
+              width: 180,
+              border: 'none',
+              borderRadius: 8,
+              background: '#0E0A18',
+              color: '#FFFFFF',
+              fontFamily: 'var(--font-body)',
+              fontSize: 15,
+              fontWeight: 600,
+              padding: '14px 28px',
+              letterSpacing: 0,
+              transition: 'transform 220ms var(--ease-space), background 220ms var(--ease-space), color 220ms var(--ease-space)',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.textContent = 'Coming soon';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.background = '#1F1730';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.textContent = 'Get directions';
+              e.currentTarget.style.transform = 'none';
+              e.currentTarget.style.background = '#0E0A18';
+            }}
+            onFocus={e => {
+              e.currentTarget.textContent = 'Coming soon';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.background = '#1F1730';
+            }}
+            onBlur={e => {
+              e.currentTarget.textContent = 'Get directions';
+              e.currentTarget.style.transform = 'none';
+              e.currentTarget.style.background = '#0E0A18';
+            }}>
+            Get directions
+          </button>
+          <a
+            href="https://willjroper.github.io/explore-euclid-imaging/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#0E0A18',
+              fontFamily: 'var(--font-body)',
+              fontSize: 17,
+              fontWeight: 800,
+              textDecoration: 'underline',
+              textDecorationThickness: 2,
+              textUnderlineOffset: 5,
+              letterSpacing: 0,
+            }}>
+            View larger map <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    </>
+  );
+}
+
+Object.assign(window, { DetectiveSection });
+
+  /* ===== Inlined from Footer.jsx ===== */
+// Footer.jsx — Partnership statement, image credits, social links.
+// Partner / agency logos previously lived here; they have moved up the page
+// into the PartnersShowcase section (see ScienceSection.jsx) so they sit
+// directly under the hero. The footer is now a quieter sign-off.
+const SOCIALS = [
+  { href: 'https://www.instagram.com/euclid_uk/', label: 'Instagram', handle: '@euclid_uk',
+    icon: (
+      // Simple Icons — Instagram
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+    ) },
+  { href: 'https://bsky.app/profile/eucliduk.bsky.social', label: 'Bluesky', handle: '@eucliduk.bsky.social',
+    icon: (
+      // Simple Icons — Bluesky
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/>
+      </svg>
+    ) },
+  { href: 'https://www.linkedin.com/company/euclid-uk/', label: 'LinkedIn', handle: 'euclid-uk',
+    icon: (
+      // Simple Icons — LinkedIn
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    ) },
+];
+
+function EuclidFooter() {
+  return (
+    <footer id="humans" style={{
+      position: 'relative',
+      background: 'var(--space-black)',
+      borderTop: '1px solid var(--border)',
+      padding: 'clamp(48px, 6vw, 80px) clamp(20px, 6vw, 60px) 32px',
+      overflow: 'hidden',
+    }}>
+      <SectionAccents variant="humans" />
+      <div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, justifyContent: 'center', marginBottom: 32 }}>
+          {SOCIALS.map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${s.label} — ${s.handle}`}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                padding: '10px 16px', borderRadius: 9999,
+                background: 'var(--card-tint)', color: 'var(--cream)',
+                border: '1px solid var(--border)', textDecoration: 'none',
+                fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 500,
+                transition: 'all 200ms var(--ease-space)',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--purple-light)'; e.currentTarget.style.background = 'var(--card-tint-hover)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--card-tint)'; }}>
+              {s.icon}
+              <span>{s.handle}</span>
+            </a>
+          ))}
+        </div>
+
+        <p style={{
+          fontSize: 14, color: 'var(--grey-mid)', lineHeight: 1.75,
+          maxWidth: 820, margin: '0 auto', textAlign: 'center',
+        }}>
+          This exhibition is led by the <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>University of Edinburgh</strong>, in partnership with the <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>University of Sussex</strong> and <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>The Open University</strong>, and features contributions from several other UK universities, the UK Space Agency, the Euclid Consortium and the European Space Agency.
+        </p>
+
+        <p style={{
+          fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 500,
+          color: 'var(--grey-dark)', letterSpacing: '0.04em',
+          lineHeight: 1.7, maxWidth: 820, margin: '28px auto 40px',
+          textAlign: 'center',
+        }}>
+          Image Credits: ESA / Euclid / Euclid Consortium / NASA. Cosmic Web Visualisation by Frank Summers, Space Telescope Science Institute. Simulation by Martin White, UC Berkeley and Lars Hernquist, Harvard University.
+        </p>
+
+        {/* Copyright line — sits below the socials and image credits as a
+           quiet sign-off. Year is hard-coded to the exhibition year so the
+           page reads consistently year-round; bump in the next cycle. */}
+        <div style={{
+          textAlign: 'center', paddingTop: 20,
+          borderTop: '1px solid var(--border)',
+          fontFamily: 'var(--font-body)', fontSize: 12,
+          color: 'var(--grey-dark)', letterSpacing: '0.04em',
+        }}>
+          © <a href="https://eucliduk.net" target="_blank" rel="noopener noreferrer"
+            style={{
+              color: 'var(--grey-mid)', textDecoration: 'none',
+              borderBottom: '1px solid transparent',
+              transition: 'color 200ms var(--ease-space), border-color 200ms var(--ease-space)',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = 'var(--cream)'; e.currentTarget.style.borderBottomColor = 'var(--purple-light)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'var(--grey-mid)'; e.currentTarget.style.borderBottomColor = 'transparent'; }}>
+            Euclid UK
+          </a> 2026
+          <span aria-hidden="true" style={{ margin: '0 8px', color: 'var(--border)' }}>·</span>
+          <a href="#cookie-settings" data-analytics-settings
+            style={{
+              color: 'var(--grey-mid)',
+              fontWeight: 700,
+              textDecoration: 'underline',
+              textUnderlineOffset: 3,
+              textDecorationThickness: 1,
+              transition: 'color 200ms var(--ease-space)',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = 'var(--cream)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'var(--grey-mid)'; }}>
+            Cookie settings
+          </a>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
+
+Object.assign(window, { EuclidFooter });
+
+function BackToTopButton() {
+  const [visible, setVisible] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.75);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const scrollTop = () => {
+    const top = document.getElementById('top');
+    if (top) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  return (
+    <button
+      type="button"
+      aria-label="Back to top"
+      onClick={scrollTop}
+      style={{
+        position: 'fixed',
+        right: 'clamp(16px, 3vw, 32px)',
+        bottom: 'clamp(16px, 3vw, 32px)',
+        zIndex: 120,
+        width: 48,
+        height: 48,
+        borderRadius: '50%',
+        border: '1px solid var(--border)',
+        background: 'var(--nav-bg-scrolled)',
+        color: 'var(--cream)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxShadow: '0 12px 32px rgba(0,0,0,0.28)',
+        backdropFilter: 'blur(14px)',
+        WebkitBackdropFilter: 'blur(14px)',
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none',
+        transform: visible ? 'translateY(0)' : 'translateY(10px)',
+        transition: 'opacity 220ms var(--ease-space), transform 220ms var(--ease-space), background 220ms var(--ease-space)',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.background = 'var(--card-tint-hover)';
+        e.currentTarget.style.transform = 'translateY(-2px)';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.background = 'var(--nav-bg-scrolled)';
+        e.currentTarget.style.transform = visible ? 'translateY(0)' : 'translateY(10px)';
+      }}>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+           stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 19V5" />
+        <path d="M5 12l7-7 7 7" />
+      </svg>
+    </button>
+  );
+}
+
+function FloatingChartermark({ visible }) {
+  const imageStyle = {
+    width: 'clamp(72px, 8vw, 112px)',
+    height: 'auto',
+    display: 'block',
+  };
+
+  return (
+    <a
+      href="https://royalsociety.org/science-events-and-lectures/summer-science-exhibition/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Selected for the Royal Society Summer Science Exhibition 2026"
+      style={{
+        position: 'fixed',
+        left: 'clamp(14px, 3vw, 32px)',
+        bottom: 'clamp(14px, 3vw, 32px)',
+        zIndex: 118,
+        display: 'block',
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none',
+        transform: visible ? 'translateY(0)' : 'translateY(12px)',
+        transition: 'opacity 220ms var(--ease-space), transform 220ms var(--ease-space), filter 220ms var(--ease-space)',
+        filter: 'drop-shadow(0 12px 26px rgba(0,0,0,0.35))',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.transform = visible ? 'translateY(-2px)' : 'translateY(12px)'; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = visible ? 'translateY(0)' : 'translateY(12px)'; }}>
+      <img
+        src="images/logos/DES9400_6_SSE 2026_Chartermark_red.png"
+        className="logo-img--light-only"
+        alt=""
+        aria-hidden="true"
+        style={imageStyle}
+      />
+      <img
+        src="images/logos/DES9400_6_SSE 2026_Chartermark.png"
+        className="logo-img--dark-only"
+        alt=""
+        aria-hidden="true"
+        style={imageStyle}
+      />
+    </a>
+  );
+}
+
+  /* ===== App bootstrap ===== */
+  function useChartermarkHandoff() {
+    const [active, setActive] = React.useState(false);
+
+    React.useEffect(() => {
+      const heroChartermark = document.querySelector('[data-chartermark="hero"]');
+
+      if (!heroChartermark || !('IntersectionObserver' in window)) {
+        const onScroll = () => setActive(window.scrollY > window.innerHeight * 0.85);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+      }
+
+      const observer = new IntersectionObserver(entries => {
+        const entry = entries[0];
+        setActive(!entry.isIntersecting && window.scrollY > 0);
+      }, { threshold: 0 });
+
+      observer.observe(heroChartermark);
+      return () => observer.disconnect();
+    }, []);
+
+    return active;
+  }
+
+  function useTheme() {
+    const getSystemTheme = React.useCallback(() => (
+      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    ), []);
+    const getStoredTheme = React.useCallback(() => {
+      try {
+        const saved = localStorage.getItem('euclid-theme-choice');
+        return saved === 'light' || saved === 'dark' ? saved : null;
+      } catch (e) {
+        return null;
+      }
+    }, []);
+    const [theme, setTheme] = React.useState(() => document.documentElement.getAttribute('data-theme') || getStoredTheme() || getSystemTheme());
+    React.useEffect(() => {
+      document.documentElement.setAttribute('data-theme', theme);
+    }, [theme]);
+    React.useEffect(() => {
+      const media = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      if (!media) return undefined;
+      const onChange = e => {
+        if (!getStoredTheme()) setTheme(e.matches ? 'dark' : 'light');
+      };
+      media.addEventListener('change', onChange);
+      return () => media.removeEventListener('change', onChange);
+    }, [getStoredTheme]);
+    const toggle = React.useCallback(() => {
+      setTheme(prev => {
+        const next = prev === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('euclid-theme-choice', next); } catch (e) {}
+        if (window.__euclidToggleSound) window.__euclidToggleSound(next === 'dark');
+        return next;
+      });
+    }, []);
+    return [theme, toggle];
+  }
+
+  function App() {
+    const [theme, toggleTheme] = useTheme();
+    const chartermarkHandoffActive = useChartermarkHandoff();
+    return (
+      <>
+        <EuclidNav theme={theme} onToggleTheme={toggleTheme} showCampaignBrand={chartermarkHandoffActive} />
+        <main id="main-content" tabIndex={-1}>
+          <EuclidHero theme={theme} />
+          <ScienceSection />
+          <NewsSection />
+          <DetectiveSection />
+        </main>
+        <EuclidFooter />
+        <FloatingChartermark visible={chartermarkHandoffActive} />
+        <BackToTopButton />
+      </>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

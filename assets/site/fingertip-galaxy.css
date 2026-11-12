@@ -1,0 +1,24 @@
+.fingertip-page { margin: 0; }
+.artwork-stage { display: grid; place-items: center; min-height: 100svh; margin: 0; padding: 0; background: #070b0d; }
+.fingertip-artwork { display: block; width: 100%; height: 100svh; max-width: none; }
+.plaque-face { fill: url(#plaque-tone); stroke: #444b4d; stroke-width: 1; }
+.fingerprint-marks { fill: #d0d0ca; }
+.plaque-lettering { fill: #d0d0ca; }
+.artwork-reading { max-width: 64rem; margin: auto; padding: 1.5rem clamp(1.25rem, 5vw, 3rem) 2rem; }
+.artwork-notes { border-block: 1px solid currentColor; }
+.artwork-notes > summary { min-height: 2.75rem; padding-block: .85rem; font-weight: 600; cursor: pointer; }
+.artwork-notes-body { padding-block: 1.5rem .5rem; }
+.artwork-notes-body h2 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+.artwork-notes-body h3 { margin-top: 1.5rem; }
+.artwork-notes-body blockquote { margin: 1.5rem 0; padding-left: 1.25rem; border-left: 2px solid currentColor; font-family: 'Courier New', Courier, monospace; }
+.artwork-notes-body :is(p, blockquote) { max-width: 65ch; }
+.artwork-site-links { display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding-top: 1.25rem; }
+.artwork-site-links a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+html[data-contrast="high"] .artwork-stage { background: var(--surface); }
+html[data-contrast="high"] .plaque-face { fill: var(--surface); stroke: var(--ink); }
+html[data-contrast="high"] :is(.fingerprint-marks, .plaque-lettering) { fill: var(--ink); }
+@media (forced-colors: active) {
+  .artwork-stage { background: Canvas; }
+  .plaque-face { fill: Canvas; stroke: CanvasText; }
+  .fingerprint-marks, .plaque-lettering { fill: CanvasText; }
+}

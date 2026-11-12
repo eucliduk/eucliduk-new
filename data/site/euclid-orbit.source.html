@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en" class="orbit-document">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Where is Euclid? | Euclid UK</title>
+  <meta name="description" content="Explore Euclid's journey to L2 with real trajectory data, the Moon, Earth's current day and night, catalogue stars, the Gaia Milky Way, Euclid's Galactic Bulge Survey image, its first 1% mosaic and planned survey progress across the sky.">
+  <link rel="icon" type="image/x-icon" href="euclid-consortium-black-f414d4824370.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="euclid-consortium-black-f414d4824370.png">
+<link rel="apple-touch-icon" sizes="180x180" href="euclid-consortium-black-f414d4824370-touch.png">
+  <script src="euclid-orbit-theme.js?v=20261006-1"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="preload" href="images/logos/euclid-loading-black.png" as="image">
+  <link rel="preload" href="images/logos/euclid-loading-white.png" as="image">
+  <link rel="preload" href="assets/textures/earth-blue-marble-2048.jpg" as="image" media="(max-width: 760px)">
+  <link rel="preload" href="assets/textures/earth-black-marble-2016-2048.jpg" as="image" media="(max-width: 760px)">
+  <link rel="preload" href="assets/textures/moon-lroc-2k.jpg" as="image">
+  <link rel="preload" href="assets/textures/sun-nasa-sdo-stereo-2048.jpg" as="image">
+  <link rel="preload" href="assets/textures/milky-way-gaia-edr3-2048.jpg" as="image">
+  <link rel="preload" href="assets/textures/euclid-galactic-bulge-sky-1024.webp" as="image">
+  <link rel="preload" href="assets/textures/euclid-first-one-percent-mosaic-2048.webp" as="image">
+  <link rel="preload" href="assets/textures/euclid-survey-progress-rg.png" as="image">
+  <link rel="preload" href="assets/textures/earth-blue-marble-4096.jpg" as="image" media="(min-width: 761px)">
+  <link rel="preload" href="assets/textures/earth-black-marble-2016-4096.jpg" as="image" media="(min-width: 761px)">
+  <link rel="stylesheet" href="css/euclid-orbit.css?v=20261006-1">
+  <link rel="stylesheet" href="css/euclid-orbit-tour.css?v=20261006-1">
+  <link rel="stylesheet" href="css/euclid-footer.css?v=20261006-1">
+  <link rel="stylesheet" href="css/euclid-accessibility.css?v=20261006-1">
+  <link rel="stylesheet" href="css/euclid-high-contrast.css?v=20261006-1">
+</head>
+<body>
+  <a class="skip-link" href="#orbit-controls">Skip to orbit controls</a>
+
+  <main class="orbit-app" id="main-content">
+    <p id="orbit-explanation" class="visually-hidden">Euclid follows an orbit around the Sun–Earth L2 region. Objects are enlarged for visibility. Focus this view and use arrow keys to rotate, plus or minus to zoom, and 1 through 6 to select Euclid, Earth, Moon, Sun, Earth and L2, or the overview. The timeline changes the selected date. Positions are modelled rather than live telemetry.</p><div class="space-view" id="space-view" role="region" aria-label="Euclid orbit interactive" tabindex="0" aria-describedby="orbit-explanation">
+      <div class="loading-screen" id="loading-screen" role="status" aria-live="polite">
+        <div class="loading-identity" aria-hidden="true">
+          <img class="loading-logo loading-logo-light" src="images/logos/euclid-loading-black.png" width="1024" height="876" alt="">
+          <img class="loading-logo loading-logo-dark" src="images/logos/euclid-loading-white.png" width="1024" height="876" alt="">
+          <svg class="loading-swirl" viewBox="0 0 1024 876" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="loading-swirl-light">
+                <stop offset="0" stop-color="currentColor" stop-opacity="0"/>
+                <stop offset="0.25" stop-color="currentColor" stop-opacity="0.15"/>
+                <stop offset="0.5" stop-color="currentColor" stop-opacity="0.7"/>
+                <stop offset="0.75" stop-color="currentColor" stop-opacity="0.15"/>
+                <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="loading-swirl-feather" filterUnits="userSpaceOnUse" x="-64" y="-64" width="1152" height="500">
+                <feGaussianBlur stdDeviation="6"/>
+              </filter>
+              <mask id="loading-swirl-upper" maskUnits="userSpaceOnUse" x="-64" y="-64" width="1152" height="500" mask-type="alpha">
+                <path d="M126 20C530 -13 900 -1 967 106" stroke="white" stroke-width="22" stroke-linecap="round" filter="url(#loading-swirl-feather)"/>
+              </mask>
+              <mask id="loading-swirl-lower" maskUnits="userSpaceOnUse" x="-64" y="-64" width="1152" height="500" mask-type="alpha">
+                <path d="M905 305C665 322 303 338 59 241" stroke="white" stroke-width="22" stroke-linecap="round" filter="url(#loading-swirl-feather)"/>
+              </mask>
+            </defs>
+            <g mask="url(#loading-swirl-upper)">
+              <rect class="loading-swirl-shimmer" x="0" y="-64" width="440" height="500" fill="url(#loading-swirl-light)"/>
+            </g>
+            <g mask="url(#loading-swirl-lower)">
+              <rect class="loading-swirl-shimmer loading-swirl-shimmer-return" x="0" y="-64" width="440" height="500" fill="url(#loading-swirl-light)"/>
+            </g>
+          </svg>
+          <svg class="loading-stars" viewBox="0 0 1024 876" aria-hidden="true">
+            <ellipse cx="331" cy="127.5" rx="6.5" ry="7.5"/>
+            <ellipse cx="520.5" cy="88.5" rx="5.5" ry="5.5"/>
+            <ellipse cx="591" cy="119.5" rx="6.5" ry="7.5"/>
+            <ellipse cx="655" cy="151.5" rx="20" ry="22"/>
+            <ellipse cx="767.5" cy="128.5" rx="6.5" ry="7.5"/>
+            <ellipse cx="278" cy="189" rx="6.5" ry="7.5"/>
+            <ellipse cx="489" cy="204" rx="6.5" ry="7.5"/>
+            <ellipse cx="621.5" cy="219" rx="6.5" ry="7.5"/>
+            <ellipse cx="562" cy="382" rx="6.5" ry="7.5"/>
+            <ellipse cx="498" cy="422" rx="6.5" ry="7.5"/>
+          </svg>
+        </div>
+        <span id="loading-message">Loading Euclid</span>
+      </div>
+
+      <div class="fallback-message" id="fallback-message" role="status" hidden>
+        <h2>Interactive view unavailable</h2>
+        <p>This interactive needs a browser with WebGL enabled.</p>
+      </div>
+
+      <header class="app-header">
+        <a class="mission-lockup" href="euclid-home.html" aria-label="Euclid UK home">
+          <img class="euclid-uk-logo" src="images/logos/eucliduklogooct26.svg?v=20261002-6" alt="Euclid UK">
+        </a>
+
+        <div class="app-title">
+          <h1>Where is Euclid?</h1>
+        </div>
+
+        <button class="header-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="header-links" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <div class="header-links" id="header-links">
+          <div class="header-tools">
+          <nav class="header-socials" aria-label="Social media">
+            <a href="https://www.instagram.com/euclid_uk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+            <a href="https://bsky.app/profile/eucliduk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" title="Bluesky">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/euclid-uk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </nav>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6a8.6 8.6 0 1 0 10.6 10.6Z"/>
+            </svg>
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+            </svg>
+          </button>
+          </div>
+          <nav class="header-nav" id="header-navigation" aria-label="Website navigation">
+            <div class="header-nav-item is-current" id="science-navigation">
+              <button type="button" id="science-menu-toggle" aria-expanded="false" aria-controls="science-submenu">
+                The Science
+                <svg class="dropdown-chevron" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg>
+              </button>
+              <div class="header-submenu science-submenu" id="science-submenu" hidden>
+                <a href="euclid-science.html">Euclid in a nutshell</a>
+                <a href="euclid-orbit.html" aria-current="page">Where is Euclid?</a>
+                <a href="euclid-story.html">Story so far</a>
+                <a href="euclid-dark-matter.html">Dark matter</a>
+                <a href="euclid-dark-energy.html">Dark energy</a>
+              </div>
+            </div>
+            <div class="header-nav-item" id="technology-navigation">
+              <button type="button" id="technology-menu-toggle" aria-expanded="false" aria-controls="technology-submenu">
+                The Technology
+                <svg class="dropdown-chevron" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg>
+              </button>
+              <div class="header-submenu" id="technology-submenu" hidden>
+                <a href="euclid-telescope.html">Telescope</a>
+                <a href="euclid-big-data.html">Big Data</a>
+              </div>
+            </div>
+            <a class="header-nav-link" href="euclid-humans.html">Humans of Euclid</a>
+            <a class="header-nav-link" href="euclid-resources.html">Resources</a>
+            <a class="header-nav-link" href="euclid-events.html">Events</a>
+            <a class="header-nav-link" href="euclid-press.html">Press</a>
+            <a class="header-nav-link" href="euclid-faqs.html">FAQs</a>
+          </nav>
+        </div>
+      </header>
+
+      <aside class="announcement-bar" aria-label="Euclid announcement">
+        <p>Euclid will reveal more of its map of the Universe on November 12th - see it here!</p>
+      </aside>
+
+      <button class="survey-progress-toggle" id="survey-progress-toggle" type="button" aria-label="Survey progress: loading reference map" aria-pressed="false" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"></circle>
+          <path d="M3.5 12h17M12 3.5c2.2 2.4 3.3 5.2 3.3 8.5S14.2 18.1 12 20.5M12 3.5C9.8 5.9 8.7 8.7 8.7 12s1.1 6.1 3.3 8.5"></path>
+        </svg>
+        <span>
+          <strong>Survey progress</strong>
+          <small id="survey-progress-caption">Loading reference map</small>
+          <small class="survey-progress-key" id="survey-progress-key" hidden>Galactic Centre observation</small>
+        </span>
+      </button>
+
+      <button type="button" class="object-label earth-label" id="earth-label" data-focus-object="earth" aria-label="Focus camera on Earth" aria-hidden="true" tabindex="-1" disabled>
+        <span>Earth</span>
+        <small id="earth-now">Day/night · --:-- UK time</small>
+      </button>
+      <button type="button" class="object-label moon-label" id="moon-label" data-focus-object="moon" aria-label="Focus camera on the Moon" aria-hidden="true" tabindex="-1" disabled>
+        <span>Moon</span>
+        <small id="moon-now">Loading lunar position</small>
+      </button>
+      <button type="button" class="object-label l2-label" id="l2-label" data-focus-object="l2" aria-label="Focus camera on Earth and L2" aria-hidden="true" tabindex="-1" disabled>
+        <span>L2</span>
+      </button>
+      <button type="button" class="object-label euclid-label" id="euclid-label" data-focus-object="euclid" aria-label="Focus camera on Euclid" aria-hidden="true" tabindex="-1" disabled>
+        <span>Euclid</span>
+        <small id="euclid-distance">Calculating distance…</small>
+      </button>
+      <button type="button" class="object-label sun-label" id="sun-label" data-focus-object="sun" aria-label="Focus camera on the Sun" aria-hidden="true" tabindex="-1" disabled>
+        <span>Sun</span>
+      </button>
+      <a class="sky-feature-hotspot" id="galactic-centre-hotspot" href="https://eucliduk.net/q2release.html" tabindex="-1" aria-hidden="true" aria-label="Open Euclid's Galactic Bulge Survey image"></a>
+      <a class="sky-feature-hotspot" id="first-mosaic-hotspot" href="https://willjroper.github.io/explore-euclid-imaging/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" aria-label="Explore Euclid's first 1% sky mosaic; opens in a new tab"></a>
+      <div class="distance-label" id="distance-label" aria-hidden="true">1.5 million km</div>
+      <div class="manoeuvre-tooltip" id="manoeuvre-tooltip" role="tooltip" aria-hidden="true">
+        <span>Orbit manoeuvre</span>
+        <strong id="manoeuvre-date"></strong>
+        <small id="manoeuvre-delta-v"></small>
+      </div>
+
+      <p class="scale-note">Distances to scale · enlarged bodies · gold points mark manoeuvres</p>
+
+      <section class="timeline-control" id="orbit-controls" aria-label="Euclid trajectory controls">
+        <button class="play-button" id="play" type="button" aria-label="Play Euclid's journey">
+          <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5Z"></path></svg>
+          <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7v10M15 7v10"></path></svg>
+        </button>
+
+        <div class="timeline-track">
+          <label class="visually-hidden" for="time">Choose a date in Euclid's trajectory</label>
+          <input id="time" type="range" min="0" max="1348" value="1348" step="1">
+          <span class="source-boundary-marker" id="source-boundary-marker" title="WebMUST history ends; JPL/ESA prediction begins" aria-hidden="true"></span>
+          <button class="timeline-event-marker timeline-event-marker--early" id="first-mosaic-release-marker" type="button" aria-label="15 October 2024: Euclid's first 1% sky mosaic was released. Show it at its real position in the sky.">
+            <span class="timeline-event-symbol" aria-hidden="true"></span>
+            <span class="timeline-event-popover" aria-hidden="true">
+              <strong>15 October 2024</strong>
+              <span>Euclid reveals the first page of its cosmic atlas</span>
+              <small>Show the mosaic in the sky</small>
+            </span>
+          </button>
+          <button class="timeline-event-marker" id="galactic-release-marker" type="button" aria-label="24 June 2026: Euclid's Galactic Bulge Survey image was released. Show it at its real position in the sky.">
+            <span class="timeline-event-symbol" aria-hidden="true"></span>
+            <span class="timeline-event-popover" aria-hidden="true">
+              <strong>24 June 2026</strong>
+              <span>Euclid reveals the Milky Way’s crowded heart</span>
+              <small>Show the image in the sky</small>
+            </span>
+          </button>
+          <div class="timeline-bounds" aria-hidden="true">
+            <span>Launch · 1 Jul 2023</span>
+            <span id="timeline-end-label">JPL forecast</span>
+          </div>
+        </div>
+
+        <output class="date-readout" id="date" for="time" aria-live="off">
+          <span class="date-day">Current position</span>
+          <span class="date-time-row">
+            <span class="date-time">Loading…</span>
+            <button class="return-to-now" id="return-to-now" type="button" aria-label="Return all objects to the current time" hidden>Now</button>
+          </span>
+        </output>
+      </section>
+
+      <p class="gesture-hint" id="gesture-hint">Click an object to focus · drag to orbit · scroll to zoom</p>
+
+      <p class="screen-reader-status visually-hidden" id="screen-reader-status" aria-live="polite"></p>
+      <section class="visually-hidden" id="manoeuvre-list" aria-labelledby="manoeuvre-list-title">
+        <h2 id="manoeuvre-list-title">Euclid orbit manoeuvres</h2>
+        <ol id="manoeuvre-list-items"></ol>
+      </section>
+    </div>
+    
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-main">
+      <div class="site-footer-accents" aria-hidden="true">
+        <span class="footer-accent footer-accent-star footer-star-one"></span>
+        <span class="footer-accent footer-accent-star footer-star-two"></span>
+        <span class="footer-accent footer-accent-galaxy footer-galaxy-one"></span>
+        <span class="footer-accent footer-accent-star footer-star-three"></span>
+        <span class="footer-accent footer-accent-galaxy footer-galaxy-two"></span>
+        <span class="footer-accent footer-accent-star footer-star-four"></span>
+      </div>
+    <div class="site-footer-inner">
+      <div class="site-footer-intro">
+        <h2><a class="site-footer-brand" href="euclid-home.html">Euclid UK</a></h2>
+        <p>We are the UK based team working on the European Space Agency's Euclid space telescope, on a mission to map the dark Universe!</p>
+        <div class="site-footer-partners" role="group" aria-label="Mission partners">
+          <a class="footer-partner-stfc" href="https://www.ukri.org/councils/stfc/" target="_blank" rel="noopener noreferrer">
+            <img class="footer-logo-light" src="assets/STFC_logo_light.png" alt="Science and Technology Facilities Council" width="3840" height="987" loading="lazy">
+            <img class="footer-logo-dark" src="assets/STFC_logo_dark.png" alt="Science and Technology Facilities Council" width="3840" height="987" loading="lazy">
+          </a>
+          <a href="https://www.gov.uk/government/organisations/uk-space-agency" target="_blank" rel="noopener noreferrer">
+            <img class="footer-logo-light" src="images/logos/full_transparent.png" alt="UK Space Agency" width="1921" height="1081" loading="lazy">
+            <img class="footer-logo-dark" src="images/logos/white_transparent.png" alt="UK Space Agency" width="1921" height="1081" loading="lazy">
+          </a>
+          <a href="https://www.euclid-ec.org" target="_blank" rel="noopener noreferrer">
+            <img class="footer-logo-light" src="images/logos/EC_logos_official_Blue_with_text.png" alt="Euclid Consortium" width="3308" height="1831" loading="lazy">
+            <img class="footer-logo-dark" src="images/logos/EC_logos_official_white_with_text.png" alt="Euclid Consortium" width="3308" height="1831" loading="lazy">
+          </a>
+          <a class="footer-partner-esa" href="https://www.esa.int/Science_Exploration/Space_Science/Euclid" target="_blank" rel="noopener noreferrer">
+            <img class="footer-logo-light" src="images/logos/ESA_logo_2020_Deep.png" alt="ESA" width="3388" height="2127" loading="lazy">
+            <img class="footer-logo-dark" src="images/logos/ESA_logo_2020_White.png" alt="ESA" width="3388" height="2127" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <nav class="site-footer-column" aria-labelledby="footer-quick-title">
+        <h2 id="footer-quick-title">Quick Links</h2>
+        <a href="euclid-science.html">The Science</a>
+        <a href="euclid-technology.html">The Technology</a>
+        <a href="euclid-humans.html">Humans of Euclid</a>
+        <a href="euclid-events.html">Events</a>
+      </nav>
+      <nav class="site-footer-column" aria-labelledby="footer-resources-title">
+        <h2 id="footer-resources-title">Resources</h2>
+        <a href="euclid-resources.html">Resources</a>
+        <a href="euclid-scientists.html">For Scientists</a>
+        <a href="euclid-press.html">Press</a>
+        <a href="euclid-faqs.html">FAQs</a>
+      </nav>
+      <nav class="site-footer-column site-footer-socials" aria-labelledby="footer-social-title">
+        <h2 id="footer-social-title">Stay Connected</h2>
+        <a href="https://www.instagram.com/euclid_uk/" target="_blank" rel="noopener noreferrer" aria-label="Euclid UK on Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+        <span>Instagram</span></a>
+        <a href="https://bsky.app/profile/eucliduk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Euclid UK on Bluesky" title="Bluesky">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/>
+        </svg>
+        <span>Bluesky</span></a>
+        <a href="https://www.linkedin.com/company/euclid-uk/" target="_blank" rel="noopener noreferrer" aria-label="Euclid UK on LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        <span>LinkedIn</span></a>
+      </nav>
+    </div>
+    </div>
+    <div class="site-footer-bottom">
+      <div class="site-footer-legal">
+        <p class="site-footer-credits">Image Credits: ESA / Euclid / Euclid Consortium / NASA. Cosmic Web Visualisation by Frank Summers, Space Telescope Science Institute. Simulation by Martin White, UC Berkeley and Lars Hernquist, Harvard University.</p>
+        <p class="site-footer-copyright">© <a href="https://eucliduk.net/" target="_blank" rel="noopener noreferrer">Euclid UK</a> 2026</p>
+        <p class="site-footer-contrast"><a class="site-contrast-link" href="?contrast=high" data-contrast-toggle>High contrast version</a></p>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <noscript>
+    <div class="noscript-message">Please enable JavaScript to explore Euclid’s orbit.</div>
+  </noscript>
+
+  <script src="euclid-orbit-nav.js?v=20261006-1"></script>
+  <script src="euclid-orbit-data.js"></script>
+  <script src="euclid-lunar-data.js?v=20261002-1"></script>
+  <script src="euclid-star-data.js"></script>
+  <script src="euclid-survey-progress-data.js?v=20260729-2"></script>
+  <script src="vendor/three-r128/three.min.js"></script>
+  <script src="vendor/three-r128/GLTFLoader.js"></script>
+  <script src="vendor/three-r128/OrbitControls.js"></script>
+  <script>
+    if (window.location.protocol === "file:") {
+      const compactEarthTexture = window.matchMedia("(max-width: 760px)").matches;
+      document.write('<script src="assets/models/euclid/euclid-spacecraft.base64.js?v=20260730-2"><\/script>');
+      document.write(
+        compactEarthTexture
+          ? '<script src="assets/textures/earth-blue-marble-2048.base64.js"><\/script>'
+          : '<script src="assets/textures/earth-blue-marble-4096.base64.js"><\/script>'
+      );
+      document.write(
+        compactEarthTexture
+          ? '<script src="assets/textures/earth-black-marble-2016-2048.base64.js"><\/script>'
+          : '<script src="assets/textures/earth-black-marble-2016-4096.base64.js"><\/script>'
+      );
+      document.write('<script src="assets/textures/moon-lroc-2k.base64.js"><\/script>');
+      document.write('<script src="assets/textures/sun-nasa-sdo-stereo-2048.base64.js"><\/script>');
+      document.write('<script src="assets/textures/milky-way-gaia-edr3-2048.base64.js"><\/script>');
+      document.write('<script src="assets/textures/euclid-galactic-bulge-sky-1024.base64.js"><\/script>');
+      document.write('<script src="assets/textures/euclid-first-one-percent-mosaic-2048.base64.js"><\/script>');
+      document.write('<script src="assets/textures/euclid-survey-progress-rg.base64.js?v=20260729-2"><\/script>');
+    }
+  </script>
+  
+  <script src="euclid-orbit-3d.js?v=20261006-1"></script>
+  <script src="euclid-accessibility.js?v=20261006-1"></script>
+</body>
+</html>

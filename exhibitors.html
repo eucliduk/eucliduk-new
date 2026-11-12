@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Info for Exhibitors · Euclid: The Dark Universe Detective</title>
+  <meta name="description" content="Info for Exhibitors for Euclid: The Dark Universe Detective.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f7f3ec;
+      --surface: #ffffff;
+      --surface-soft: #f0e8dc;
+      --ink: #191520;
+      --muted: #5f5668;
+      --line: #d7cbbb;
+      --purple: #6e54a3;
+      --purple-soft: #eee7f7;
+      --orange: #b86e36;
+      --orange-soft: #f5e7dc;
+      --shadow: 0 22px 70px rgba(44, 32, 58, 0.14);
+      --font-heading: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --ease: cubic-bezier(0.25, 0, 0, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+    body.is-locked { overflow: hidden; }
+    a { color: var(--purple); font-weight: 700; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+    button, input { font-family: inherit; }
+    .gate { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: linear-gradient(180deg, rgba(247, 243, 236, 0.72), rgba(247, 243, 236, 0.96)), url("images/Euclid_key_visual.webp") center / cover no-repeat; }
+    .gate.is-hidden { display: none; }
+    .gate-card { width: min(100%, 520px); border: 1px solid var(--line); border-radius: 8px; padding: clamp(24px, 5vw, 42px); background: rgba(255, 255, 255, 0.92); box-shadow: var(--shadow); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .gate-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+    .gate-brand img:first-child { width: 62px; height: auto; }
+    .gate-brand img:last-child { width: min(220px, 58vw); height: auto; }
+    .eyebrow { margin: 0 0 10px; color: var(--purple); font-family: var(--font-heading); font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: var(--font-heading); letter-spacing: 0; }
+    .gate-card h1 { margin: 0 0 12px; font-size: clamp(36px, 8vw, 54px); line-height: 0.95; }
+    .gate-card p { margin: 0 0 24px; color: var(--muted); font-size: 18px; line-height: 1.55; }
+    .password-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+    .password-row input { min-width: 0; border: 1px solid var(--line); border-radius: 8px; padding: 13px 14px; background: #fff; color: var(--ink); font-size: 16px; }
+    .password-row input:focus { outline: 2px solid var(--purple); outline-offset: 2px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; border: 1px solid transparent; border-radius: 8px; padding: 0 18px; background: var(--orange); color: #fff; font-size: 15px; font-weight: 800; text-decoration: none; transition: transform 220ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease); }
+    .button:hover { background: #cf7c3f; transform: translateY(-2px); }
+    .button--ghost { background: #fff; border-color: var(--line); color: var(--ink); }
+    .button--ghost:hover { background: var(--purple-soft); border-color: var(--purple); }
+    .gate-error { min-height: 24px; margin: 10px 0 0; color: #9d2f16; font-size: 14px; font-weight: 800; }
+    .page[hidden] { display: none; }
+    .topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px clamp(16px, 4vw, 44px); border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.92); box-shadow: 0 10px 30px rgba(44, 32, 58, 0.08); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .brand-lockup { display: flex; align-items: center; gap: 12px; min-width: 0; text-decoration: none; }
+    .brand-lockup img:first-child { height: 54px; width: auto; }
+    .brand-lockup img:last-child { height: 44px; width: auto; max-width: min(250px, 44vw); object-fit: contain; }
+    .top-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .top-actions .button { min-height: 40px; padding: 0 14px; font-size: 14px; }
+    .hero { padding: clamp(96px, 14vw, 150px) clamp(20px, 6vw, 80px) clamp(54px, 8vw, 92px); background: linear-gradient(180deg, rgba(247, 243, 236, 0.7), var(--paper)), url("images/CosmicWeb_hero_poster.jpg") center / cover no-repeat; }
+    .hero-inner { max-width: 980px; margin: 0 auto; }
+    .hero h1 { max-width: 860px; margin: 0; font-size: clamp(54px, 9vw, 110px); line-height: 0.9; }
+    .hero .doc-p { max-width: 720px; margin-top: 22px; color: var(--muted); font-size: clamp(20px, 2.2vw, 26px); line-height: 1.45; }
+    main { background: var(--paper); }
+    .section { padding: clamp(48px, 7vw, 92px) clamp(20px, 6vw, 80px); border-top: 1px solid var(--line); }
+    .section:nth-child(even) { background: var(--surface-soft); }
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+    .section h2 { margin: 0 0 24px; font-size: clamp(34px, 5vw, 68px); line-height: 0.98; }
+    .content-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(22px, 4vw, 44px); align-items: start; }
+    .doc-card { border: 1px solid var(--line); border-radius: 8px; padding: clamp(20px, 3vw, 30px); background: var(--surface); box-shadow: 0 14px 42px rgba(44, 32, 58, 0.08); }
+    .doc-card + .doc-card { margin-top: 18px; }
+    .doc-card h3 { margin: 0 0 12px; color: var(--ink); font-size: 24px; line-height: 1.12; }
+    .doc-p { margin: 0 0 14px; color: var(--muted); font-size: 18px; line-height: 1.62; }
+    .doc-list { display: grid; gap: 10px; margin: 0; padding-left: 21px; color: var(--muted); font-size: 18px; line-height: 1.55; }
+    .doc-list li::marker { color: var(--purple); }
+    figure { margin: 0; }
+    figure + figure { margin-top: 18px; }
+    .doc-image { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 14px 42px rgba(44, 32, 58, 0.08); }
+    .doc-image img { display: block; width: 100%; height: auto; }
+    figcaption { padding: 12px 14px; color: var(--muted); font-size: 15px; line-height: 1.45; }
+    .callout { border-left: 4px solid var(--orange); background: var(--orange-soft); }
+    .risk { border-left: 4px solid var(--purple); background: var(--purple-soft); }
+    .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 14px 42px rgba(44, 32, 58, 0.08); }
+    .rota-table { width: 100%; min-width: 980px; border-collapse: collapse; font-size: 14px; }
+    .rota-table th, .rota-table td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 9px 10px; text-align: left; vertical-align: top; }
+    .rota-table tr:last-child td { border-bottom: 0; }
+    .rota-table td:first-child { width: 210px; color: var(--ink); font-weight: 800; }
+    .rota-table .day-row th { background: var(--purple); color: #fff; font-family: var(--font-heading); font-size: 16px; letter-spacing: 0.02em; }
+    .footer { padding: 32px clamp(20px, 6vw, 80px) 56px; color: var(--muted); text-align: center; }
+    @media (max-width: 840px) {
+      .password-row { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .brand-lockup img:first-child { height: 46px; }
+      .brand-lockup img:last-child { height: 36px; }
+      .content-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: clamp(48px, 16vw, 76px); }
+    }
+  </style>
+</head>
+<body class="is-locked">
+  <section class="gate" id="passwordGate" aria-labelledby="gate-title">
+    <form class="gate-card" id="passwordForm">
+      <div class="gate-brand" aria-hidden="true">
+        <img src="assets/euclid_mission_patch.png" alt="">
+        <img src="images/EC_logos_official_black_with_text.png" alt="">
+      </div>
+      <p class="eyebrow">Exhibitor access</p>
+      <h1 id="gate-title">Info for Exhibitors</h1>
+      <p>Enter the exhibitor password.</p>
+      <div class="password-row">
+        <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password">
+        <button class="button" type="submit">Unlock</button>
+      </div>
+      <p class="gate-error" id="passwordError" role="alert" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <div class="page" id="page" hidden>
+    <header class="topbar">
+      <a class="brand-lockup" href="rssse.html" aria-label="Euclid: The Dark Universe Detective">
+        <img src="assets/euclid_mission_patch.png" alt="">
+        <img src="images/EC_logos_official_black_with_text.png" alt="Euclid Consortium">
+      </a>
+      <div class="top-actions">
+        <a class="button button--ghost" href="#vr-headsets">VR Headsets</a>
+        <a class="button button--ghost" href="#uv-torch">UV Torch</a>
+        <a class="button button--ghost" href="#final-rota">Final Rota</a>
+        <button class="button button--ghost" type="button" id="lockButton">Lock</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Link to website for Euclid: The Dark Universe Detective</p>
+        <h1>Info for Exhibitors</h1>
+      </div>
+    </section>
+
+    <main>
+      <section class="section" id="vr-headsets">
+        <div class="section-inner">
+          <h2>VR Headsets (Recommended 8+)</h2>
+          <div class="content-grid">
+            <div>
+              <article class="doc-card">
+                <h3>Overview:</h3>
+                <p class="doc-p">A journey through the Universe and an introduction to the mystery of missing matter. Watch here: <a href="https://www.youtube.com/watch?v=teyfLZriUvs" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=teyfLZriUvs</a></p>
+              </article>
+              <article class="doc-card">
+                <h3>Staff required:</h3>
+                <p class="doc-p">1-2 people</p>
+                <p class="doc-p">If busy, one person should look after the person wearing the headset and another should be managing the queue. Whoever’s managing the queue can display what’s being shown on an iPad as an alternative to anyone waiting nearby.</p>
+              </article>
+              <article class="doc-card">
+                <h3>Introductory chat pointers:</h3>
+                <ul class="doc-list">
+              <li>This is a ~ 3 min long trip through the Universe. Please remain seated during your journey!</li>
+              <li>As you place the headset on, you can adjust the fit by turning the dial on the lower back of the headset. If the image is blurry, you can adjust this by turning the dial on the front bottom of the headset.</li>
+              <li>Feel free to have a look around in all directions!</li>
+              <li>Let us know if you need any help. If you start to feel motion sick, please take the headset off and a member of our team will be happy to show you the rest of the journey on an iPad.</li>
+                </ul>
+              </article>
+              <article class="doc-card risk">
+                <h3>Risk Assessment TLDR</h3>
+                <ul class="doc-list">
+              <li>Parent/guardian consent should be obtained prior to a child’s participation</li>
+              <li>The staff member will monitor behaviour and pause the session if anyone stands</li>
+              <li>All headsets are disinfected using wipes during the beginning and end of the day</li>
+              <li>Anyone diagnosed with eye conditions should note it could aggravate symptoms, suggest viewing on iPad as an alternative.</li>
+              <li>Anyone with a history of seizures should seek guidance before participating, suggest viewing on iPad as an alternative.</li>
+                </ul>
+              </article>
+              <article class="doc-card callout">
+                <p class="doc-p">Back-ups: There are 2x spare headsets if the battery is low. USB-C chargers for the headsets are available behind the exhibit area.</p>
+              </article>
+            </div>
+            <figure class="doc-image">
+              <img src="images/exhibitors/image1.jpeg" alt="">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="uv-torch">
+        <div class="section-inner">
+          <h2>UV Torch: Finding dark matter around Abell 2390</h2>
+          <div class="content-grid">
+            <div>
+              <figure class="doc-image">
+                <img src="images/exhibitors/image2.jpeg" alt="">
+                <figcaption>The Abell 2390 image display board with the UV torch being shone towards it, revealing the hidden dark matter halo around the central galaxy cluster.</figcaption>
+              </figure>
+              <figure class="doc-image">
+                <img src="images/exhibitors/image3.webp" alt="">
+                <figcaption>A screenshot of the web app game</figcaption>
+              </figure>
+            </div>
+            <div>
+              <article class="doc-card">
+                <p class="doc-p">Overview: Participants shine a UV torch toward a large image of Abell 2390. The UV torch reveals the dark matter halo around the galaxy cluster, based on this research paper <a href="https://www.euclid-ec.org/euclid-starts-seeing-darkness/" target="_blank" rel="noopener noreferrer">https://www.euclid-ec.org/euclid-starts-seeing-darkness/</a></p>
+                <p class="doc-p">Optionally, participants can work in a team to find the missing matter on a web app <a href="https://eucliduk.net/abell2390detectivegame.html" target="_blank" rel="noopener noreferrer">https://eucliduk.net/abell2390detectivegame.html</a>  (likely as a pair with one person shining the UV torch and one tracing where the dark matter is, under guidance from their partner, on the iPad).</p>
+              </article>
+              <article class="doc-card">
+                <h3>Staff required:</h3>
+                <p class="doc-p">1 person needed to explain and look after the UV torch, monitoring its use</p>
+              </article>
+              <article class="doc-card">
+                <h3>Introductory chat pointers:</h3>
+                <ul class="doc-list">
+              <li>Here’s some real research that the Euclid team did recently. We mapped the dark matter halo around a galaxy cluster. Can you find it?</li>
+              <li>Take this torch and shine it towards the image. Scan along the image to see if you can find any dark matter. It’ll appear as a purple glow if it’s there!</li>
+              <li>Please be careful not to shine this torch into anyone’s eyes. It’s UV and can damage your eyes if shone in them.</li>
+                </ul>
+              </article>
+              <article class="doc-card risk">
+                <h3>Risk Assessment TLDR</h3>
+                <p class="doc-p">The UV torch cannot be shone into anyone’s eyes and must only be directed towards the Abell 2390 image board. If the torch user is behaving irresponsibly, stop the activity.</p>
+              </article>
+              <article class="doc-card callout">
+                <p class="doc-p">Back-ups: There isn’t a back up torch, but it has a long battery life. Charge using its USB-C port if needed. There are USB-C charge points behind the exhibit back wall.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="final-rota">
+        <div class="section-inner">
+          <h2>Final Rota</h2>
+          <div class="table-scroll"><table class="rota-table"><tbody>
+<tr class="day-row">
+<th colspan="8">Sunday 28th June</th>
+</tr>
+<tr class="day-row">
+<th colspan="8">09:00 - 13:00 (SETUP)</th>
+</tr>
+<tr class="day-row">
+<th colspan="9">09:00 - 13:00 (SETUP)</th>
+</tr>
+<tr>
+<td>13:00 - 17:00 (SETUP)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>James Fawcett</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Monday 29th June</th>
+</tr>
+<tr>
+<td>09:00 - 13:00 (SETUP)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Rory Claydon</td>
+<td>James Fawcett</td>
+<td>Will Roper</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13:00 - 17:00 (SETUP)</td>
+<td>Emma Nephtali</td>
+<td>Brynne Klein</td>
+<td>Mia Mouget</td>
+<td>Rory Claydon</td>
+<td>James Fawcett</td>
+<td></td>
+<td>Stephen Wilkins</td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Tuesday 30th June</th>
+</tr>
+<tr>
+<td>08:30 - 11:00 (Press Preview)</td>
+<td>James Fawcett</td>
+<td>Ben Dryer</td>
+<td>Rory Claydon</td>
+<td>Naomi Robertson</td>
+<td>Saeeda Awan</td>
+<td>Alex Hall</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10:45 - 13:30 (Primary Schools Only)</td>
+<td>Emma Nephtali</td>
+<td>Brynne Klein</td>
+<td>Mia Mouget</td>
+<td>Ben Dryer</td>
+<td>Natalie Lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13:15 - 16:00 (Primary Schools Only)</td>
+<td>Emma Nephtali</td>
+<td>Brynne Klein</td>
+<td>Mia Mouget</td>
+<td>Stephen Wilkins</td>
+<td>Natalie Lines</td>
+<td>Alex Hall</td>
+<td>Daniel Roberts</td>
+<td></td>
+</tr>
+<tr>
+<td>17:30 - 22:00 (Late Public)</td>
+<td>James Fawcett</td>
+<td>Stephen Wilkins</td>
+<td>Rory Claydon</td>
+<td>Naomi Robertson</td>
+<td>Marco Lam</td>
+<td>Sam Phillipsborn</td>
+<td>Daniel Roberts</td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Wednesday 1st July</th>
+</tr>
+<tr>
+<td>09:30 - 13:00 (Public &amp; Schools)</td>
+<td>Emma Nephtali</td>
+<td>Brynne Klein</td>
+<td>Mia Mouget</td>
+<td>Naomi Robertson</td>
+<td>Marco Lam</td>
+<td>Sam Phillipsborn</td>
+<td>Ian Swindells</td>
+<td></td>
+</tr>
+<tr>
+<td>12:45 - 16:00 (Public &amp; Schools)</td>
+<td>Natalie Lines</td>
+<td>Rory Claydon</td>
+<td>Susan Pyne</td>
+<td>Ian Swindells</td>
+<td>David Ijishakin</td>
+<td>Sam Phillipsborn</td>
+<td>Stephen Wilkins</td>
+<td></td>
+</tr>
+<tr>
+<td>18:30 - 22:00 (Soiree 1)</td>
+<td>James Fawcett</td>
+<td>Rory Claydon</td>
+<td>Marco Lam</td>
+<td>Naomi Robertson</td>
+<td></td>
+<td></td>
+<td>Stephen Wilkins</td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Thursday 2nd July</th>
+</tr>
+<tr>
+<td>09:30 - 13:00 (Public &amp; Schools)</td>
+<td></td>
+<td>Brynne Klein</td>
+<td>Mia Mouget</td>
+<td>Alexander Gordon</td>
+<td>Marco Lam</td>
+<td>Rachel Binnie</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12:45 - 16:00 (Public &amp; Schools)</td>
+<td>Natalie Lines</td>
+<td>Linus Thummel</td>
+<td>Susan Pyne</td>
+<td>Alexander Gordon</td>
+<td>Jess Howell</td>
+<td>Emma Nephtali</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18:30 - 22:00 (Soiree 2)</td>
+<td>Maria Tsedrik</td>
+<td>Andy Taylor</td>
+<td>Will Roper</td>
+<td>James Fawcett</td>
+<td>Jess Howell</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Friday 3rd July</th>
+</tr>
+<tr>
+<td>09:30 - 12:45 (Public &amp; Schools)</td>
+<td>Benjamin Joachimi</td>
+<td>Jess Howell</td>
+<td>Saeeda Awan</td>
+<td>Alexander Gordon</td>
+<td>Linus Thummel</td>
+<td>Jascha Schewtschenko</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12:30 - 15:45 (Public &amp; Schools)</td>
+<td>Benjamin Joachimi</td>
+<td>Jess Howell</td>
+<td>Saeeda Awan</td>
+<td>Andy Taylor</td>
+<td>Linus Thummel</td>
+<td>Rachel Binnie</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15:30 - 18:00 (Public)</td>
+<td>Maria Tsedrik</td>
+<td>Benjamin Bose</td>
+<td>Susan Pyne</td>
+<td>Alexander Gordon</td>
+<td>Ben Giblin</td>
+<td>Jack Turner</td>
+<td>Emma Renouprez</td>
+<td></td>
+</tr>
+<tr>
+<td>17:45 - 20:00 (Pride Event)</td>
+<td>James Fawcett</td>
+<td>Benjamin Bose</td>
+<td>Susan Pyne</td>
+<td>Rachel Binnie</td>
+<td>Jascha Schewtschenko</td>
+<td>Jack Turner</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Saturday 4th July</th>
+</tr>
+<tr>
+<td>09:30 - 12:45 (Public)</td>
+<td>Maria Tsedrik</td>
+<td>Benjamin Bose</td>
+<td>Saeeda Awan</td>
+<td>James Fawcett</td>
+<td>Jack Turner</td>
+<td>Max vWK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12:30 - 15:45 (Public)</td>
+<td>Lisa Goh</td>
+<td>Benjamin Bose</td>
+<td>Nastassia Grimm</td>
+<td>Das Baskill</td>
+<td>Jack Turner</td>
+<td>Rachel Binnie</td>
+<td>Emma Renouprez</td>
+<td></td>
+</tr>
+<tr>
+<td>15:30 - 18:00 (Public)</td>
+<td>James Fawcett</td>
+<td>Jascha Schewtschenko</td>
+<td>Will Roper</td>
+<td>Das Baskill</td>
+<td>Nastassia Grimm</td>
+<td>Rachel Binnie</td>
+<td>Emma Renouprez</td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Sunday 5th July</th>
+</tr>
+<tr>
+<td>09:00 - 12:45 (Quiet Opening &amp; Public)</td>
+<td>Benjamin Bose</td>
+<td>Jascha Schewtschenko</td>
+<td>Alkistis Pourtsidou</td>
+<td>Das Baskill</td>
+<td>Max vWK</td>
+<td>Rachel Binnie</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12:30 - 15:45 (Public)</td>
+<td>Benjamin Bose</td>
+<td>Will Roper</td>
+<td>James Fawcett</td>
+<td>Max vWK</td>
+<td>Nastassia Grimm</td>
+<td>Rachel Binnie</td>
+<td>Emma Renouprez</td>
+<td></td>
+</tr>
+<tr>
+<td>15:30 - 18:00 (Public)</td>
+<td>Andy Taylor</td>
+<td>James Fawcett</td>
+<td>Saeeda Awan</td>
+<td>Das Baskill</td>
+<td>Nastassia Grimm</td>
+<td>Rachel Binnie</td>
+<td>Emma Renouprez</td>
+<td></td>
+</tr>
+<tr>
+<td>18:00 - 20:00 (BREAK DOWN)</td>
+<td>Andy Taylor</td>
+<td>James Fawcett</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="day-row">
+<th colspan="9">Monday 6th July</th>
+</tr>
+<tr>
+<td>08:00 - 12:00 (BREAK DOWN)</td>
+<td>Andy Taylor</td>
+<td>James Fawcett</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+        </div>
+      </section>
+
+      <section class="section" id="risk-assessment">
+        <div class="section-inner">
+          <h2>Risk assessment</h2>
+          <article class="doc-card">
+            <p class="doc-p">Link to RS SSE Risk Assessment PDF</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Info for Exhibitors</footer>
+  </div>
+
+  <script>
+    (function () {
+      var PASSWORD = 'summer2026';
+      var STORAGE_KEY = 'euclid-exhibitor-guide-unlocked';
+      var gate = document.getElementById('passwordGate');
+      var page = document.getElementById('page');
+      var form = document.getElementById('passwordForm');
+      var input = document.getElementById('passwordInput');
+      var error = document.getElementById('passwordError');
+      var lockButton = document.getElementById('lockButton');
+
+      function unlock() {
+        document.body.classList.remove('is-locked');
+        gate.classList.add('is-hidden');
+        page.hidden = false;
+        sessionStorage.setItem(STORAGE_KEY, 'true');
+      }
+
+      function lock() {
+        sessionStorage.removeItem(STORAGE_KEY);
+        page.hidden = true;
+        gate.classList.remove('is-hidden');
+        document.body.classList.add('is-locked');
+        input.value = '';
+        error.textContent = '';
+        setTimeout(function () { input.focus(); }, 50);
+      }
+
+      if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+        unlock();
+      } else {
+        input.focus();
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (input.value === PASSWORD) {
+          unlock();
+          return;
+        }
+        error.textContent = 'That password does not match.';
+        input.select();
+      });
+
+      lockButton.addEventListener('click', lock);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<section class="image-viewer" id="image-viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" aria-describedby="viewer-meta" tabindex="-1" hidden>
+      <div class="image-viewer__backdrop" aria-hidden="true"></div>
+
+      <div class="image-viewer__stage" id="viewer-stage">
+        <img class="image-viewer__image" id="viewer-image" alt="">
+      </div>
+
+      <div class="image-viewer__chrome">
+        <p class="image-viewer__count" id="viewer-count">01 / 18</p>
+
+        <button class="viewer-control viewer-control--close" id="viewer-close" type="button" aria-label="Close image viewer" data-viewer-control>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <button class="viewer-control viewer-control--previous" id="viewer-previous" type="button" aria-label="Previous image" data-viewer-control>
+          <span aria-hidden="true">←</span>
+        </button>
+
+        <button class="viewer-control viewer-control--next" id="viewer-next" type="button" aria-label="Next image" data-viewer-control>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <div class="image-viewer__caption" aria-live="polite" aria-atomic="true">
+          <h2 id="viewer-title">Euclid image</h2>
+          <p id="viewer-meta">Sensor 01</p>
+        </div>
+      </div>
+    </section>

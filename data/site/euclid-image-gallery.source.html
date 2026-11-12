@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Explore Euclid images through a 36-sensor gallery inspired by the VIS instrument focal plane."
+    />
+    <link rel="canonical" href="https://eucliduk.net/euclid-image-gallery.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Euclid Image Array" />
+    <meta
+      property="og:description"
+      content="The Universe, frame by frame — a 36-sensor image gallery inspired by Euclid's VIS instrument."
+    />
+    <meta property="og:url" content="https://eucliduk.net/euclid-image-gallery.html" />
+    <meta
+      property="og:image"
+      content="https://eucliduk.net/images/euclid-gallery/euclid-image-array-social-card.png"
+    />
+    <meta property="og:image:width" content="1730" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="Euclid Image Array, shown beside a 6 by 6 VIS-inspired sensor grid." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Euclid Image Array" />
+    <meta
+      name="twitter:description"
+      content="The Universe, frame by frame — a 36-sensor image gallery inspired by Euclid's VIS instrument."
+    />
+    <meta
+      name="twitter:image"
+      content="https://eucliduk.net/images/euclid-gallery/euclid-image-array-social-card.png"
+    />
+    <meta name="twitter:image:alt" content="Euclid Image Array, shown beside a 6 by 6 VIS-inspired sensor grid." />
+    <title>Euclid Image Array</title>
+    <link rel="icon" type="image/x-icon" href="euclid-consortium-black-f414d4824370.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="euclid-consortium-black-f414d4824370.png">
+<link rel="apple-touch-icon" sizes="180x180" href="euclid-consortium-black-f414d4824370-touch.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/euclid-image-gallery.css" />
+    <script defer src="euclid-image-gallery.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-brand" href="index.html" aria-label="Euclid UK home">
+        <span class="site-brand__name">EUCLID</span>
+        <span class="site-brand__place">UNITED KINGDOM</span>
+      </a>
+      <span class="site-header__section" aria-current="page">IMAGE ARRAY</span>
+    </header>
+
+    <main id="gallery-page">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">VISUAL INSTRUMENT / 36 SENSORS</p>
+          <h1 id="page-title">The Universe,<br />frame by frame.</h1>
+        </div>
+        <div class="intro__copy">
+          <p>
+            Select an illuminated sensor to explore an image from Euclid. Each frame sits within a 6 × 6 array inspired
+            by the spacecraft&rsquo;s VIS instrument.
+          </p>
+          <p class="intro__instruction"><span aria-hidden="true">↘</span> Choose a sensor to begin</p>
+        </div>
+      </section>
+
+      <section class="fpa-section" aria-labelledby="array-title">
+        <h2 class="visually-hidden" id="array-title">Euclid image sensor array</h2>
+
+        <div class="vis-assembly">
+          <span class="vis-unit__handle vis-unit__handle--left" aria-hidden="true"></span>
+          <span class="vis-unit__handle vis-unit__handle--right" aria-hidden="true"></span>
+
+          <div class="vis-unit" id="vis-unit">
+            <span class="frame-cap frame-cap--top" aria-hidden="true"></span>
+            <span class="frame-cap frame-cap--bottom" aria-hidden="true"></span>
+
+            <span class="fastener fastener--one" aria-hidden="true"></span>
+            <span class="fastener fastener--two" aria-hidden="true"></span>
+            <span class="fastener fastener--three" aria-hidden="true"></span>
+            <span class="fastener fastener--four" aria-hidden="true"></span>
+
+            <div class="socket-bank socket-bank--left" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="socket-bank socket-bank--right" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="vis-aperture">
+              <div class="sensor-grid" id="sensor-grid" aria-label="18 Euclid images arranged in a 36-sensor grid">
+                <div class="sensor-grid__image" id="sensor-grid-image" aria-hidden="true">
+                  <img id="sensor-grid-image-source" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <span class="vis-unit__plate" aria-hidden="true">VIS / FPA &nbsp;·&nbsp; 6 × 6</span>
+          </div>
+        </div>
+
+        <p class="sensor-readout" id="sensor-readout" aria-live="polite">
+          18 active image sensors <span aria-hidden="true">·</span> select an illuminated frame
+        </p>
+
+        <noscript>
+          <p class="noscript-message">JavaScript is required to open the image viewer.</p>
+        </noscript>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>EUCLID IMAGE ARRAY</span>
+      <span>Images from the Euclid UK archive</span>
+    </footer>
+
+    <section
+      class="image-viewer"
+      id="image-viewer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="viewer-title"
+      aria-describedby="viewer-meta"
+      tabindex="-1"
+      hidden
+    >
+      <div class="image-viewer__backdrop" aria-hidden="true"></div>
+
+      <div class="image-viewer__stage" id="viewer-stage">
+        <img class="image-viewer__image" id="viewer-image" alt="" />
+      </div>
+
+      <div class="image-viewer__chrome">
+        <p class="image-viewer__count" id="viewer-count">01 / 18</p>
+
+        <button
+          class="viewer-control viewer-control--close"
+          id="viewer-close"
+          type="button"
+          aria-label="Close image viewer"
+          data-viewer-control
+        >
+          <span aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="viewer-control viewer-control--previous"
+          id="viewer-previous"
+          type="button"
+          aria-label="Previous image"
+          data-viewer-control
+        >
+          <span aria-hidden="true">←</span>
+        </button>
+
+        <button
+          class="viewer-control viewer-control--next"
+          id="viewer-next"
+          type="button"
+          aria-label="Next image"
+          data-viewer-control
+        >
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <div class="image-viewer__caption" aria-live="polite" aria-atomic="true">
+          <h2 id="viewer-title">Euclid image</h2>
+          <p id="viewer-meta">Sensor 01</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

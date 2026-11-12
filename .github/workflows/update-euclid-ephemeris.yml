@@ -1,0 +1,34 @@
+name: Update Euclid ephemeris
+
+on:
+  schedule:
+    - cron: "23 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: euclid-ephemeris
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Preserve WebMUST history and refresh the JPL forecast
+        run: python scripts/update_euclid_ephemeris.py euclid-orbit-data.js
+      - name: Refresh Moon and Sun geometric states for the same timeline
+        run: python scripts/build_lunar_ephemeris.py
+      - name: Commit refreshed data
+        run: |
+          git diff --quiet -- euclid-orbit-data.js euclid-lunar-data.js && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add euclid-orbit-data.js euclid-lunar-data.js
+          git commit -m "Update Euclid ephemeris"
+          git push

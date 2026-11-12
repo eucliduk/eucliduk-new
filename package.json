@@ -1,0 +1,15 @@
+{
+  "name": "euclid-uk-website",
+  "private": true,
+  "scripts": {
+    "build:site": "node scripts/build_site.mjs --write",
+    "check:accessibility": "node scripts/check_accessibility.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0",
+    "playwright": "1.56.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

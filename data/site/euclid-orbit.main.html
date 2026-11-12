@@ -1,0 +1,142 @@
+<section class="page-hero"><p class="eyebrow">The mission</p><h1>Where is Euclid?</h1></section><div class="orbit-app"><p id="orbit-explanation" class="visually-hidden">Euclid follows an orbit around the Sun–Earth L2 region. Objects are enlarged for visibility. Focus this view and use arrow keys to rotate, plus or minus to zoom, and 1 through 6 to select Euclid, Earth, Moon, Sun, Earth and L2, or the overview. The timeline changes the selected date. Positions are modelled rather than live telemetry.</p><div class="space-view" id="space-view" role="region" aria-label="Euclid orbit interactive" tabindex="0" aria-describedby="orbit-explanation">
+      <div class="loading-screen" id="loading-screen" role="status" aria-live="polite">
+        <div class="loading-identity" aria-hidden="true">
+          <img class="loading-logo loading-logo-light" src="images/logos/euclid-loading-black.png" width="1024" height="876" alt="">
+          <img class="loading-logo loading-logo-dark" src="images/logos/euclid-loading-white.png" width="1024" height="876" alt="">
+          <svg class="loading-swirl" viewbox="0 0 1024 876" fill="none" aria-hidden="true">
+            <defs>
+              <lineargradient id="loading-swirl-light">
+                <stop offset="0" stop-color="currentColor" stop-opacity="0"></stop>
+                <stop offset="0.25" stop-color="currentColor" stop-opacity="0.15"></stop>
+                <stop offset="0.5" stop-color="currentColor" stop-opacity="0.7"></stop>
+                <stop offset="0.75" stop-color="currentColor" stop-opacity="0.15"></stop>
+                <stop offset="1" stop-color="currentColor" stop-opacity="0"></stop>
+              </lineargradient>
+              <filter id="loading-swirl-feather" filterunits="userSpaceOnUse" x="-64" y="-64" width="1152" height="500">
+                <fegaussianblur stddeviation="6"></fegaussianblur>
+              </filter>
+              <mask id="loading-swirl-upper" maskunits="userSpaceOnUse" x="-64" y="-64" width="1152" height="500" mask-type="alpha">
+                <path d="M126 20C530 -13 900 -1 967 106" stroke="white" stroke-width="22" stroke-linecap="round" filter="url(#loading-swirl-feather)"></path>
+              </mask>
+              <mask id="loading-swirl-lower" maskunits="userSpaceOnUse" x="-64" y="-64" width="1152" height="500" mask-type="alpha">
+                <path d="M905 305C665 322 303 338 59 241" stroke="white" stroke-width="22" stroke-linecap="round" filter="url(#loading-swirl-feather)"></path>
+              </mask>
+            </defs>
+            <g mask="url(#loading-swirl-upper)">
+              <rect class="loading-swirl-shimmer" x="0" y="-64" width="440" height="500" fill="url(#loading-swirl-light)"></rect>
+            </g>
+            <g mask="url(#loading-swirl-lower)">
+              <rect class="loading-swirl-shimmer loading-swirl-shimmer-return" x="0" y="-64" width="440" height="500" fill="url(#loading-swirl-light)"></rect>
+            </g>
+          </svg>
+          <svg class="loading-stars" viewbox="0 0 1024 876" aria-hidden="true">
+            <ellipse cx="331" cy="127.5" rx="6.5" ry="7.5"></ellipse>
+            <ellipse cx="520.5" cy="88.5" rx="5.5" ry="5.5"></ellipse>
+            <ellipse cx="591" cy="119.5" rx="6.5" ry="7.5"></ellipse>
+            <ellipse cx="655" cy="151.5" rx="20" ry="22"></ellipse>
+            <ellipse cx="767.5" cy="128.5" rx="6.5" ry="7.5"></ellipse>
+            <ellipse cx="278" cy="189" rx="6.5" ry="7.5"></ellipse>
+            <ellipse cx="489" cy="204" rx="6.5" ry="7.5"></ellipse>
+            <ellipse cx="621.5" cy="219" rx="6.5" ry="7.5"></ellipse>
+            <ellipse cx="562" cy="382" rx="6.5" ry="7.5"></ellipse>
+            <ellipse cx="498" cy="422" rx="6.5" ry="7.5"></ellipse>
+          </svg>
+        </div>
+        <span id="loading-message">Loading Euclid</span>
+      </div>
+
+      <div class="fallback-message" id="fallback-message" role="status" hidden>
+        <h2>Interactive view unavailable</h2>
+        <p>This interactive needs a browser with WebGL enabled.</p>
+      </div>
+
+      <button class="survey-progress-toggle" id="survey-progress-toggle" type="button" aria-label="Survey progress: loading reference map" aria-pressed="false" disabled>
+        <svg viewbox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"></circle>
+          <path d="M3.5 12h17M12 3.5c2.2 2.4 3.3 5.2 3.3 8.5S14.2 18.1 12 20.5M12 3.5C9.8 5.9 8.7 8.7 8.7 12s1.1 6.1 3.3 8.5"></path>
+        </svg>
+        <span>
+          <strong>Survey progress</strong>
+          <small id="survey-progress-caption">Loading reference map</small>
+          <small class="survey-progress-key" id="survey-progress-key" hidden>Galactic Centre observation</small>
+        </span>
+      </button>
+
+      <button type="button" class="object-label earth-label" id="earth-label" data-focus-object="earth" aria-label="Focus camera on Earth" aria-hidden="true" tabindex="-1" disabled>
+        <span>Earth</span>
+        <small id="earth-now">Day/night · --:-- UK time</small>
+      </button>
+      <button type="button" class="object-label moon-label" id="moon-label" data-focus-object="moon" aria-label="Focus camera on the Moon" aria-hidden="true" tabindex="-1" disabled>
+        <span>Moon</span>
+        <small id="moon-now">Loading lunar position</small>
+      </button>
+      <button type="button" class="object-label l2-label" id="l2-label" data-focus-object="l2" aria-label="Focus camera on Earth and L2" aria-hidden="true" tabindex="-1" disabled>
+        <span>L2</span>
+      </button>
+      <button type="button" class="object-label euclid-label" id="euclid-label" data-focus-object="euclid" aria-label="Focus camera on Euclid" aria-hidden="true" tabindex="-1" disabled>
+        <span>Euclid</span>
+        <small id="euclid-distance">Calculating distance…</small>
+      </button>
+      <button type="button" class="object-label sun-label" id="sun-label" data-focus-object="sun" aria-label="Focus camera on the Sun" aria-hidden="true" tabindex="-1" disabled>
+        <span>Sun</span>
+      </button>
+      <a class="sky-feature-hotspot" id="galactic-centre-hotspot" href="https://eucliduk.net/q2release.html" tabindex="-1" aria-hidden="true" aria-label="Open Euclid's Galactic Bulge Survey image"></a>
+      <a class="sky-feature-hotspot" id="first-mosaic-hotspot" href="https://willjroper.github.io/explore-euclid-imaging/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" aria-label="Explore Euclid's first 1% sky mosaic; opens in a new tab"></a>
+      <div class="distance-label" id="distance-label" aria-hidden="true">1.5 million km</div>
+      <div class="manoeuvre-tooltip" id="manoeuvre-tooltip" role="tooltip" aria-hidden="true">
+        <span>Orbit manoeuvre</span>
+        <strong id="manoeuvre-date"></strong>
+        <small id="manoeuvre-delta-v"></small>
+      </div>
+
+      <p class="scale-note">Distances to scale · enlarged bodies · gold points mark manoeuvres</p>
+
+      <section class="timeline-control" id="orbit-controls" aria-label="Euclid trajectory controls">
+        <button class="play-button" id="play" type="button" aria-label="Play Euclid's journey">
+          <svg class="play-icon" viewbox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5Z"></path></svg>
+          <svg class="pause-icon" viewbox="0 0 24 24" aria-hidden="true"><path d="M9 7v10M15 7v10"></path></svg>
+        </button>
+
+        <div class="timeline-track">
+          <label class="visually-hidden" for="time">Choose a date in Euclid's trajectory</label>
+          <input id="time" type="range" min="0" max="1348" value="1348" step="1">
+          <span class="source-boundary-marker" id="source-boundary-marker" title="WebMUST history ends; JPL/ESA prediction begins" aria-hidden="true"></span>
+          <button class="timeline-event-marker timeline-event-marker--early" id="first-mosaic-release-marker" type="button" aria-label="15 October 2024: Euclid's first 1% sky mosaic was released. Show it at its real position in the sky.">
+            <span class="timeline-event-symbol" aria-hidden="true"></span>
+            <span class="timeline-event-popover" aria-hidden="true">
+              <strong>15 October 2024</strong>
+              <span>Euclid reveals the first page of its cosmic atlas</span>
+              <small>Show the mosaic in the sky</small>
+            </span>
+          </button>
+          <button class="timeline-event-marker" id="galactic-release-marker" type="button" aria-label="24 June 2026: Euclid's Galactic Bulge Survey image was released. Show it at its real position in the sky.">
+            <span class="timeline-event-symbol" aria-hidden="true"></span>
+            <span class="timeline-event-popover" aria-hidden="true">
+              <strong>24 June 2026</strong>
+              <span>Euclid reveals the Milky Way’s crowded heart</span>
+              <small>Show the image in the sky</small>
+            </span>
+          </button>
+          <div class="timeline-bounds" aria-hidden="true">
+            <span>Launch · 1 Jul 2023</span>
+            <span id="timeline-end-label">JPL forecast</span>
+          </div>
+        </div>
+
+        <output class="date-readout" id="date" for="time" aria-live="off">
+          <span class="date-day">Current position</span>
+          <span class="date-time-row">
+            <span class="date-time">Loading…</span>
+            <button class="return-to-now" id="return-to-now" type="button" aria-label="Return all objects to the current time" hidden>Now</button>
+          </span>
+        </output>
+      </section>
+
+      <p class="gesture-hint" id="gesture-hint">Click an object to focus · drag to orbit · scroll to zoom</p>
+
+      <p class="screen-reader-status visually-hidden" id="screen-reader-status" aria-live="polite"></p>
+      <section class="visually-hidden" id="manoeuvre-list" aria-labelledby="manoeuvre-list-title">
+        <h2 id="manoeuvre-list-title">Euclid orbit manoeuvres</h2>
+        <ol id="manoeuvre-list-items"></ol>
+      </section>
+    </div></div>

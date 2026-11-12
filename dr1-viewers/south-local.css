@@ -1,0 +1,22 @@
+.dr1-page .image-dialog { overflow-wrap: anywhere; }
+.dr1-page #overview { display: block; }
+.dr1-page #overview img { width: 100%; height: 100%; object-fit: contain; }
+.dr1-page .moon-toggle { display: inline-grid; place-items: center; min-width: 2.75rem; min-height: 2.75rem; padding: .375rem; background: transparent; color: var(--explorer-ink); border: 0; border-radius: 50%; box-shadow: none; }
+.dr1-page .moon-toggle img { width: 2rem; height: 2rem; box-sizing: border-box; border: 1px solid currentColor; border-radius: 50%; }
+.dr1-page .moon-toggle[aria-pressed="true"] img { outline: 2px solid currentColor; outline-offset: 2px; }
+.dr1-page .moon-toggle:focus-visible { outline: 3px solid var(--explorer-ink); outline-offset: 4px; }
+.dr1-page .moon-reference { box-sizing: border-box; border: 1px solid #fff; border-radius: 50%; pointer-events: none; overflow: hidden; }
+.dr1-page .moon-reference img { width: 100%; height: 100%; display: block; opacity: .45; }
+.dr1-page .image-dialog__body .text-button {
+  background: var(--explorer-surface);
+  color: var(--explorer-ink);
+  border: 1px solid currentColor;
+}
+@media (forced-colors: active) {
+  .dr1-page .moon-reference { border: 2px solid CanvasText; }
+  .dr1-page .moon-reference img { visibility: hidden; }
+  .dr1-page .image-dialog__body .text-button {
+    background: ButtonFace;
+    color: ButtonText;
+  }
+}

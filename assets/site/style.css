@@ -47,6 +47,7 @@ html[data-theme="dark"] .theme-icon-sun { display: block; }
 .audience-tabs .audience-tab { display: inline-flex; align-items: center; justify-content: center; min-width: 0; padding: .55rem 1rem; min-height: 2.75rem; font-size: .9rem; font-weight: 700; text-decoration: none; color: var(--button-ink); }
 .audience-tab-scientists { background: var(--amber); border-radius: 0; }
 .audience-tab-media { background: var(--blue); }
+.audience-tab-archive { background: var(--white); }
 .audience-tab:hover, .audience-tab[aria-current="page"] { text-decoration: underline; }
 .audience-tab:focus-visible { outline-offset: -7px; box-shadow: inset 0 0 0 10px #000; }
 .app-header { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.2rem var(--page-gutter); color: var(--ink); background: var(--surface); }
@@ -421,6 +422,7 @@ html[data-contrast="high"] .mission-feature { background: var(--surface); color:
   .utility-controls .theme-toggle { margin-left: auto; }
   .audience-tabs { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .menu > .audience-tabs { margin-top: .75rem; }
+  .audience-tabs .audience-tab-archive { grid-column: 1 / -1; }
   .euclid-site .app-header { min-height: 0; padding: .625rem 1.25rem; gap: .75rem; }
   .brand :is(img, svg) { width: 7.5rem; }
   .header-tools { gap: .375rem; }

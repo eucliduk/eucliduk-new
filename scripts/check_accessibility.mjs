@@ -718,7 +718,7 @@ try {
         assert.equal(await page.locator(".membership-requirements > li").count(), 3);
         assert.equal(await page.locator(".membership-contribution").count(), 2);
         assert.equal(await page.locator("#category1, #category2, #after-approval").count(), 3);
-        for (const href of ["https://tracking.euclid-ec.org/euclid/login/", "https://www.euclid-ec.org/consortium/getting-started-guide/", "https://www.euclid-ec.org/consortium/roles/", "https://www.euclid-ec.org/consortium/quickstart-guide/", "https://euclid2023.org/wp-content/uploads/2023/03/code_of_conduct.pdf"]) {
+        for (const href of ["https://tracking.euclid-ec.org/euclid/login/", "https://www.euclid-ec.org/consortium/getting-started-guide/", "https://www.euclid-ec.org/consortium/roles/", "https://www.euclid-ec.org/consortium/quickstart-guide/", "https://euclid.roe.ac.uk/dmsf/files/13901/view"]) {
           assert.equal(await page.locator(`main a[href="${href}"]`).count(), 1);
         }
         assert.match(await page.locator(".membership-contribution").first().innerText(), /more than 2 FTE/);
